@@ -35,8 +35,8 @@ svg.ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;strok
 /* header */
 header{position:sticky;top:0;z-index:30;background:rgba(13,14,16,.62);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:16px;height:64px;padding:0 var(--g)}
-.logo{display:inline-flex;align-items:baseline;gap:6px;flex:none;text-decoration:none;font:600 22px/1 var(--head);letter-spacing:-.025em;white-space:nowrap}
-.logo b{color:var(--blue);font-weight:600}
+.logo{display:inline-flex;align-items:center;flex:none;text-decoration:none;line-height:0}
+.logo img{display:block;height:42px;width:auto}
 nav.main{display:flex;gap:2px;margin-left:auto}
 nav.main a{padding:10px 12px;text-decoration:none;color:var(--mut);font-size:15px;font-weight:500}
 nav.main a:hover{color:var(--ink)}
@@ -45,7 +45,7 @@ nav.main a:hover{color:var(--ink)}
 .bookb{min-height:40px;padding:0 18px;font-size:15px}
 #menu{display:none;align-items:center;background:var(--raise);border:1px solid var(--line);color:var(--ink);border-radius:999px;min-height:40px;padding:0 16px;font:600 15px var(--body);cursor:pointer}
 @media(max-width:1000px){nav.main{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(13,14,16,.94);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);padding:8px var(--g) 16px;border-bottom:1px solid var(--line)}nav.main.open{display:flex}nav.main a{padding:14px 0;font-size:17px}.htel{margin-left:auto}#menu{display:inline-flex}}
-@media(max-width:600px){.bookb{display:none}.logo{font-size:20px}.htel .tn{display:none}.htel{justify-content:center;min-width:44px;min-height:44px;padding:0;background:var(--raise);border:1px solid var(--line);border-radius:999px}}
+@media(max-width:600px){.bookb{display:none}.logo img{height:32px}.htel .tn{display:none}.htel{justify-content:center;min-width:44px;min-height:44px;padding:0;background:var(--raise);border:1px solid var(--line);border-radius:999px}}
 /* hero */
 .hero{position:relative;isolation:isolate;min-height:100svh;margin-top:-65px;display:flex;align-items:flex-end;overflow:hidden;background:#0a0b0c}
 .slides{position:absolute;inset:0;z-index:0}

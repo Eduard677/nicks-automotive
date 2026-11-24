@@ -229,13 +229,14 @@ input::placeholder,textarea::placeholder{color:#7d828c}
 /* find us */
 .find{background:var(--t-find)}
 .find-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center;max-width:1280px;margin:0 auto}
-.find-pic{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:#000}
-.find-pic img{display:block;width:100%;height:100%;object-fit:cover}
+.find-map{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--s2);border:1px solid var(--line)}
+/* Google's embed has no dark style, so it is inverted and turned back round the colour wheel to sit in the dark page with its colours intact */
+.find-map iframe{display:block;width:100%;height:100%;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.75) brightness(.95)}
 .addr{font:700 clamp(28px,3vw,42px)/1.08 var(--head);letter-spacing:-.035em;font-style:normal;margin-top:28px}
 .hours{display:grid;grid-template-columns:auto auto;justify-content:start;gap:8px 40px;margin:28px 0 0;font-variant-numeric:tabular-nums}
 .hours dt{color:var(--mut)}.hours dd{margin:0;font-weight:600}
 .find .btns{margin-top:32px}
-@media(max-width:860px){.find-in{grid-template-columns:minmax(0,1fr)}.find-pic{aspect-ratio:4/3;order:2}}
+@media(max-width:860px){.find-in{grid-template-columns:minmax(0,1fr)}.find-map{aspect-ratio:1/1;order:2}}
 
 /* footer */
 .ft{padding:clamp(72px,8vw,112px) var(--g) 32px;border-top:1px solid var(--line)}

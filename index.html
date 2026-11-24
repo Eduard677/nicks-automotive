@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0f1113">
-<title>Nick's Automotive Mullingar</title>
-<meta name="description" content="Servicing, repairs, NCT preparation and quality used cars in Mullingar, Co. Westmeath.">
+<title>Nick Autoservice Mullingar</title>
+<meta name="description" content="Nick Autoservice, 19 Zone A, Mullingar Business Park: full services, car repairs, pre-NCT checks, brakes, exhausts, gearboxes, tyres and used cars.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE: a confident local garage with a showroom finish, after F1rst Motors' dark premium look
-   IDEA: the Irish number plate and a lit workshop bay at night
-   PICTURE: forecourt scene, a red hatch parked in front of the open bay; every stock car drawn in its own colour
-   COLOUR and TYPE: graphite ground, plate white, signal red accent, EU blue only on plates; Archivo wide for headlines, Barlow Semi Condensed for plates and prices
-   LAYOUT: full-bleed hero, facts strip, workshop grid, stock with filters, booking form beside the visit card */
-:root{color-scheme:dark;--bg:#0f1113;--p1:#171a1e;--p2:#1f2328;--line:#2b3037;--ink:#f3f2ee;--mut:#a9adb4;--red:#e5372c;--red2:#ff5144;--plate:#f6f5ef;--eu:#1d3f9e;--g:max(5vw,16px,calc((100% - 1240px)/2))}
+/* VOICE: a straight-talking local garage with a showroom finish, after F1rst Motors' dark premium look
+   IDEA: Nick's real gates, yard and workshop, framed on charcoal rather than darkened
+   PICTURE: full-width photo of the entrance under the headline; workshop strip above the service cards
+   COLOUR and TYPE: graphite ground, signal red accent, the sign's blue only in the wordmark; Archivo wide for headlines, Barlow Semi Condensed for plates and prices
+   LAYOUT: headline row, full-bleed photo, facts strip, services, stock with filters, booking form beside the visit card */
+:root{color-scheme:dark;--bg:#0f1113;--p1:#171a1e;--p2:#1f2328;--line:#2b3037;--ink:#f3f2ee;--mut:#a9adb4;--red:#e5372c;--red2:#ff5144;--plate:#f6f5ef;--eu:#1d3f9e;--blue:#4a86f5;--g:max(5vw,16px,calc((100% - 1240px)/2))}
 :root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 [hidden]{display:none!important}
@@ -42,30 +43,29 @@ p{margin:0}a{color:inherit}
 /* header */
 header{position:sticky;top:0;z-index:30;background:rgba(15,17,19,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
 .bar{display:flex;align-items:center;gap:14px;height:70px;padding:0 var(--g)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
-.logo .word{font-stretch:118%;font-weight:800;font-size:19px}
+.logo{display:flex;flex-direction:column;align-items:center;text-decoration:none;flex:none;line-height:1}
+.logo small{font:800 14px/1 Archivo,sans-serif;font-stretch:112%;color:#fff}
+.logo b{font:800 21px/1.05 Archivo,sans-serif;font-stretch:112%;color:var(--blue)}
 nav.main{display:flex;gap:2px;margin-left:auto}
 nav.main a{padding:12px 13px;border-radius:999px;text-decoration:none;color:var(--mut);font-weight:500}
 nav.main a:hover{color:var(--ink);background:var(--p2)}
 #menu{display:none}
 @media(max-width:960px){nav.main{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--p1);padding:10px var(--g) 18px;border-bottom:1px solid var(--line)}nav.main.open{display:flex}nav.main a{padding:14px 12px}.bar .call{display:none}.bookb{margin-left:auto}#menu{display:inline-flex}}
-@media(max-width:520px){.bookb{display:none}#menu{margin-left:auto}.logo .word{font-size:17px}}
+@media(max-width:520px){.bookb{display:none}#menu{margin-left:auto}.logo b{font-size:19px}}
 /* hero */
-.hero{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;min-height:min(88vh,780px);padding:64px var(--g) 80px;background:#0b0d10;overflow:hidden}
-.scene{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(10,12,15,.95) 0,rgba(10,12,15,.78) 30%,rgba(10,12,15,0) 56%),linear-gradient(0deg,var(--bg) 0,rgba(15,17,19,0) 18%)}
-.copy,.ctas{max-width:min(560px,44vw)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 56px;align-items:end;padding:clamp(40px,6vw,80px) var(--g) 0}
 .kick{color:var(--mut);font-weight:500;margin-bottom:16px}
 .hero h1{font-size:clamp(44px,6vw,88px);letter-spacing:-.01em}
-.hero .lede{color:#c9ccd1;margin-top:20px}
-.ctas{margin-top:30px}
-.makes{margin-top:22px;color:var(--mut);font-size:15px}
+.hero .lede{color:#c9ccd1;margin-top:0}
+.ctas .btns{margin-top:22px}
+.makes{margin-top:18px;color:var(--mut);font-size:15px}
 .makes button{background:none;border:0;color:var(--ink);font:inherit;padding:10px 2px;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:4px}
 .makes button:hover{text-decoration-color:var(--red)}
-.lit{animation:flick 1.8s ease-out .2s both}
-@keyframes flick{0%{opacity:0}8%{opacity:.85}12%{opacity:.1}20%{opacity:.9}25%{opacity:.35}40%,100%{opacity:1}}
-@media(max-width:1000px){.hero{min-height:0;justify-content:flex-start;padding-top:40px;padding-bottom:44px}.copy,.ctas{max-width:640px}.hero::before{display:none}.scene{position:relative;order:2;height:clamp(250px,42vw,380px);width:auto;margin:26px calc(-1*var(--g)) 0}.ctas{order:3;margin-top:24px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.lit{animation:none}}
+.shot{grid-column:1/-1;position:relative;margin:clamp(16px,3vw,32px) calc(50% - 50vw) 0;background:#1a1e23}
+.shot img{display:block;width:100%;height:auto}
+.shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14%;background:linear-gradient(rgba(15,17,19,0),var(--bg));pointer-events:none}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:0}.shot{order:2;margin-top:24px}.ctas{order:3;margin-top:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* facts */
 .strip{padding:0 var(--g)}
 .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line)}
@@ -83,6 +83,13 @@ nav.main a:hover{color:var(--ink);background:var(--p2)}
 .card p{color:var(--mut)}
 .go{margin-top:auto;align-self:flex-start;background:none;border:0;padding:12px 0 0;min-height:44px;color:var(--ink);font:600 15px Archivo,sans-serif;cursor:pointer}
 .go span{color:var(--red)}.go:hover{color:var(--red2)}
+.wide{margin:36px calc(50% - 50vw) 0}
+.wide img{display:block;width:100%;height:auto}
+.wide figcaption{padding:10px var(--g) 0;color:var(--mut);font-size:14px}
+.also{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:16px;padding:20px 26px;background:var(--p1);border:1px solid var(--line);border-radius:16px}
+.also h3{font-size:17px}
+.also ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.also li{background:var(--p2);border-radius:999px;padding:6px 13px;font-size:15px}
 /* stock */
 #cars{background:var(--p1);border-block:1px solid var(--line)}
 .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
@@ -152,8 +159,9 @@ label em{font-style:normal;color:var(--red2)}
 .hours th,.hours td{padding:8px 0;border-bottom:1px solid var(--line);font-weight:400;text-align:left;white-space:nowrap}
 .hours td{text-align:right}
 .hours .today th,.hours .today td{font-weight:700;color:#fff}
-.map{position:relative;border-radius:14px;overflow:hidden;margin-bottom:16px;background:#1a1e23}
-.map svg{display:block;width:100%;height:auto}
+.yard{margin:0 0 16px}
+.yard img{display:block;width:100%;height:auto;border-radius:14px;background:#1a1e23}
+.yard figcaption{color:var(--mut);font-size:14px;margin-top:8px}
 @media(max-width:900px){.contact{grid-template-columns:1fr}}
 @media(max-width:600px){.fg{grid-template-columns:1fr}.tabs.f button{padding:0 12px;font-size:14px}}
 /* footer */
@@ -175,9 +183,9 @@ footer{border-top:1px solid var(--line)}
 </defs></svg>
 
 <header><div class="bar">
-  <a class="logo" href="#top" aria-label="Nick's Automotive, home"><span class="plate"><b aria-hidden="true">IRL</b><i>NICK'S</i></span><span class="word">Automotive</span></a>
+  <a class="logo" href="#top" aria-label="Nick Autoservice, home"><small>Nick</small><b>Autoservice</b></a>
   <nav class="main" id="nav" aria-label="Main"><a href="#cars">Cars for sale</a><a href="#services">Workshop</a><a href="#book" data-mode="sell">Sell your car</a><a href="#visit">Visit</a></nav>
-  <a class="btn call" href="tel:+353441234567">044 123 4567</a>
+  <a class="btn call" href="tel:+353894770532">089 477 0532</a>
   <a class="btn red bookb" href="#book" data-mode="service">Book a service</a>
   <button class="btn" id="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
 </div></header>
@@ -185,63 +193,37 @@ footer{border-top:1px solid var(--line)}
 <main>
 <section class="hero" id="top">
   <div class="copy">
-    <p class="kick">Garage and car sales in Mullingar, Co. Westmeath</p>
-    <h1>Nick's Automotive</h1>
-    <p class="lede">Servicing, repairs and NCT prep for every make, plus a forecourt of checked used cars. One local garage for buying, fixing and selling your car.</p>
+    <p class="kick">Garage and car sales, Mullingar Business Park</p>
+    <h1>Nick Autoservice</h1>
   </div>
-  <svg class="scene" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Nick's Automotive at night, a red hatchback parked in front of the lit workshop bay">
-    <defs>
-      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#07090c"/><stop offset=".72" stop-color="#141b25"/><stop offset="1" stop-color="#1d2531"/></linearGradient>
-      <linearGradient id="bayg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0cf"/><stop offset=".45" stop-color="#efbd78"/><stop offset="1" stop-color="#8d5d2e"/></linearGradient>
-      <linearGradient id="spill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc77a" stop-opacity=".4"/><stop offset="1" stop-color="#ffc77a" stop-opacity="0"/></linearGradient>
-      <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2027"/><stop offset="1" stop-color="#0d1013"/></linearGradient>
-      <radialGradient id="lamp"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".28"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient>
-      <pattern id="slat" width="12" height="13" patternUnits="userSpaceOnUse"><rect width="12" height="13" fill="#2b3037"/><rect y="11" width="12" height="2" fill="#1c2026"/></pattern>
-      <pattern id="clad" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="1.5" height="10" fill="#fff" opacity=".04"/></pattern>
-    </defs>
-    <rect width="1440" height="720" fill="url(#sky)"/>
-    <g fill="#fff" opacity=".55"><circle cx="210" cy="96" r="1.3"/><circle cx="388" cy="168" r="1"/><circle cx="640" cy="70" r="1.2"/><circle cx="905" cy="150" r="1"/><circle cx="1180" cy="84" r="1.4"/><circle cx="1330" cy="200" r="1"/><circle cx="96" cy="240" r="1"/></g>
-    <path d="M0 560Q160 500 360 528T760 506T1160 520T1440 498V620H0Z" fill="#10151b"/>
-    <circle cx="452" cy="372" r="110" fill="url(#lamp)"/>
-    <rect x="449" y="356" width="7" height="256" fill="#1f242b"/><rect x="432" y="350" width="40" height="9" rx="4" fill="#2c323a"/><rect x="438" y="358" width="28" height="3" rx="1.5" fill="#ffe7bf"/>
-    <rect x="560" y="300" width="900" height="312" fill="#1a1e24"/><rect x="560" y="300" width="900" height="312" fill="url(#clad)"/>
-    <rect x="548" y="288" width="912" height="16" fill="#262b32"/>
-    <rect x="806" y="322" width="452" height="60" rx="5" fill="#eeece6"/>
-    <text x="1032" y="362" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="28" style="font-stretch:112%" fill="#c8291f">NICK'S AUTOMOTIVE</text>
-    <rect x="606" y="422" width="146" height="94" fill="#2e261b"/>
-    <path d="M606 438h146M606 454h146M606 470h146M606 486h146M606 502h146" stroke="#403423" stroke-width="3"/>
-    <rect x="606" y="422" width="146" height="94" fill="none" stroke="#2b3038" stroke-width="6"/>
-    <g class="lit">
-      <rect x="820" y="410" width="290" height="202" fill="url(#bayg)"/>
-      <rect x="868" y="440" width="150" height="70" fill="#b98447" opacity=".45"/>
-      <path d="M884 452v26M902 450v18M920 452v30M942 448l10 22M968 452v24M990 450v20" stroke="#6b4a26" stroke-width="5" stroke-linecap="round"/>
-      <rect x="842" y="428" width="16" height="184" fill="#544536"/><rect x="1072" y="428" width="16" height="184" fill="#544536"/>
-      <rect x="878" y="417" width="74" height="5" rx="2" fill="#fffdf6"/><rect x="978" y="417" width="74" height="5" rx="2" fill="#fffdf6"/>
-    </g>
-    <rect x="812" y="398" width="306" height="14" fill="#2c3139"/><rect x="812" y="398" width="8" height="214" fill="#2c3139"/><rect x="1110" y="398" width="8" height="214" fill="#2c3139"/>
-    <rect x="1150" y="410" width="300" height="202" fill="url(#slat)"/><rect x="1142" y="398" width="310" height="14" fill="#2c3139"/>
-    <rect y="612" width="1440" height="108" fill="url(#floor)"/>
-    <path class="lit" d="M820 612H1110L1310 720H630Z" fill="url(#spill)"/>
-    <path d="M560 612L468 720M1146 612L1262 720" stroke="#fff" stroke-opacity=".08" stroke-width="3"/>
-    <g id="heroCar" transform="translate(760 432) scale(.833)"></g>
-  </svg>
   <div class="ctas">
+    <p class="lede">Full services, car repairs, pre-NCT checks, brakes, exhausts, gearboxes and tyres for every make, plus checked used cars. Find us at 19 Zone A, Mullingar Business Park.</p>
     <div class="btns"><a class="btn red" href="#cars">See cars for sale</a><a class="btn" href="#book" data-mode="service">Book a service</a></div>
     <p class="makes">In stock now: <span id="makes"></span></p>
   </div>
+  <figure class="shot">
+    <picture>
+      <source media="(max-width:700px)" srcset="img/hero-m-800.webp 800w, img/hero-m-1200.webp 1200w" sizes="100vw" width="1200" height="800">
+      <img src="img/hero-1280.webp" srcset="img/hero-1280.webp 1280w, img/hero-2560.webp 2560w" sizes="100vw" width="2560" height="1440" fetchpriority="high" decoding="async" alt="The entrance to Nick Autoservice: the sign on the green gates, the yard and the workshop's roller door">
+    </picture>
+  </figure>
 </section>
 
 <section class="strip" aria-label="At a glance"><div class="wrap facts">
   <div><b>All makes</b><span>serviced and repaired</span></div>
-  <div><b>NCT ready</b><span>pre-test checks and retest repairs</span></div>
-  <div><b>Trade-ins</b><span>welcome against any car we sell</span></div>
-  <div><b>Mullingar</b><span>Co. Westmeath</span></div>
+  <div><b>Pre-NCT checks</b><span>and repairs for retests</span></div>
+  <div><b>Tyres</b><span>used tyres and repairs</span></div>
+  <div><b>19 Zone A</b><span>Mullingar Business Park</span></div>
 </div></section>
 
 <section class="band" id="services"><div class="wrap">
   <h2>One garage for buying, fixing and selling your car</h2>
   <p class="lede">Book the workshop, browse the forecourt or get a price for the car you drive now.</p>
+</div>
+<figure class="wide"><img src="img/workshop-1200.webp" srcset="img/workshop-1200.webp 1200w, img/workshop-2400.webp 2400w" sizes="100vw" width="2400" height="900" loading="lazy" decoding="async" alt="Inside the workshop: two-post lifts, tool walls and shelving, a car in the bay and an engine crane"><figcaption>The workshop at 19 Zone A, Mullingar Business Park</figcaption></figure>
+<div class="wrap">
   <div class="svc" id="svc"></div>
+  <div class="also"><h3>Also in the workshop</h3><ul><li>Gearbox and flywheel</li><li>Used tyres and tyre repair</li><li>Engine replacement</li></ul></div>
 </div></section>
 
 <section class="band" id="cars"><div class="wrap">
@@ -275,7 +257,7 @@ footer{border-top:1px solid var(--line)}
         <fieldset data-m="service">
           <label>Reg <em>*</em><input name="reg" required placeholder="e.g. 191-WH-2047" autocapitalize="characters"></label>
           <label>Make and model<input name="model" placeholder="e.g. Ford Focus"></label>
-          <label>What does it need?<select name="svc" id="fSvc"><option>Full service</option><option>Interim service</option><option>Diagnostics or warning light</option><option>NCT preparation</option><option>Brakes, clutch or suspension</option><option>Timing belt</option><option>Something else</option></select></label>
+          <label>What does it need?<select name="svc" id="fSvc"><option>Full service</option><option>Car repairs or warning light</option><option>Pre-NCT check</option><option>Brakes or exhaust</option><option>Gearbox or flywheel</option><option>Tyres</option><option>Engine replacement</option><option>Something else</option></select></label>
           <label>Preferred date<input name="date" type="date" id="fDate"></label>
           <label class="full">Anything we should know?<textarea name="notes" placeholder="Noises, warning lights, when you can drop it in"></textarea></label>
         </fieldset>
@@ -298,21 +280,12 @@ footer{border-top:1px solid var(--line)}
     <aside class="panel visit" id="visit">
       <h3>Visit the garage</h3>
       <p class="status" id="status"></p>
-      <address>Nick's Automotive<br>Mullingar, Co. Westmeath</address>
-      <p class="tel"><a href="tel:+353441234567">044 123 4567</a><a href="mailto:hello@nicksautomotive.ie">hello@nicksautomotive.ie</a></p>
+      <address>Nick Autoservice<br>19 Zone A, Mullingar Business Park<br>Mullingar, Co. Westmeath</address>
+      <p class="tel"><a href="tel:+353894770532">089 477 0532</a></p>
       <table class="hours"><tbody id="hours"></tbody></table>
-      <div class="map"><svg viewBox="0 0 400 260" role="img" aria-label="Sketch map of Mullingar between Lough Owel and Lough Ennell, on the N4 and N52">
-        <path d="M40 24Q88 4 126 32Q146 64 116 86Q78 100 52 78Q28 52 40 24Z" fill="#1f3a57"/>
-        <path d="M168 206Q214 188 256 210Q282 236 254 260H162Q150 232 168 206Z" fill="#1f3a57"/>
-        <path d="M0 150Q100 130 200 140T400 120" fill="none" stroke="#2f6493" stroke-width="3" stroke-dasharray="7 6"/>
-        <path d="M150 0Q170 60 200 92Q262 112 400 102" fill="none" stroke="#c9ced4" stroke-width="5" stroke-linecap="round"/>
-        <path d="M0 236Q120 190 200 150Q280 100 400 30" fill="none" stroke="#8c939b" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="205" cy="148" r="24" fill="#2a3038"/>
-        <path d="M205 150c-9-12-14-19-14-26a14 14 0 0 1 28 0c0 7-5 14-14 26Z" fill="#e5372c"/><circle cx="205" cy="124" r="5" fill="#fff"/>
-        <g font-family="Archivo,sans-serif" font-size="13" fill="#a9adb4"><text x="50" y="114">Lough Owel</text><text x="292" y="246">Lough Ennell</text><text x="326" y="92">N4 Dublin</text><text x="174" y="18">N4 Sligo</text><text x="8" y="254">N52 Tullamore</text><text x="300" y="40">N52 Kells</text><text x="238" y="182" fill="#f3f2ee" font-weight="700">Mullingar</text></g>
-      </svg></div>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Nick%27s+Automotive+Mullingar">Get directions</a>
-      <p class="note">Phone, email and hours are placeholders for the demo.</p>
+      <figure class="yard"><img src="img/yard-600.webp" srcset="img/yard-600.webp 600w, img/yard-1200.webp 1200w" sizes="(max-width:900px) 92vw, 440px" width="1200" height="900" loading="lazy" decoding="async" alt="The gates and yard of Nick Autoservice, with the sign on the left and the workshop door ahead"><figcaption>Look for the Nick Autoservice sign on the green gates.</figcaption></figure>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Get directions</a>
+      <p class="note">Opening hours are placeholders until Nick confirms them.</p>
     </aside>
   </div>
 </div></section>
@@ -322,12 +295,12 @@ footer{border-top:1px solid var(--line)}
 
 <footer class="band"><div class="wrap">
   <div class="foot">
-    <div><a class="logo" href="#top" aria-label="Nick's Automotive, back to top"><span class="plate"><b aria-hidden="true">IRL</b><i>NICK'S</i></span><span class="word">Automotive</span></a><p class="lede">Servicing, repairs and checked used cars in Mullingar, Co. Westmeath.</p></div>
+    <div><a class="logo" href="#top" aria-label="Nick Autoservice, back to top" style="align-items:flex-start"><small>Nick</small><b>Autoservice</b></a><p class="lede">Servicing, repairs and checked used cars at 19 Zone A, Mullingar Business Park, Co. Westmeath.</p></div>
     <nav aria-label="Cars"><h4>Cars</h4><a href="#cars">For sale</a><button type="button" data-sold>Recently sold</button><a href="#book" data-mode="sell">Sell or trade in</a></nav>
     <nav aria-label="Workshop"><h4>Workshop</h4><a href="#book" data-mode="service">Book a service</a><a href="#services">Services</a><a href="#book" data-mode="ask">Ask a question</a></nav>
-    <nav aria-label="Visit"><h4>Visit</h4><a href="#visit">Opening hours</a><a href="tel:+353441234567">044 123 4567</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick%27s+Automotive+Mullingar">Directions</a></nav>
+    <nav aria-label="Visit"><h4>Visit</h4><a href="#visit">Opening hours</a><a href="tel:+353894770532">089 477 0532</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
   </div>
-  <div class="legal"><span>© 2026 Nick's Automotive, Mullingar</span><span>Website by EMD</span></div>
+  <div class="legal"><span>© 2026 Nick Autoservice, Mullingar</span><span>Website by EMD</span></div>
 </div></footer>
 
 <script>
@@ -374,16 +347,15 @@ const CARS=[
 ];
 const avail=CARS.filter(c=>!c.sold);
 const SV=[
-  {t:'Cars for sale',d:'Hand-picked used cars, each one checked over in our workshop before it reaches the forecourt.',a:'Browse cars',go:'cars'},
-  {img:'servicing',alt:'Mechanic in black gloves pouring fresh engine oil through a funnel into an engine',t:'Servicing',d:'Interim and full services for every make, with your service book stamped.',a:'Book a service',go:'svc',v:'Full service'},
-  {img:'diagnostics',alt:'Diagnostic tablet plugged into the OBD port under a car dashboard, showing live readings',t:'Diagnostics and repairs',d:'Warning light on? We read the fault, explain it in plain English and price it before any work starts.',a:'Book diagnostics',go:'svc',v:'Diagnostics or warning light'},
-  {img:'nct-inspection',alt:'Car raised on a two-post lift while a mechanic checks the front suspension with a torch',t:'NCT preparation',d:'A pre-test check so there are no surprises on the day, and repairs if you need a retest.',a:'Book NCT prep',go:'svc',v:'NCT preparation'},
-  {img:'brakes',alt:'Silver car on a lift with the front wheel off, showing the brake disc, caliper and coil spring',t:'Brakes, clutch and suspension',d:'Pads, discs, clutches, shocks and timing belts, fitted and road-tested.',a:'Get a quote',go:'svc',v:'Brakes, clutch or suspension'},
+  {t:'Cars for sale',d:'Used cars on the forecourt, each one checked over in the workshop before it goes on sale.',a:'Browse cars',go:'cars'},
+  {img:'servicing',alt:'Mechanic in black gloves pouring fresh engine oil through a funnel into an engine',t:'Full service',d:'Oil, filters, fluids and a full check-over for every make, with your service book stamped.',a:'Book a service',go:'svc',v:'Full service'},
+  {img:'diagnostics',alt:'Diagnostic tablet plugged into the port under a car dashboard, showing live readings',t:'Car repairs',d:'Warning light on or something not right? We find the fault, explain it in plain English and price it before any work starts.',a:'Book a repair',go:'svc',v:'Car repairs or warning light'},
+  {img:'nct-inspection',alt:'Car raised on a two-post lift while a mechanic checks the front suspension with a torch',t:'Pre-NCT checks',d:'A check-over before your test so there are no surprises on the day, and repairs if you need a retest.',a:'Book a pre-NCT check',go:'svc',v:'Pre-NCT check'},
+  {img:'brakes',alt:'Silver car on a lift with the front wheel off, showing the brake disc, caliper and coil spring',t:'Brakes and exhaust',d:'Pads, discs, callipers and exhausts, fitted and road-tested.',a:'Get a quote',go:'svc',v:'Brakes or exhaust'},
   {img:'key-handover',alt:'Car keys being handed over across a worn wooden desk in the workshop',t:'Sell or trade in',d:'Send the reg and mileage and we will come back with a price, or part-exchange against one of our cars.',a:'Value my car',go:'sell'}
 ];
 const pic=s=>s.img?`<div class="pic"><img src="img/${s.img}-1200.webp" srcset="img/${s.img}-600.webp 600w, img/${s.img}-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1100px) 46vw, 410px" width="1200" height="900" loading="lazy" decoding="async" alt="${esc(s.alt)}"></div>`:`<div class="pic stage"><svg viewBox="0 0 600 230" aria-hidden="true">${car('hatch','#c42f27')}</svg></div>`;
 $('#svc').innerHTML=SV.map(s=>`<article class="card">${pic(s)}<div class="cb"><h3>${s.t}</h3><p>${s.d}</p><button class="go" type="button" data-go="${s.go}" data-svc="${s.v||''}">${s.a} <span>→</span></button></div></article>`).join('');
-$('#heroCar').innerHTML=car('hatch','#c42f27',true);
 
 const S={tab:'avail',q:'',mk:'',f:'',max:0,b:'',sort:'new'};
 const makes=[...new Set(CARS.map(c=>c.mk))].sort();
@@ -426,7 +398,7 @@ const openCar=id=>{
   $('#dlgBody').innerHTML=`<div class="stage"><svg viewBox="0 0 600 230" aria-hidden="true">${car(c.b,c.c)}</svg>${c.sold?'<span class="sold">Sold</span>':''}</div>
   <div class="dinfo">${plate(c.reg)}<h2 id="dlgT">${name(c)}</h2><p class="spec">${esc(c.v)}</p><span class="price">${c.sold?'Sold':eur(c.p)}</span>
   <dl class="specs">${specs.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-  <div class="btns">${c.sold?`<button class="btn red" type="button" data-similar="${c.b}">See similar cars</button>`:`<button class="btn red" type="button" data-enq="${c.id}">Enquire about this car</button>`}<a class="btn" href="tel:+353441234567">Call 044 123 4567</a></div></div>`;
+  <div class="btns">${c.sold?`<button class="btn red" type="button" data-similar="${c.b}">See similar cars</button>`:`<button class="btn red" type="button" data-enq="${c.id}">Enquire about this car</button>`}<a class="btn" href="tel:+353894770532">Call 089 477 0532</a></div></div>`;
   if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
 };
 const closeDlg=()=>{if(dlg.open)dlg.close?dlg.close():dlg.removeAttribute('open')};

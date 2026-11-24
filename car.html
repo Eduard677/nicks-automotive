@@ -73,6 +73,7 @@ const render=()=>{
       <p class="price">${esc(priceText(c))}</p>${!sold(c)&&!has(c.price)?`<p class="ask">Ring or send an enquiry for the price.</p>`:''}
       <div class="btns">${sold(c)?`<a class="btn red" href="cars.html">See cars for sale</a>`:`<a class="btn red" href="${TELH}">${icon('phone')}Call ${TEL}</a><button class="btn soft" type="button" data-enq>${icon('msg')}Send an enquiry</button>`}<button class="btn soft" type="button" id="share">${icon('share')}<span>Share</span></button></div>
       <dl class="kv">${kv.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+      ${(c.features||[]).length?`<ul class="feat" aria-label="Features">${c.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}
     </aside>
   </div>
   <div class="adbody">

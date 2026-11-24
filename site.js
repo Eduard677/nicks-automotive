@@ -20,7 +20,7 @@ const href = c => `car.html#${encodeURIComponent(c.id)}`;
 
 const card = c => {
   const ph = c.photos || [];
-  return `<article class="lc"><div class="lc-pic">${ph.length ? `<img src="${esc(ph[0])}" alt="" loading="lazy" decoding="async">` : `<div class="ph">${icon('cam')}<span>Photos coming soon</span></div>`}${ph.length > 1 ? `<span class="pc">${icon('cam')}${ph.length}</span>` : ''}${tag(c)}</div>
+  return `<article class="lc"><div class="lc-pic">${ph.length ? `<img src="${esc(c.thumb || ph[0])}" alt="" width="720" height="540" loading="lazy" decoding="async">` : `<div class="ph">${icon('cam')}<span>Photos coming soon</span></div>`}${ph.length > 1 ? `<span class="pc">${icon('cam')}${ph.length}</span>` : ''}${tag(c)}</div>
   <div class="lc-body"><h3>${esc(title(c))}</h3>${c.variant ? `<p class="lc-var">${esc(c.variant)}</p>` : ''}
   <ul class="facts">${facts(c).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
   <div class="lc-foot"><span class="price${!sold(c)&&!has(c.price)?' ask':''}">${esc(priceText(c))}</span><span class="loc">${icon('pin')}${esc(c.location || 'Mullingar')}</span></div></div>

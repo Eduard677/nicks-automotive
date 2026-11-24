@@ -23,7 +23,6 @@
   "@type": ["AutoRepair", "LocalBusiness"],
   "name": "Nick Autoservice",
   "logo": "https://nicks-automotive-mullingar.vercel.app/og.png",
-  "email": "nicumereacre53@gmail.com",
   "telephone": "+353894770532",
   "address": {
     "@type": "PostalAddress",
@@ -102,7 +101,7 @@
     <h2>Book in, sell or ask</h2>
     <p class="lede">Send the details and Nick will ring you back to confirm. Or skip the form and ring now.</p>
     <a class="bigtel" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>089 477 0532</a>
-    <div class="reach"><a class="mail" href="mailto:nicumereacre53@gmail.com">nicumereacre53@gmail.com</a><a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a></div>
+    <div class="reach"><a class="mail" data-mail-text></a><a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a></div>
     <p class="status" id="status"></p>
     <!-- Hours are unconfirmed: Monday–Saturday 09:00–17:00, Sunday closed. -->
     <table class="hours"><tbody id="hours"></tbody></table>
@@ -150,7 +149,7 @@
     <address>Nick Autoservice<br>19 Zone A, Mullingar Business Park<br>Mullingar, Co. Westmeath</address>
     <div class="fa"><p>Look for the Nick Autoservice sign on the green gates.</p>
     <a href="tel:+353894770532">089 477 0532</a>
-    <a class="mail" href="mailto:nicumereacre53@gmail.com">nicumereacre53@gmail.com</a>
+    <a class="mail" data-mail-text></a>
     <a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
     <a class="btn red" href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a></div>
   </div>
@@ -163,7 +162,7 @@
     <div><a class="logo" href="#top" aria-label="Nick Autoservice, home"><img src="logo.svg" alt="" width="541" height="200"></a><p>Servicing, repairs and used cars at 19 Zone A, Mullingar Business Park, Co. Westmeath.</p></div>
     <nav aria-label="Workshop"><h4>Workshop</h4><a href="#services">Services</a><a href="#book">Book in</a><a href="#visit">Opening hours</a></nav>
     <nav aria-label="Cars"><h4>Cars</h4><a href="cars.html">All cars for sale</a><a href="#book">Sell or trade in</a></nav>
-    <nav aria-label="Contact"><h4>Contact</h4><a href="tel:+353894770532">089 477 0532</a><a href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:nicumereacre53@gmail.com">nicumereacre53@gmail.com</a><a href="#visit">Find us</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
+    <nav aria-label="Contact"><h4>Contact</h4><a href="tel:+353894770532">089 477 0532</a><a href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">WhatsApp</a><a data-mail-text></a><a href="#visit">Find us</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
   </div>
   <div class="legal"><span>© 2026 Nick Autoservice, Mullingar</span><span>Website by EMD</span></div>
 </footer>
@@ -261,7 +260,7 @@ async function wireTile(c,lead){
   if(v&&/\s/.test(v))facts.unshift(v);
   const fact=facts.filter(Boolean).join(' · ');
   const t=carTitle(c);
-  return `<a class="wtile${lead?' lead':''}" href="${NS.href(c)}">${ph?`<img src="${esc(ph)}" alt="" width="${ph===c.thumb?720:1600}" height="${ph===c.thumb?540:1200}" ${lead?'':'loading="lazy"'} decoding="async">`:`<span class="ph"><svg class="ic" aria-hidden="true"><use href="#i-cam"/></svg><span>Photos coming soon</span></span>`}<span class="scrim"><span class="wt">${esc(t)}</span><span class="wp">${esc(NS.priceText(c))}</span>${fact?`<span class="wf">${esc(fact)}</span>`:''}</span></a>`;
+  return `<article class="wtile${lead?' lead':''}"><a class="wtile-hit" href="${NS.href(c)}" aria-label="${esc(t)}, ${esc(NS.priceText(c))}"></a>${ph?`<img src="${esc(ph)}" alt="" width="${ph===c.thumb?720:1600}" height="${ph===c.thumb?540:1200}" ${lead?'':'loading="lazy"'} decoding="async">`:`<span class="ph"><svg class="ic" aria-hidden="true"><use href="#i-cam"/></svg><span>Photos coming soon</span></span>`}<span class="scrim"><span class="wt">${esc(t)}</span><span class="wp">${esc(NS.priceText(c))}</span>${fact?`<span class="wf">${esc(fact)}</span>`:''}</span>${NS.reach(c)}</article>`;
 }
 NS.load().then(async d=>{
   const byId=Object.fromEntries(d.map(c=>[c.id,c]));

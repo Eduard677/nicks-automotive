@@ -42,13 +42,13 @@
 </div></header>
 
 <main class="adpage" id="ad"><p class="note">Loading car</p></main>
-<div class="adbar" id="adbar" hidden><a class="btn red" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a><button class="btn soft" type="button" data-enq><svg class="ic" aria-hidden="true"><use href="#i-msg"/></svg>Enquire</button></div>
+<div class="adbar" id="adbar" hidden><a class="btn red" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><a class="btn soft" id="adWa" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a><a class="btn soft" id="adEm"><svg class="ic" aria-hidden="true"><use href="#i-msg"/></svg>Email</a><button class="btn soft" type="button" data-enq><svg class="ic" aria-hidden="true"><use href="#i-msg"/></svg>Enquire</button></div>
 <footer>
   <div class="foot">
     <div><a class="logo" href="index.html" aria-label="Nick Autoservice, home"><img src="logo.svg" alt="" width="541" height="200"></a><p>Servicing, repairs and used cars at 19 Zone A, Mullingar Business Park, Co. Westmeath.</p></div>
     <nav aria-label="Workshop"><h4>Workshop</h4><a href="index.html#services">Services</a><a href="index.html#book">Book in</a><a href="index.html#visit">Opening hours</a></nav>
     <nav aria-label="Cars"><h4>Cars</h4><a href="cars.html">All cars for sale</a><a href="index.html#book">Sell or trade in</a></nav>
-    <nav aria-label="Contact"><h4>Contact</h4><a href="tel:+353894770532">089 477 0532</a><a href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:nicumereacre53@gmail.com">nicumereacre53@gmail.com</a><a href="index.html#visit">Find us</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
+    <nav aria-label="Contact"><h4>Contact</h4><a href="tel:+353894770532">089 477 0532</a><a href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">WhatsApp</a><a data-mail-text></a><a href="index.html#visit">Find us</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
   </div>
   <div class="legal"><span>© 2026 Nick Autoservice, Mullingar</span><span>Website by EMD</span></div>
 </footer>
@@ -81,7 +81,7 @@ const render=()=>{
       <div class="tags2">${c.reg?plate(c.reg):c.regYear?`<span class="pill">${esc(c.regYear)} reg</span>`:''}${tag(c)}</div>
       <h1>${esc(T)}</h1>${c.variant?`<p class="var">${esc(c.variant)}</p>`:''}
       <p class="price">${esc(priceText(c))}</p>${!sold(c)&&!has(c.price)?`<p class="ask">Ring or send an enquiry for the price.</p>`:''}
-      <div class="btns">${sold(c)?`<a class="btn red" href="cars.html">See cars for sale</a>`:`<a class="btn red" href="${TELH}">${icon('phone')}Call ${TEL}</a><a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">${icon('wa')}WhatsApp</a><button class="btn soft" type="button" data-enq>${icon('msg')}Send an enquiry</button>`}<button class="btn soft" type="button" id="share">${icon('share')}<span>Share</span></button></div>
+      <div class="btns">${NS.reach(c)}${sold(c)?`<a class="btn soft" href="cars.html">See cars for sale</a>`:`<button class="btn soft" type="button" data-enq>${icon('msg')}Send an enquiry</button>`}<button class="btn soft" type="button" id="share">${icon('share')}<span>Share</span></button></div>
       <dl class="kv">${kv.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
       ${(c.features||[]).length?`<ul class="feat" aria-label="Features">${c.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}
     </aside>
@@ -95,6 +95,7 @@ const render=()=>{
   </div>
   ${others.length?`<section class="more"><div class="head"><h2>More cars from Nick</h2><a class="btn soft" href="cars.html">See all cars</a></div><div class="list">${others.map(card).join('')}</div></section>`:''}`;
   $('#adbar').hidden=sold(c);document.body.classList.toggle('has-bar',!sold(c));
+  const adWa=$('#adWa'),adEm=$('#adEm');if(adWa)adWa.href=NS.carWa(c);if(adEm)adEm.href=NS.carMail(c);
   const g=$('#gview');
   if(g&&ph.length>1){g.addEventListener('scroll',()=>{const i=galCur();$('#gcount').textContent=`${i+1} / ${ph.length}`;$$('.thumbs button').forEach((b,j)=>b.setAttribute('aria-current',String(j===i)))},{passive:true});
     g.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();galGo(galCur()+1)}if(e.key==='ArrowLeft'){e.preventDefault();galGo(galCur()-1)}})}

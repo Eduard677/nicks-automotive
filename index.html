@@ -8,7 +8,7 @@
 <meta name="description" content="Nick Autoservice, 19 Zone A, Mullingar Business Park: full services, car repairs, pre-NCT checks, brakes, exhausts, gearboxes, tyres and used cars.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Barlow+Semi+Condensed:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Barlow+Semi+Condensed:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -34,21 +34,10 @@
 
 <main>
 <section class="hero" id="top" aria-roledescription="carousel" aria-label="Photos from Nick Autoservice">
+  <h1 class="vh">Nick Autoservice</h1>
   <div class="slides" id="slides"></div>
   <div class="hin">
-    <div class="htext">
-      <h1>Nick Autoservice</h1>
-      <p class="rot"><b id="rotWord" aria-live="polite">Servicing and repairs</b> at 19 Zone A, Mullingar Business Park</p>
-      <div class="btns"><a class="btn red" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call 089 477 0532</a><a class="btn glass" href="cars.html">Cars for sale</a></div>
-    </div>
-    <form class="quick" id="quick">
-      <h2>Book your car in</h2>
-      <label for="qReg">Your reg</label>
-      <div class="pin"><span aria-hidden="true">IRL</span><input id="qReg" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. 191-WH-2047"></div>
-      <label for="qSvc">What does it need?</label>
-      <select id="qSvc" class="svc-opts"></select>
-      <button class="btn red" type="submit">Continue<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-    </form>
+    <div class="hcopy" id="hcopy"></div>
     <div class="markers" id="markers" role="tablist" aria-label="Choose a photo"></div>
   </div>
 </section>
@@ -64,10 +53,10 @@
 
 <section class="band" id="cars"><div class="wrap">
   <div class="head">
-    <div><h2>Cars for sale</h2><p class="lede">Used cars checked over in the workshop before they go on sale. Ring 089 477 0532 for a price or a viewing.</p></div>
+    <h2>Latest cars</h2>
     <a class="btn soft" href="cars.html" id="allBtn">See all cars<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
-  <div class="list" id="latest" style="margin-top:40px"></div>
+  <div class="wire" id="latest"></div>
   <div class="sell">
     <img src="img/key-handover-1200.webp" srcset="img/key-handover-600.webp 600w, img/key-handover-1200.webp 1200w" sizes="(max-width:760px) 92vw, 620px" width="1200" height="900" loading="lazy" decoding="async" alt="Car keys being handed over across a worn wooden desk in the workshop">
     <div><h3>Selling or trading in?</h3><p>Send the reg and mileage and Nick will come back with a price, or part-exchange it against one of his cars.</p><button class="btn red" type="button" data-go="sell">Value my car<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
@@ -89,14 +78,14 @@
       <label>Phone <em>*</em><input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label>
       <label class="full">Email<input name="email" type="email" autocomplete="email"></label>
       <fieldset data-m="service">
-        <label>Reg <em>*</em><input name="reg" id="fReg" required placeholder="e.g. 191-WH-2047" autocapitalize="characters"></label>
+        <label class="full">Reg <em>*</em><div class="pin"><span aria-hidden="true">IRL</span><input name="reg" id="fReg" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. 191-WH-2047"></div></label>
         <label>Make and model<input name="model" placeholder="e.g. Ford Focus"></label>
         <label>What does it need?<select name="svc" id="fSvc" class="svc-opts"></select></label>
         <label>Preferred date<input name="date" type="date" id="fDate"></label>
         <label class="full">Anything we should know?<textarea name="notes" placeholder="Noises, warning lights, when you can drop it in"></textarea></label>
       </fieldset>
       <fieldset data-m="sell" hidden disabled>
-        <label>Reg <em>*</em><input name="reg" required placeholder="e.g. 171-LD-562" autocapitalize="characters"></label>
+        <label class="full">Reg <em>*</em><div class="pin"><span aria-hidden="true">IRL</span><input name="reg" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. 171-LD-562"></div></label>
         <label>Mileage (km) <em>*</em><input name="km" required inputmode="numeric" placeholder="e.g. 98,000"></label>
         <label>Make and model<input name="model" placeholder="e.g. Toyota Corolla"></label>
         <label>Condition<select name="cond"><option>Excellent</option><option selected>Good</option><option>Fair</option><option>Needs work</option></select></label>
@@ -151,35 +140,57 @@ const SVCS=['Full service','Car repairs or warning light','Pre-NCT check','Brake
 $$('.svc-opts').forEach(s=>{s.innerHTML=SVCS.map(o=>`<option>${o}</option>`).join('')});
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* hero slideshow */
-const SL=[
-  {k:'ws',w:[1200,2400],pos:'50% 45%',label:'The workshop',word:'Servicing and repairs',alt:'Inside the workshop: red two-post lifts, tool walls and a car in the bay'},
-  {k:'servicing',w:[600,1200,1448],pos:'55% 50%',label:'Servicing',word:'Full services',alt:'Fresh engine oil going in through a funnel during a service'},
-  {k:'nct-inspection',w:[600,1200,1448],pos:'60% 45%',label:'Pre-NCT checks',word:'Pre-NCT checks',alt:'A car on the lift while the front suspension is checked with a torch'},
-  {k:'brakes',w:[600,1200,1448],pos:'62% 55%',label:'Brakes',word:'Brakes and exhausts',alt:'Front wheel off, showing the brake disc, calliper and coil spring'},
-  {k:'key-handover',w:[600,1200,1448],pos:'55% 50%',label:'Used cars',word:'Used cars for sale',alt:'Car keys being handed over across the workshop desk'}
+/* hero slideshow: workshop, landscape featured cars, servicing, pre-NCT */
+const PHOTO=[
+  {title:'The workshop',detail:'Servicing and repairs at 19 Zone A, Mullingar Business Park',label:'The workshop',
+    chips:[{href:'#book',cls:'red',text:'Book in',mode:'service'},{href:'#services',cls:'glass',text:'What we fix'}],
+    src:'img/ws-1200.webp',srcset:'img/ws-1200.webp 1200w, img/ws-2400.webp 2400w',pos:'50% 36%',alt:'Inside the workshop: red two-post lifts, tool walls and a car in the bay',w:2400,h:1800},
+  {title:'Servicing',detail:'Oil, filters, fluids and a full check-over for every make',label:'Servicing',
+    chips:[{href:'#book',cls:'red',text:'Book a service',mode:'service',svc:'Full service'},{href:'tel:+353894770532',cls:'glass',text:'Call 089 477 0532'}],
+    src:'img/servicing-1200.webp',srcset:'img/servicing-600.webp 600w, img/servicing-1200.webp 1200w, img/servicing-1448.webp 1448w',pos:'78% 70%',alt:'Fresh engine oil going in through a funnel during a service',w:1448,h:1086},
+  {title:'Pre-NCT checks',detail:'A check-over before your test, and repairs if you need a retest',label:'Pre-NCT checks',
+    chips:[{href:'#book',cls:'red',text:'Book a pre-NCT check',mode:'service',svc:'Pre-NCT check'},{href:'tel:+353894770532',cls:'glass',text:'Call 089 477 0532'}],
+    src:'img/nct-inspection-1200.webp',srcset:'img/nct-inspection-600.webp 600w, img/nct-inspection-1200.webp 1200w, img/nct-inspection-1448.webp 1448w',pos:'68% 42%',alt:'A car on the lift while the front suspension is checked with a torch',w:1448,h:1086}
 ];
-$('#slides').innerHTML=SL.map((s,i)=>`<img class="${i?'':'on'}" src="img/${s.k}-1200.webp" srcset="${s.w.map(w=>`img/${s.k}-${w}.webp ${w}w`).join(', ')}" sizes="100vw" width="2400" height="1800" style="object-position:${s.pos}" alt="${esc(s.alt)}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async">`).join('');
-$('#markers').innerHTML=SL.map((s,i)=>`<button class="mk" type="button" role="tab" aria-selected="${!i}" aria-label="${esc(s.label)}" data-slide="${i}"><i></i>${esc(s.label)}</button>`).join('');
-const hero=$('#top'),imgs=$$('#slides img'),mks=$$('.mk'),rot=$('#rotWord');
-let cur=0,timer=0;
-const show=i=>{
+const CAR_SLOTS=[{id:'bmw-730d-2015',pos:'64% 32%'},{id:'ford-transit-2017',pos:'46% 34%'}];
+const hero=$('#top');
+let SL=[],cur=0,timer=0;
+const landscape=src=>new Promise(res=>{const img=new Image();img.onload=()=>res(img.naturalWidth>img.naturalHeight);img.onerror=()=>res(false);img.src=src});
+const carTitle=c=>{const v=NS.has(c.variant)?String(c.variant).trim():'';if(v&&!/\s/.test(v))return [c.year,c.make,v].filter(NS.has).join(' ');return [c.year,c.make,c.model].filter(NS.has).join(' ')};
+const carLine=c=>{const v=NS.has(c.variant)?String(c.variant).trim():'';const parts=[];if(v&&/\s/.test(v))parts.push(v);if(NS.has(c.regYear))parts.push(`${c.regYear} reg`);else if(NS.has(c.reg))parts.push(String(c.reg));const eng=[c.engine,c.fuel].filter(NS.has).join(' ');if(eng)parts.push(eng);if(NS.has(c.transmission))parts.push(c.transmission);if(NS.has(c.price))parts.push(eur(c.price));return parts.join(' · ')};
+const chip=c=>`<a class="btn ${c.cls}" href="${esc(c.href)}"${c.mode?` data-mode="${esc(c.mode)}"`:''}${c.svc?` data-svc="${esc(c.svc)}"`:''}>${c.href.indexOf('tel:')===0?'<svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>':''}${esc(c.text)}</a>`;
+function mount(slides){
+  SL=slides;
+  hero.style.setProperty('--slides',String(Math.max(SL.length,1)));
+  $('#slides').innerHTML=SL.map((s,i)=>`<img class="${i?'':'on'}" src="${esc(s.src)}" ${s.srcset?`srcset="${s.srcset}" sizes="100vw"`:''} width="${s.w||1600}" height="${s.h||1200}" style="object-position:${s.pos}" alt="${i?'':esc(s.alt)}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async">`).join('');
+  $('#hcopy').innerHTML=SL.map((s,i)=>`<div class="hslide${i?'':' on'}"${i?' hidden':''}><p class="htitle">${esc(s.title)}</p><p class="hdetail">${esc(s.detail)}</p><div class="btns">${s.chips.map(chip).join('')}</div></div>`).join('');
+  $('#markers').innerHTML=SL.map((s,i)=>`<button class="mk" type="button" role="tab" aria-selected="${!i}" data-slide="${i}"><i></i><span>${esc(s.label)}</span></button>`).join('');
+  cur=0;show(0);start();
+}
+function show(i){
+  if(!SL.length)return;
   cur=(i+SL.length)%SL.length;
-  imgs.forEach((m,j)=>{m.classList.toggle('on',j===cur);if(j===cur)m.loading='eager'});
-  mks.forEach((b,j)=>{b.setAttribute('aria-selected',String(j===cur));const bar=b.firstChild;bar.style.animation='none';void bar.offsetWidth;bar.style.animation=''});
-  rot.classList.add('out');setTimeout(()=>{rot.textContent=SL[cur].word;rot.classList.remove('out')},reduce?0:220);
-};
+  $$('#slides img').forEach((m,j)=>{const on=j===cur;m.classList.toggle('on',on);m.alt=on?SL[j].alt:'';m.setAttribute('aria-hidden',String(!on));if(on)m.loading='eager'});
+  $$('#hcopy .hslide').forEach((el,j)=>{const on=j===cur;el.classList.toggle('on',on);el.hidden=!on});
+  $$('#markers .mk').forEach((b,j)=>{b.setAttribute('aria-selected',String(j===cur));const bar=b.querySelector('i');bar.style.animation='none';void bar.offsetWidth;bar.style.animation=''});
+}
 const stop=()=>{clearInterval(timer);timer=0};
-const start=()=>{if(reduce)return;stop();timer=setInterval(()=>show(cur+1),6000)};
+const start=()=>{if(reduce||!SL.length)return;stop();timer=setInterval(()=>show(cur+1),6000)};
 if(reduce)hero.classList.add('still');
 const pause=()=>{hero.classList.add('paused');stop()};
 const resume=()=>{if(hero.matches(':hover')||hero.contains(document.activeElement))return;hero.classList.remove('paused');show(cur);start()};
 hero.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')pause()});
-hero.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'){hero.classList.remove('paused');show(cur);start()}});
+hero.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')resume()});
 hero.addEventListener('focusin',pause);
 hero.addEventListener('focusout',()=>setTimeout(resume,0));
 document.addEventListener('visibilitychange',()=>{document.hidden?stop():resume()});
-start();
+async function carSlide(c,pos){
+  const src=(c.photos&&c.photos[0])||'';
+  if(!src||!(await landscape(src)))return null;
+  const title=carTitle(c);
+  const label=title.length<=18?title:[c.year,c.model||c.make].filter(NS.has).join(' ');
+  return {title,detail:carLine(c),label,chips:[{href:NS.href(c),cls:'red',text:'View this car'},{href:'cars.html',cls:'glass',text:'All cars for sale'}],src,pos,alt:`${title} for sale at Nick Autoservice`,w:1600,h:1200};
+}
 
 /* services */
 const JOBS=[
@@ -200,13 +211,33 @@ $('#jobs').addEventListener('pointerover',onJob);
 $('#jobs').addEventListener('focusin',onJob);
 showJob(0);
 
-/* latest cars */
-NS.load().then(d=>{
+/* latest cars: one lead tile and four smaller, photo-led */
+async function wireTile(c,lead){
+  let ph=c.thumb||(c.photos&&c.photos[0])||'';
+  if(lead&&c.photos&&c.photos[0]&&await landscape(c.photos[0]))ph=c.photos[0];
+  const v=NS.has(c.variant)?String(c.variant).trim():'';
+  const facts=NS.facts(c).slice();
+  if(v&&/\s/.test(v))facts.unshift(v);
+  const fact=facts.filter(Boolean).join(' · ');
+  const t=carTitle(c);
+  return `<a class="wtile${lead?' lead':''}" href="${NS.href(c)}">${ph?`<img src="${esc(ph)}" alt="" width="${ph===c.thumb?720:1600}" height="${ph===c.thumb?540:1200}" ${lead?'':'loading="lazy"'} decoding="async">`:`<span class="ph"><svg class="ic" aria-hidden="true"><use href="#i-cam"/></svg><span>Photos coming soon</span></span>`}<span class="scrim"><span class="wt">${esc(t)}</span><span class="wp">${esc(NS.priceText(c))}</span>${fact?`<span class="wf">${esc(fact)}</span>`:''}</span></a>`;
+}
+NS.load().then(async d=>{
+  const byId=Object.fromEntries(d.map(c=>[c.id,c]));
+  const built={};
+  for(const slot of CAR_SLOTS){
+    const c=byId[slot.id];
+    if(!c||NS.sold(c))continue;
+    const slide=await carSlide(c,slot.pos);
+    if(slide)built[slot.id]=slide;
+  }
+  mount([PHOTO[0],built['bmw-730d-2015'],PHOTO[1],built['ford-transit-2017'],PHOTO[2]].filter(Boolean));
   const av=d.filter(c=>!NS.sold(c));
-  $('#latest').innerHTML=av.slice(0,4).map(NS.card).join('')||'<div class="empty"><p>New stock is on the way. Ring Nick on 089 477 0532 to ask what is coming in.</p></div>';
+  const pick=av.slice(0,5);
+  $('#latest').innerHTML=pick.length?(await Promise.all(pick.map((c,i)=>wireTile(c,i===0)))).join(''):'<div class="empty"><p>New stock is on the way. Ring Nick on 089 477 0532 to ask what is coming in.</p></div>';
   $('#allBtn').firstChild.textContent=`See all ${av.length} cars`;
   $('#askCar').innerHTML='<option value="">Choose a car</option>'+av.map(c=>`<option value="${esc(c.id)}">${esc(NS.title(c))}${c.variant?' '+esc(c.variant):''}</option>`).join('');
-}).catch(()=>{$('#latest').innerHTML='<div class="empty"><p>The stock list could not load. Ring Nick on 089 477 0532 to ask what is in.</p></div>'});
+}).catch(()=>{mount(PHOTO);$('#latest').innerHTML='<div class="empty"><p>The stock list could not load. Ring Nick on 089 477 0532 to ask what is in.</p></div>'});
 const go=sel=>$(sel).scrollIntoView({block:'start'});
 
 /* forms */
@@ -230,12 +261,7 @@ form.addEventListener('submit',e=>{
   form.hidden=true;done.hidden=false;done.focus();
 });
 $('#again').addEventListener('click',()=>{form.reset();setMode(mode);$('#fName').focus()});
-$('#qReg').addEventListener('input',e=>{const p=e.target.selectionStart;e.target.value=e.target.value.toUpperCase();e.target.setSelectionRange(p,p)});
-$('#quick').addEventListener('submit',e=>{
-  e.preventDefault();
-  setMode('service');$('#fReg').value=$('#qReg').value.trim();$('#fSvc').value=$('#qSvc').value;
-  go('#book');$('#fName').focus({preventScroll:true});
-});
+$$('.pin input').forEach(inp=>inp.addEventListener('input',e=>{const p=e.target.selectionStart;e.target.value=e.target.value.toUpperCase();e.target.setSelectionRange(p,p)}));
 
 document.addEventListener('click',e=>{
   const t=e.target.closest('[data-slide],[data-job],[data-mode],[data-go],[data-m]');
@@ -244,7 +270,7 @@ document.addEventListener('click',e=>{
   if(D.slide!==undefined){show(+D.slide);if(!hero.classList.contains('paused'))start();return}
   if(D.job!==undefined){setMode('service');$('#fSvc').value=JOBS[+D.job].v;go('#book');return $('#fName').focus({preventScroll:true})}
   if(D.m)return setMode(D.m);
-  if(D.mode)return setMode(D.mode);
+  if(D.mode){setMode(D.mode);if(D.svc)$('#fSvc').value=D.svc;return}
   if(D.go==='sell'){setMode('sell');return go('#book')}
 });
 

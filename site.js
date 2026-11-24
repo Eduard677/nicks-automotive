@@ -23,7 +23,7 @@ const carName = c => title(c) + (has(c.variant) ? ' ' + String(c.variant).trim()
 const pageUrl = c => new URL(href(c), location.href).href;
 const carWa = c => WA + '?text=' + encodeURIComponent([carName(c), priceText(c), 'Is this still available?', pageUrl(c)].join('\n'));
 const carMail = c => 'mailto:' + MAIL + '?subject=' + encodeURIComponent(carName(c)) + '&body=' + encodeURIComponent(carName(c) + '\n' + pageUrl(c));
-const reach = c => `<div class="reach-car"><a class="btn red" href="tel:+353894770532" aria-label="Call 089 477 0532">${icon('phone')}<span>Call</span></a><a class="btn soft" href="${esc(carWa(c))}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp about ${esc(carName(c))}">${icon('wa')}<span>WhatsApp</span></a><a class="btn soft" href="${esc(carMail(c))}" aria-label="Email about ${esc(carName(c))}">${icon('msg')}<span>Email</span></a></div>`;
+const reach = c => `<div class="reach-car"><a class="btn action" href="tel:+353894770532" aria-label="Call 089 477 0532">${icon('phone')}<span>Call</span></a><a class="btn soft" href="${esc(carWa(c))}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp about ${esc(carName(c))}">${icon('wa')}<span>WhatsApp</span></a><a class="btn soft" href="${esc(carMail(c))}" aria-label="Email about ${esc(carName(c))}">${icon('msg')}<span>Email</span></a></div>`;
 
 const card = c => {
   const ph = c.photos || [];

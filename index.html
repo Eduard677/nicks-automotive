@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0d0e10">
+<meta name="theme-color" content="#161922">
 <title>Nick Autoservice Mullingar</title>
 <meta name="description" content="Nick Autoservice, 19 Zone A, Mullingar Business Park: full services, car repairs, pre-NCT checks, brakes, exhausts, gearboxes, tyres and used cars.">
 <meta name="robots" content="noindex, nofollow">
@@ -49,53 +49,64 @@
   <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
   <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
 </svg>
 
 <header><div class="bar">
   <a class="logo" href="#top" aria-label="Nick Autoservice, home"><img src="logo.svg" alt="" width="541" height="200"></a>
   <nav class="main" id="nav" aria-label="Main"><a href="#services">Services</a><a href="cars.html">Cars for sale</a><a href="#book" data-mode="sell">Sell your car</a><a href="#visit">Find us</a></nav>
   <a class="htel" href="tel:+353894770532" aria-label="Call 089 477 0532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span class="tn">089 477 0532</span></a>
-  <a class="btn red bookb" href="#book" data-mode="service">Book in</a>
+  <a class="btn action bookb" href="#book" data-mode="service">Book in</a>
   <button id="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
 </div></header>
 
 <main>
 <section class="hero" id="top">
   <h1 class="vh">Nick Autoservice</h1>
-  <img class="hero-photo" src="img/ws-1200.webp" srcset="img/ws-1200.webp 1200w, img/ws-2400.webp 2400w" sizes="100vw" width="2400" height="1800" alt="Inside the workshop: red two-post lifts, tool walls and a car in the bay" fetchpriority="high" decoding="async">
-  <div class="hero-shade" aria-hidden="true"></div>
-  <div class="hin">
-    <div class="hcopy">
+  <div class="hero-frame">
+    <img class="hero-photo" src="img/ws-1200.webp" srcset="img/ws-1200.webp 1200w, img/ws-2400.webp 2400w" sizes="100vw" width="2400" height="1800" alt="Inside the workshop: two-post lifts, tool walls and a car in the bay" fetchpriority="high" decoding="async">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hin">
       <p class="htitle">Book a service or see the cars</p>
-      <p class="hdetail">Servicing, repairs and used cars at 19 Zone A, Mullingar Business Park</p>
+      <p class="hdetail">19 Zone A, Mullingar Business Park</p>
       <div class="btns">
-        <a class="btn red" href="#book" data-mode="service">Book a service</a>
+        <a class="btn action" href="#book" data-mode="service">Book a service</a>
         <a class="btn glass" href="cars.html">See cars</a>
       </div>
     </div>
   </div>
+  <a class="cue" href="#feature" aria-label="See the featured car"><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
 </section>
 
-<section class="band" id="cars"><div class="wrap">
-  <div class="head">
-    <h2>Latest cars</h2>
-    <a class="btn soft" href="cars.html" id="allBtn">See all cars<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-  </div>
-  <div class="wire" id="latest"></div>
-  <div class="sell">
-    <img src="img/key-handover-1200.webp" srcset="img/key-handover-600.webp 600w, img/key-handover-1200.webp 1200w" sizes="(max-width:760px) 92vw, 620px" width="1200" height="900" loading="lazy" decoding="async" alt="Car keys being handed over across a worn wooden desk in the workshop">
-    <div><h3>Selling or trading in?</h3><p>Send the reg and mileage and Nick will come back with a price, or part-exchange it against one of his cars.</p><button class="btn red" type="button" data-go="sell">Value my car<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
-  </div>
-</div></section>
+<section class="feature" id="feature">
+  <img id="featureImg" src="cars/bmw-730d-2015/1.webp" alt="2015 BMW 730d" width="1600" height="1200" decoding="async">
+  <div class="dock" id="featureDock"></div>
+</section>
 
-<section class="band" id="services"><div class="wrap svc">
+<section class="restband" id="rest"><div class="wrap"><div class="rest" id="restCars"></div></div></section>
+
+<section class="sellstrip" id="sell">
+  <img src="img/key-handover-1200.webp" srcset="img/key-handover-600.webp 600w, img/key-handover-1200.webp 1200w" sizes="(max-width:1100px) 100vw, 55vw" width="1200" height="900" loading="lazy" decoding="async" alt="Car keys being handed over across a worn wooden desk in the workshop">
   <div>
-    <h2>What we fix</h2>
-    <p class="lede">Every make and model, in the workshop at Mullingar Business Park. Ring for a price, or pick a job to book it in.</p>
-    <ul class="jobs" id="jobs"></ul>
+    <h2>Selling or trading in</h2>
+    <p>Send the reg and mileage and Nick will come back with a price, or part-exchange it against one of his cars.</p>
+    <button class="btn action" type="button" data-go="sell">Value my car</button>
   </div>
-  <figure class="svc-r"><div class="stack" id="stack"></div><figcaption id="cap"></figcaption></figure>
-</div></section>
+</section>
+
+<section class="shop" id="services">
+  <img class="shop-photo" src="img/ws-2400.webp" width="2400" height="1800" alt="" loading="lazy" decoding="async">
+  <div class="shop-shade" aria-hidden="true"></div>
+  <div class="shop-in">
+    <h2>What we fix</h2>
+    <div class="svc-row">
+      <article class="scard"><h3>Full service</h3><p>Oil, filters and a check-over for every make</p><a class="btn action" href="#book" data-mode="service" data-svc="Full service">Book</a></article>
+      <article class="scard"><h3>Car repairs</h3><p>A warning light or a fault, priced before any work</p><a class="btn action" href="#book" data-mode="service" data-svc="Car repairs or warning light">Book</a></article>
+      <article class="scard"><h3>Pre-NCT checks</h3><p>A check-over before the test, and repairs if you need a retest</p><a class="btn action" href="#book" data-mode="service" data-svc="Pre-NCT check">Book</a></article>
+      <article class="scard"><h3>Brakes and exhaust</h3><p>Pads, discs, callipers and exhausts, fitted and road-tested</p><a class="btn action" href="#book" data-mode="service" data-svc="Brakes or exhaust">Book</a></article>
+    </div>
+  </div>
+</section>
 
 <section class="band" id="book"><div class="wrap book">
   <div>
@@ -135,25 +146,23 @@
         <label class="full">Your question<textarea name="notes" placeholder="Viewing times or a trade-in"></textarea></label>
       </fieldset>
       <p id="formMsg" class="formmsg full" role="status" tabindex="-1" hidden></p>
-      <div class="send full"><button class="btn red" type="submit" id="fsub">Request a booking</button><button class="btn soft" type="button" id="fwa"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button><small>Fields marked * are needed.</small></div>
+      <div class="send full"><button class="btn action" type="submit" id="fsub">Request a booking</button><button class="btn soft" type="button" id="fwa"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button><small>Fields marked * are needed.</small></div>
     </form>
     <div class="done" id="done" hidden tabindex="-1"><h3 id="doneT"></h3><p id="doneP"></p><button class="btn soft" type="button" id="again">Start another request</button></div>
   </div>
 </div></section>
 
 <section class="find" id="visit" aria-labelledby="findT">
-  <picture>
-    <source media="(max-width:760px)" srcset="img/hero-m-800.webp 800w, img/hero-m-1200.webp 1200w" sizes="100vw" width="1200" height="800">
-    <img src="img/hero-1280.webp" srcset="img/hero-1280.webp 1280w, img/hero-2560.webp 2560w" sizes="100vw" width="2560" height="1440" loading="lazy" decoding="async" alt="The entrance to Nick Autoservice: the sign on the green gates, the yard and the workshop's roller door">
-  </picture>
+  <img src="img/yard-find-1200.webp" srcset="img/yard-find-1200.webp 1200w, img/yard-find.webp 1690w" sizes="100vw" width="1690" height="1440" loading="lazy" decoding="async" alt="The yard and roller door at Nick Autoservice, Mullingar Business Park">
+  <div class="find-shade" aria-hidden="true"></div>
   <div class="fcard">
     <h2 id="findT">Find us</h2>
     <address>Nick Autoservice<br>19 Zone A, Mullingar Business Park<br>Mullingar, Co. Westmeath</address>
-    <div class="fa"><p>Look for the Nick Autoservice sign on the green gates.</p>
-    <a href="tel:+353894770532">089 477 0532</a>
-    <a class="mail" data-mail-text></a>
-    <a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-    <a class="btn red" href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a></div>
+    <div class="fa">
+      <a class="btn action" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+      <a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+      <a class="btn soft" href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a>
+    </div>
   </div>
 </section>
 </main>
@@ -174,50 +183,24 @@
 {
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const ARROW='<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>';
 const SVCS=['Full service','Car repairs or warning light','Pre-NCT check','Brakes or exhaust','Gearbox or flywheel','Tyres','Engine replacement','Something else'];
 $$('.svc-opts').forEach(s=>{s.innerHTML=SVCS.map(o=>`<option>${o}</option>`).join('')});
-const landscape=src=>new Promise(res=>{const img=new Image();img.onload=()=>res(img.naturalWidth>img.naturalHeight);img.onerror=()=>res(false);img.src=src});
 const carTitle=c=>{const v=NS.has(c.variant)?String(c.variant).trim():'';if(v&&!/\s/.test(v))return [c.year,c.make,v].filter(NS.has).join(' ');return [c.year,c.make,c.model].filter(NS.has).join(' ')};
-
-/* services */
-const JOBS=[
-  {n:'Full service',d:'Oil, filters, fluids and a full check-over for every make, with your service book stamped.',img:'servicing',cap:'Fresh oil going in during a service.',v:'Full service'},
-  {n:'Car repairs',d:'Warning light on or something not right? We find the fault and price it before any work starts.',img:'diagnostics',cap:'Reading fault codes under the dash.',v:'Car repairs or warning light'},
-  {n:'Pre-NCT checks',d:'A check-over before your test, and repairs if you need a retest.',img:'nct-inspection',cap:'Checking the front suspension on the lift.',v:'Pre-NCT check'},
-  {n:'Brakes and exhaust',d:'Pads, discs, callipers and exhausts, fitted and road-tested.',img:'brakes',cap:'Wheel off, disc and calliper on show.',v:'Brakes or exhaust'},
-  {n:'Gearbox and flywheel',d:'Gearbox repairs and flywheel replacement.',img:'ws',cap:'The workshop at 19 Zone A, Mullingar Business Park.',v:'Gearbox or flywheel'},
-  {n:'Used tyres and repairs',d:'Used tyres fitted and punctures repaired.',img:'yard',cap:'Tyres stacked in the yard.',v:'Tyres'},
-  {n:'Engine replacement',d:'Replacement engines fitted in the workshop.',img:'ws',cap:'The engine crane in the back bay of the workshop.',v:'Engine replacement'}
-];
-const keys=[...new Set(JOBS.map(j=>j.img))];
-$('#stack').innerHTML=keys.map((k,i)=>`<img src="img/${k}-1200.webp" width="1200" height="900" decoding="async" ${i?'loading="lazy"':''} data-k="${k}" alt="${esc(JOBS.find(j=>j.img===k).cap)}">`).join('');
-$('#jobs').innerHTML=JOBS.map((j,i)=>`<li><button class="job" type="button" data-job="${i}"><img class="jt" src="img/${j.img}-600.webp" width="600" height="450" alt="" loading="lazy" decoding="async"><span class="jn">${j.n}</span><span class="jd">${j.d}</span><span class="jgo"><span>Book</span>${ARROW}</span></button></li>`).join('');
-const showJob=i=>{const j=JOBS[i];$$('.job').forEach(b=>b.classList.toggle('on',+b.dataset.job===i));$$('#stack img').forEach(m=>m.classList.toggle('on',m.dataset.k===j.img));$('#cap').textContent=j.cap};
-const onJob=e=>{const b=e.target.closest('.job');if(b)showJob(+b.dataset.job)};
-$('#jobs').addEventListener('pointerover',onJob);
-$('#jobs').addEventListener('focusin',onJob);
-showJob(0);
-
-/* latest cars: one lead tile and four smaller, photo-led */
-async function wireTile(c,lead){
-  let ph=c.thumb||(c.photos&&c.photos[0])||'';
-  if(lead&&c.photos&&c.photos[0]&&await landscape(c.photos[0]))ph=c.photos[0];
-  const v=NS.has(c.variant)?String(c.variant).trim():'';
-  const facts=NS.facts(c).slice();
-  if(v&&/\s/.test(v))facts.unshift(v);
-  const fact=facts.filter(Boolean).join(' · ');
-  const t=carTitle(c);
-  return `<article class="wtile${lead?' lead':''}"><a class="wtile-hit" href="${NS.href(c)}" aria-label="${esc(t)}, ${esc(NS.priceText(c))}"></a>${ph?`<img src="${esc(ph)}" alt="" width="${ph===c.thumb?720:1600}" height="${ph===c.thumb?540:1200}" ${lead?'':'loading="lazy"'} decoding="async">`:`<span class="ph"><svg class="ic" aria-hidden="true"><use href="#i-cam"/></svg><span>Photos coming soon</span></span>`}<span class="scrim"><span class="wt">${esc(t)}</span><span class="wp">${esc(NS.priceText(c))}</span>${fact?`<span class="wf">${esc(fact)}</span>`:''}</span>${NS.reach(c)}</article>`;
-}
-NS.load().then(async d=>{
+NS.load().then(d=>{
   const av=d.filter(c=>!NS.sold(c));
-  const withPh=av.filter(c=>(c.photos||[]).length);
-  const pick=[...withPh,...av.filter(c=>!(c.photos||[]).length)].slice(0,5);
-  $('#latest').innerHTML=pick.length?(await Promise.all(pick.map((c,i)=>wireTile(c,i===0)))).join(''):'<div class="empty"><p>New stock is on the way. Ring Nick on 089 477 0532 to ask what is coming in.</p></div>';
-  $('#allBtn').firstChild.textContent=`See all ${av.length} cars`;
+  const feat=av.find(c=>c.id==='bmw-730d-2015'&&(c.photos||[]).length)||av.find(c=>(c.photos||[]).length);
+  const dock=$('#featureDock'),img=$('#featureImg');
+  if(feat&&img){
+    img.src=feat.photos[0];
+    img.alt=carTitle(feat);
+    const specs=NS.facts(feat).slice(0,4).map(f=>`<li>${esc(f)}</li>`).join('');
+    dock.innerHTML=`<div><p class="dock-title">${esc(carTitle(feat))}</p><p class="dock-price">${esc(NS.priceText(feat))}</p>${specs?`<ul class="chips">${specs}</ul>`:''}<a class="textlink seeall" href="cars.html">See all ${av.length} cars</a></div><div class="dock-side"><div class="dock-actions"><a class="btn action" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><a class="btn soft" href="${esc(NS.carWa(feat))}" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a><a class="btn soft" href="${NS.href(feat)}">See this car</a></div></div>`;
+  }else if(dock){dock.closest('.feature').hidden=true}
+  const rest=av.filter(c=>!feat||c.id!==feat.id).filter(c=>(c.photos||[]).length).slice(0,4);
+  const box=$('#restCars');
+  if(box)box.innerHTML=rest.length?rest.map(NS.card).join(''):'<p class="note">New stock is on the way. Ring Nick on 089 477 0532.</p>';
   $('#askCar').innerHTML='<option value="">Choose a car</option>'+av.map(c=>`<option value="${esc(c.id)}">${esc(NS.title(c))}${c.variant?' '+esc(c.variant):''}</option>`).join('');
-}).catch(()=>{$('#latest').innerHTML='<div class="empty"><p>The stock list could not load. Ring Nick on 089 477 0532 to ask what is in.</p></div>'});
+}).catch(()=>{const box=$('#restCars');if(box)box.innerHTML='<p class="note">The stock list could not load. Ring Nick on 089 477 0532.</p>'});
 const go=sel=>$(sel).scrollIntoView({block:'start'});
 
 /* forms */
@@ -268,7 +251,6 @@ document.addEventListener('click',e=>{
   const t=e.target.closest('[data-job],[data-mode],[data-go],[data-m]');
   if(!t)return;
   const D=t.dataset;
-  if(D.job!==undefined){setMode('service');$('#fSvc').value=JOBS[+D.job].v;go('#book');return $('#fName').focus({preventScroll:true})}
   if(D.m)return setMode(D.m);
   if(D.mode){setMode(D.mode);if(D.svc)$('#fSvc').value=D.svc;return}
   if(D.go==='sell'){setMode('sell');return go('#book')}

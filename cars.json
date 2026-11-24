@@ -7,7 +7,7 @@
     "year": 2015,
     "regYear": "152",
     "reg": "152-G-3708",
-    "price": null,
+    "price": 14600,
     "mileage": null,
     "fuel": "Diesel",
     "transmission": "Automatic",
@@ -36,7 +36,8 @@
       "cars/bmw-730d-2015/8.webp",
       "cars/bmw-730d-2015/9.webp"
     ],
-    "thumb": "cars/bmw-730d-2015/thumb.webp"
+    "thumb": "cars/bmw-730d-2015/thumb.webp",
+    "priceBasis": "Average of 7 DoneDeal ads for 2015 BMW 730d, checked 24 Nov 2026 (mean 14,584, range 11,950 to 16,950)"
   },
   {
     "id": "hyundai-i40-2014",
@@ -46,7 +47,7 @@
     "year": 2014,
     "regYear": "141",
     "reg": "141-G-5870",
-    "price": null,
+    "price": 4250,
     "mileage": null,
     "fuel": "Diesel",
     "transmission": "Manual",
@@ -78,7 +79,8 @@
       "cars/hyundai-i40-2014/10.webp",
       "cars/hyundai-i40-2014/11.webp"
     ],
-    "thumb": "cars/hyundai-i40-2014/thumb.webp"
+    "thumb": "cars/hyundai-i40-2014/thumb.webp",
+    "priceBasis": "Average of 30 DoneDeal ads for 2014 Hyundai i40 1.7 diesel, checked 24 Nov 2026 (mean 4,259, range 1,200 to 6,800)"
   },
   {
     "id": "bmw-520d-2011",
@@ -88,7 +90,7 @@
     "year": 2011,
     "regYear": "11",
     "reg": "11-WH-3227",
-    "price": null,
+    "price": 5450,
     "mileage": null,
     "fuel": "Diesel",
     "transmission": "Manual",
@@ -113,7 +115,8 @@
       "cars/bmw-520d-2011/4.webp",
       "cars/bmw-520d-2011/5.webp"
     ],
-    "thumb": "cars/bmw-520d-2011/thumb.webp"
+    "thumb": "cars/bmw-520d-2011/thumb.webp",
+    "priceBasis": "Average of 27 DoneDeal ads for 2011 BMW 520d (estates left out), checked 24 Nov 2026 (mean 5,438, range 2,950 to 9,450)"
   },
   {
     "id": "vw-passat-2016",
@@ -123,7 +126,7 @@
     "year": 2016,
     "regYear": "161",
     "reg": "161-D-14616",
-    "price": null,
+    "price": 9650,
     "mileage": null,
     "fuel": "Diesel",
     "transmission": "Automatic",
@@ -149,7 +152,8 @@
       "cars/vw-passat-2016/5.webp",
       "cars/vw-passat-2016/6.webp"
     ],
-    "thumb": "cars/vw-passat-2016/thumb.webp"
+    "thumb": "cars/vw-passat-2016/thumb.webp",
+    "priceBasis": "Average of 25 DoneDeal ads for 2016 VW Passat diesel, checked 24 Nov 2026 (mean 9,647, range 5,700 to 14,999)"
   },
   {
     "id": "ford-transit-2017",
@@ -159,7 +163,7 @@
     "year": 2017,
     "regYear": "171",
     "reg": "171-D-43912",
-    "price": null,
+    "price": 7950,
     "mileage": null,
     "fuel": null,
     "transmission": null,
@@ -187,7 +191,8 @@
       "cars/ford-transit-2017/7.webp",
       "cars/ford-transit-2017/8.webp"
     ],
-    "thumb": "cars/ford-transit-2017/thumb.webp"
+    "thumb": "cars/ford-transit-2017/thumb.webp",
+    "priceBasis": "Average of 15 DoneDeal ads for 2017 full-size Ford Transit vans (no fridge vans listed), checked 24 Nov 2026 (mean 7,969, range 4,500 to 10,500)"
   },
   {
     "id": "peugeot-308-2009",
@@ -197,7 +202,7 @@
     "year": 2009,
     "regYear": "09",
     "reg": "09-LM-3440",
-    "price": null,
+    "price": 1900,
     "mileage": null,
     "fuel": null,
     "transmission": "Manual",
@@ -222,7 +227,8 @@
       "cars/peugeot-308-2009/6.webp",
       "cars/peugeot-308-2009/7.webp"
     ],
-    "thumb": "cars/peugeot-308-2009/thumb.webp"
+    "thumb": "cars/peugeot-308-2009/thumb.webp",
+    "priceBasis": "Average of 7 DoneDeal ads for 2009 Peugeot 308, checked 24 Nov 2026 (mean 1,899, range 1,350 to 2,750)"
   },
   {
     "id": "nissan-qashqai-2011",
@@ -232,7 +238,7 @@
     "year": 2011,
     "regYear": "11",
     "reg": "11-OY-1370",
-    "price": null,
+    "price": 2800,
     "mileage": null,
     "fuel": null,
     "transmission": "Manual",
@@ -255,7 +261,8 @@
       "cars/nissan-qashqai-2011/4.webp",
       "cars/nissan-qashqai-2011/5.webp"
     ],
-    "thumb": "cars/nissan-qashqai-2011/thumb.webp"
+    "thumb": "cars/nissan-qashqai-2011/thumb.webp",
+    "priceBasis": "Average of 24 DoneDeal ads for 2011 Nissan Qashqai, checked 24 Nov 2026 (mean 2,796, range 1,000 to 4,250)"
   },
   {
     "id": "bmw-x5-2004",
@@ -265,7 +272,7 @@
     "year": 2004,
     "regYear": "04",
     "reg": "04-G-4109",
-    "price": null,
+    "price": 7050,
     "mileage": null,
     "fuel": null,
     "transmission": null,
@@ -285,7 +292,8 @@
       "cars/bmw-x5-2004/1.webp",
       "cars/bmw-x5-2004/2.webp"
     ],
-    "thumb": "cars/bmw-x5-2004/thumb.webp"
+    "thumb": "cars/bmw-x5-2004/thumb.webp",
+    "priceBasis": "Average of 8 DoneDeal ads for 2005-2006 BMW X5 (no 2004s listed; engines mixed), checked 24 Nov 2026 (mean 7,062, range 2,500 to 11,950)"
   },
   {
     "id": "nissan-qashqai-2012",
@@ -295,7 +303,7 @@
     "year": 2012,
     "regYear": "12",
     "reg": null,
-    "price": null,
+    "price": 3500,
     "mileage": null,
     "fuel": null,
     "transmission": null,
@@ -312,7 +320,8 @@
     "features": [],
     "description": "",
     "photos": [],
-    "thumb": null
+    "thumb": null,
+    "priceBasis": "Average of 28 DoneDeal ads for 2012 Nissan Qashqai, checked 24 Nov 2026 (mean 3,513, range 2,250 to 4,950)"
   },
   {
     "id": "peugeot-2012",
@@ -349,7 +358,7 @@
     "year": 2008,
     "regYear": "08",
     "reg": null,
-    "price": null,
+    "price": 3650,
     "mileage": null,
     "fuel": "Diesel",
     "transmission": null,
@@ -366,6 +375,7 @@
     "features": [],
     "description": "",
     "photos": [],
-    "thumb": null
+    "thumb": null,
+    "priceBasis": "Average of 3 DoneDeal ads for 2008 Mercedes E-Class 2.1 diesel, checked 24 Nov 2026 (mean 3,650, range 3,000 to 4,950)"
   }
 ]

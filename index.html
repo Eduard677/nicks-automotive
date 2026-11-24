@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f1113">
+<title>Nick's Automotive Mullingar</title>
+<meta name="description" content="Servicing, repairs, NCT preparation and quality used cars in Mullingar, Co. Westmeath.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a confident local garage with a showroom finish, after F1rst Motors' dark premium look
+   IDEA: the Irish number plate and a lit workshop bay at night
+   PICTURE: forecourt scene, a red hatch parked in front of the open bay; every stock car drawn in its own colour
+   COLOUR and TYPE: graphite ground, plate white, signal red accent, EU blue only on plates; Archivo wide for headlines, Barlow Semi Condensed for plates and prices
+   LAYOUT: full-bleed hero, facts strip, workshop grid, stock with filters, booking form beside the visit card */
+:root{color-scheme:dark;--bg:#0f1113;--p1:#171a1e;--p2:#1f2328;--line:#2b3037;--ink:#f3f2ee;--mut:#a9adb4;--red:#e5372c;--red2:#ff5144;--plate:#f6f5ef;--eu:#1d3f9e;--g:max(5vw,16px,calc((100% - 1240px)/2))}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,h4{font-family:Archivo,system-ui,sans-serif;font-stretch:115%;font-weight:800;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.2vw,48px)}
+h3{font-size:21px;font-weight:700;font-stretch:108%;line-height:1.2}
+h4{font-size:15px;font-weight:600;font-stretch:100%;color:var(--mut);margin-bottom:8px}
+p{margin:0}a{color:inherit}
+:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(56px,7vw,104px) var(--g)}
+.lede{color:var(--mut);font-size:17px;max-width:60ch;margin-top:14px}
+.note{color:var(--mut);font-size:14px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:var(--p2);color:var(--ink);font:600 15px/1 Archivo,sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:#4d545e}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}.btn.red:hover{background:var(--red2)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+/* plate */
+.plate{display:inline-flex;align-items:stretch;background:var(--plate);color:#111;border:1.5px solid #222;border-radius:5px;font:700 18px/1 "Barlow Semi Condensed",sans-serif;letter-spacing:.04em;white-space:nowrap;overflow:hidden;flex:none}
+.plate b{position:relative;background:var(--eu);color:#fff;font-size:.5em;letter-spacing:0;display:flex;align-items:flex-end;padding:1.5em .45em .35em}
+.plate b::before{content:"";position:absolute;top:.4em;left:50%;width:1em;height:1em;margin-left:-.5em;border-radius:50%;border:1.5px dotted #ffd84a}
+.plate i{font-style:normal;padding:.24em .45em .2em}
+/* header */
+header{position:sticky;top:0;z-index:30;background:rgba(15,17,19,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+.bar{display:flex;align-items:center;gap:14px;height:70px;padding:0 var(--g)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.logo .word{font-stretch:118%;font-weight:800;font-size:19px}
+nav.main{display:flex;gap:2px;margin-left:auto}
+nav.main a{padding:12px 13px;border-radius:999px;text-decoration:none;color:var(--mut);font-weight:500}
+nav.main a:hover{color:var(--ink);background:var(--p2)}
+#menu{display:none}
+@media(max-width:960px){nav.main{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--p1);padding:10px var(--g) 18px;border-bottom:1px solid var(--line)}nav.main.open{display:flex}nav.main a{padding:14px 12px}.bar .call{display:none}.bookb{margin-left:auto}#menu{display:inline-flex}}
+@media(max-width:520px){.bookb{display:none}#menu{margin-left:auto}.logo .word{font-size:17px}}
+/* hero */
+.hero{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;min-height:min(88vh,780px);padding:64px var(--g) 80px;background:#0b0d10;overflow:hidden}
+.scene{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(10,12,15,.95) 0,rgba(10,12,15,.78) 30%,rgba(10,12,15,0) 56%),linear-gradient(0deg,var(--bg) 0,rgba(15,17,19,0) 18%)}
+.copy,.ctas{max-width:min(560px,44vw)}
+.kick{color:var(--mut);font-weight:500;margin-bottom:16px}
+.hero h1{font-size:clamp(44px,6vw,88px);letter-spacing:-.01em}
+.hero .lede{color:#c9ccd1;margin-top:20px}
+.ctas{margin-top:30px}
+.makes{margin-top:22px;color:var(--mut);font-size:15px}
+.makes button{background:none;border:0;color:var(--ink);font:inherit;padding:10px 2px;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:4px}
+.makes button:hover{text-decoration-color:var(--red)}
+.lit{animation:flick 1.8s ease-out .2s both}
+@keyframes flick{0%{opacity:0}8%{opacity:.85}12%{opacity:.1}20%{opacity:.9}25%{opacity:.35}40%,100%{opacity:1}}
+@media(max-width:1000px){.hero{min-height:0;justify-content:flex-start;padding-top:40px;padding-bottom:44px}.copy,.ctas{max-width:640px}.hero::before{display:none}.scene{position:relative;order:2;height:clamp(250px,42vw,380px);width:auto;margin:26px calc(-1*var(--g)) 0}.ctas{order:3;margin-top:24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.lit{animation:none}}
+/* facts */
+.strip{padding:0 var(--g)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line)}
+.facts div{padding:26px 22px 26px 0}
+.facts div+div{padding-left:22px;border-left:1px solid var(--line)}
+.facts b{display:block;font-stretch:115%;font-weight:800;font-size:21px}
+.facts span{color:var(--mut);font-size:15px}
+@media(max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(3){padding-left:0;border-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px;margin-top:40px}
+.card{display:flex;flex-direction:column;background:var(--p1);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.pic{position:relative;aspect-ratio:4/3;background:var(--p2);overflow:hidden}
+.pic img{display:block;width:100%;height:100%;object-fit:cover}
+.cb{display:flex;flex-direction:column;gap:12px;flex:1;padding:22px 26px 26px}
+.card p{color:var(--mut)}
+.go{margin-top:auto;align-self:flex-start;background:none;border:0;padding:12px 0 0;min-height:44px;color:var(--ink);font:600 15px Archivo,sans-serif;cursor:pointer}
+.go span{color:var(--red)}.go:hover{color:var(--red2)}
+/* stock */
+#cars{background:var(--p1);border-block:1px solid var(--line)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{min-height:44px;padding:0 18px;border-radius:999px;border:0;background:none;color:var(--mut);font:600 15px Archivo,sans-serif;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--red);color:#fff}
+.filters{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr));gap:10px;margin-top:32px}
+input,select,textarea{width:100%;min-height:48px;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:16px Archivo,sans-serif}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:#6b737d}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--mut);font:500 15px Archivo,sans-serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#111}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:22px 0 16px;color:var(--mut)}
+.link{background:none;border:0;color:var(--ink);font:600 15px Archivo,sans-serif;cursor:pointer;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:18px}
+.car{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .2s}
+.car:hover{border-color:#4d545e}.car:focus-within{outline:3px solid #fff;outline-offset:2px}
+.hit{position:absolute;inset:0;width:100%;background:none;border:0;cursor:pointer;outline:0}
+.stage{position:relative;aspect-ratio:16/10;display:flex;align-items:flex-end;justify-content:center;padding:0 5% 7%;background:radial-gradient(110% 80% at 50% 18%,#2d333b 0,#171a1f 62%)}
+.stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(#1b1f25,#121418)}
+.stage svg{position:relative;z-index:1;width:100%;height:auto;display:block}
+.pic.stage{aspect-ratio:4/3;padding:0 8% 10%}
+.sold{position:absolute;z-index:2;top:12px;left:12px;background:var(--red);color:#fff;font:700 15px/1 "Barlow Semi Condensed",sans-serif;padding:6px 11px;border-radius:999px}
+.info{padding:16px 18px 20px}
+.r1{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.price{font:700 25px/1 "Barlow Semi Condensed",sans-serif;white-space:nowrap}
+.info h3{margin-top:14px}
+.spec{color:var(--mut);margin-top:2px}
+.tags{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:14px 0 0}
+.tags li{background:var(--p2);border-radius:999px;padding:4px 11px;font-size:14px;white-space:nowrap}
+.empty{grid-column:1/-1;display:grid;justify-items:start;gap:14px;padding:40px;border:1px dashed var(--line);border-radius:16px;color:var(--mut)}
+@media(max-width:900px){.filters{grid-template-columns:1fr 1fr}.filters .q{grid-column:1/-1}}
+/* dialog */
+dialog{border:0;padding:0;background:var(--p1);color:var(--ink);border-radius:18px;width:min(900px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto}
+dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(4px)}
+.dlg{position:relative}
+.dlg .stage{aspect-ratio:16/10}
+.dinfo{padding:26px 26px 30px}
+.dinfo h2{font-size:32px;margin-top:16px}
+.dinfo .price{display:block;font-size:34px;margin-top:14px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin:22px 0 26px}
+.specs dt{color:var(--mut);font-size:14px}.specs dd{margin:0;font-weight:600}
+.x{position:absolute;z-index:3;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(15,17,19,.8);color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+@media(min-width:780px){.dlg{display:grid;grid-template-columns:1.1fr 1fr}.dlg .stage{aspect-ratio:auto;height:100%;padding-bottom:16%}}
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;align-items:start;margin-top:40px}
+.panel{background:var(--p1);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,32px)}
+.tabs.f{display:flex;border-radius:16px;margin-bottom:22px}.tabs.f button{flex:1 1 auto;border-radius:12px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg .full{grid-column:1/-1}
+fieldset{border:0;margin:0;padding:0;display:contents}
+fieldset[hidden]{display:none}
+label{display:block;font-size:14px;font-weight:500;color:var(--mut)}
+label>input,label>select,label>textarea{display:block;margin-top:6px}
+label em{font-style:normal;color:var(--red2)}
+.send{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.send small{color:var(--mut);font-size:14px}
+.done{display:grid;gap:12px;justify-items:start}
+.done p{color:var(--mut)}
+.visit address{font-style:normal;margin-top:14px}
+.visit .tel{margin-top:10px;display:grid;gap:2px}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-weight:600}
+.status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red)}
+.status.open::before{background:#43d17a}
+.hours{width:100%;border-collapse:collapse;margin:18px 0}
+.hours th,.hours td{padding:8px 0;border-bottom:1px solid var(--line);font-weight:400;text-align:left;white-space:nowrap}
+.hours td{text-align:right}
+.hours .today th,.hours .today td{font-weight:700;color:#fff}
+.map{position:relative;border-radius:14px;overflow:hidden;margin-bottom:16px;background:#1a1e23}
+.map svg{display:block;width:100%;height:auto}
+@media(max-width:900px){.contact{grid-template-columns:1fr}}
+@media(max-width:600px){.fg{grid-template-columns:1fr}.tabs.f button{padding:0 12px;font-size:14px}}
+/* footer */
+footer{border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:28px}
+.foot nav a,.foot nav button{display:block;padding:7px 0;color:var(--ink);text-decoration:none;background:none;border:0;font:15px Archivo,sans-serif;cursor:pointer;text-align:left}
+.foot nav a:hover,.foot nav button:hover{color:var(--red2)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:48px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+@media(max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset=".38" stop-color="#fff" stop-opacity=".06"/><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a5b6c"/><stop offset=".42" stop-color="#141b23"/><stop offset=".5" stop-color="#26313d"/><stop offset="1" stop-color="#0b0f14"/></linearGradient>
+<radialGradient id="rim"><stop offset="0" stop-color="#e1e4e8"/><stop offset=".7" stop-color="#959ca3"/><stop offset="1" stop-color="#5a6067"/></radialGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff3d6" stop-opacity="0"/><stop offset="1" stop-color="#fff3d6" stop-opacity=".24"/></linearGradient>
+<radialGradient id="hlg"><stop offset="0" stop-color="#fff8e6" stop-opacity=".9"/><stop offset="1" stop-color="#fff8e6" stop-opacity="0"/></radialGradient>
+</defs></svg>
+
+<header><div class="bar">
+  <a class="logo" href="#top" aria-label="Nick's Automotive, home"><span class="plate"><b aria-hidden="true">IRL</b><i>NICK'S</i></span><span class="word">Automotive</span></a>
+  <nav class="main" id="nav" aria-label="Main"><a href="#cars">Cars for sale</a><a href="#services">Workshop</a><a href="#book" data-mode="sell">Sell your car</a><a href="#visit">Visit</a></nav>
+  <a class="btn call" href="tel:+353441234567">044 123 4567</a>
+  <a class="btn red bookb" href="#book" data-mode="service">Book a service</a>
+  <button class="btn" id="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+</div></header>
+
+<main>
+<section class="hero" id="top">
+  <div class="copy">
+    <p class="kick">Garage and car sales in Mullingar, Co. Westmeath</p>
+    <h1>Nick's Automotive</h1>
+    <p class="lede">Servicing, repairs and NCT prep for every make, plus a forecourt of checked used cars. One local garage for buying, fixing and selling your car.</p>
+  </div>
+  <svg class="scene" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Nick's Automotive at night, a red hatchback parked in front of the lit workshop bay">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#07090c"/><stop offset=".72" stop-color="#141b25"/><stop offset="1" stop-color="#1d2531"/></linearGradient>
+      <linearGradient id="bayg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0cf"/><stop offset=".45" stop-color="#efbd78"/><stop offset="1" stop-color="#8d5d2e"/></linearGradient>
+      <linearGradient id="spill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc77a" stop-opacity=".4"/><stop offset="1" stop-color="#ffc77a" stop-opacity="0"/></linearGradient>
+      <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2027"/><stop offset="1" stop-color="#0d1013"/></linearGradient>
+      <radialGradient id="lamp"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".28"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient>
+      <pattern id="slat" width="12" height="13" patternUnits="userSpaceOnUse"><rect width="12" height="13" fill="#2b3037"/><rect y="11" width="12" height="2" fill="#1c2026"/></pattern>
+      <pattern id="clad" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="1.5" height="10" fill="#fff" opacity=".04"/></pattern>
+    </defs>
+    <rect width="1440" height="720" fill="url(#sky)"/>
+    <g fill="#fff" opacity=".55"><circle cx="210" cy="96" r="1.3"/><circle cx="388" cy="168" r="1"/><circle cx="640" cy="70" r="1.2"/><circle cx="905" cy="150" r="1"/><circle cx="1180" cy="84" r="1.4"/><circle cx="1330" cy="200" r="1"/><circle cx="96" cy="240" r="1"/></g>
+    <path d="M0 560Q160 500 360 528T760 506T1160 520T1440 498V620H0Z" fill="#10151b"/>
+    <circle cx="452" cy="372" r="110" fill="url(#lamp)"/>
+    <rect x="449" y="356" width="7" height="256" fill="#1f242b"/><rect x="432" y="350" width="40" height="9" rx="4" fill="#2c323a"/><rect x="438" y="358" width="28" height="3" rx="1.5" fill="#ffe7bf"/>
+    <rect x="560" y="300" width="900" height="312" fill="#1a1e24"/><rect x="560" y="300" width="900" height="312" fill="url(#clad)"/>
+    <rect x="548" y="288" width="912" height="16" fill="#262b32"/>
+    <rect x="806" y="322" width="452" height="60" rx="5" fill="#eeece6"/>
+    <text x="1032" y="362" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="28" style="font-stretch:112%" fill="#c8291f">NICK'S AUTOMOTIVE</text>
+    <rect x="606" y="422" width="146" height="94" fill="#2e261b"/>
+    <path d="M606 438h146M606 454h146M606 470h146M606 486h146M606 502h146" stroke="#403423" stroke-width="3"/>
+    <rect x="606" y="422" width="146" height="94" fill="none" stroke="#2b3038" stroke-width="6"/>
+    <g class="lit">
+      <rect x="820" y="410" width="290" height="202" fill="url(#bayg)"/>
+      <rect x="868" y="440" width="150" height="70" fill="#b98447" opacity=".45"/>
+      <path d="M884 452v26M902 450v18M920 452v30M942 448l10 22M968 452v24M990 450v20" stroke="#6b4a26" stroke-width="5" stroke-linecap="round"/>
+      <rect x="842" y="428" width="16" height="184" fill="#544536"/><rect x="1072" y="428" width="16" height="184" fill="#544536"/>
+      <rect x="878" y="417" width="74" height="5" rx="2" fill="#fffdf6"/><rect x="978" y="417" width="74" height="5" rx="2" fill="#fffdf6"/>
+    </g>
+    <rect x="812" y="398" width="306" height="14" fill="#2c3139"/><rect x="812" y="398" width="8" height="214" fill="#2c3139"/><rect x="1110" y="398" width="8" height="214" fill="#2c3139"/>
+    <rect x="1150" y="410" width="300" height="202" fill="url(#slat)"/><rect x="1142" y="398" width="310" height="14" fill="#2c3139"/>
+    <rect y="612" width="1440" height="108" fill="url(#floor)"/>
+    <path class="lit" d="M820 612H1110L1310 720H630Z" fill="url(#spill)"/>
+    <path d="M560 612L468 720M1146 612L1262 720" stroke="#fff" stroke-opacity=".08" stroke-width="3"/>
+    <g id="heroCar" transform="translate(760 432) scale(.833)"></g>
+  </svg>
+  <div class="ctas">
+    <div class="btns"><a class="btn red" href="#cars">See cars for sale</a><a class="btn" href="#book" data-mode="service">Book a service</a></div>
+    <p class="makes">In stock now: <span id="makes"></span></p>
+  </div>
+</section>
+
+<section class="strip" aria-label="At a glance"><div class="wrap facts">
+  <div><b>All makes</b><span>serviced and repaired</span></div>
+  <div><b>NCT ready</b><span>pre-test checks and retest repairs</span></div>
+  <div><b>Trade-ins</b><span>welcome against any car we sell</span></div>
+  <div><b>Mullingar</b><span>Co. Westmeath</span></div>
+</div></section>
+
+<section class="band" id="services"><div class="wrap">
+  <h2>One garage for buying, fixing and selling your car</h2>
+  <p class="lede">Book the workshop, browse the forecourt or get a price for the car you drive now.</p>
+  <div class="svc" id="svc"></div>
+</div></section>
+
+<section class="band" id="cars"><div class="wrap">
+  <div class="head">
+    <div><h2>Cars for sale</h2><p class="lede">Used cars serviced and NCT-checked in our own workshop before they go on the forecourt.</p></div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Stock"><button type="button" role="tab" data-tab="avail" id="tA">Available</button><button type="button" role="tab" data-tab="sold" id="tS">Recently sold</button></div>
+  </div>
+  <div class="filters">
+    <input class="q" id="fQ" type="search" placeholder="Search make or model" aria-label="Search make or model" autocomplete="off">
+    <select id="fMk" aria-label="Make"></select>
+    <select id="fF" aria-label="Fuel"><option value="">Any fuel</option><option>Diesel</option><option>Petrol</option><option>Hybrid</option></select>
+    <select id="fMax" aria-label="Maximum price"><option value="0">Any price</option><option value="10000">Up to €10,000</option><option value="15000">Up to €15,000</option><option value="20000">Up to €20,000</option><option value="25000">Up to €25,000</option><option value="30000">Up to €30,000</option></select>
+    <select id="fSort" aria-label="Sort"><option value="new">Newest first</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="km">Lowest mileage</option></select>
+  </div>
+  <div class="chips" id="chips" aria-label="Body type"></div>
+  <div class="meta"><span id="count" aria-live="polite"></span><button class="link" type="button" id="clear" data-clear hidden>Clear filters</button></div>
+  <div class="grid" id="grid"></div>
+  <p class="note">Sample stock for this demo. Real cars, photos and prices go in before launch.</p>
+</div></section>
+
+<section class="band" id="book"><div class="wrap">
+  <h2>Book, sell or ask</h2>
+  <p class="lede">Pick what you need and Nick will ring you back to confirm.</p>
+  <div class="contact">
+    <div class="panel">
+      <div class="tabs f" id="ftabs" role="tablist" aria-label="Request type"><button type="button" role="tab" data-m="service">Book a service</button><button type="button" role="tab" data-m="sell">Sell your car</button><button type="button" role="tab" data-m="ask">Ask about a car</button></div>
+      <form id="form" class="fg">
+        <label>Name <em>*</em><input name="name" id="fName" required autocomplete="name"></label>
+        <label>Phone <em>*</em><input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label>
+        <label class="full">Email<input name="email" type="email" autocomplete="email"></label>
+        <fieldset data-m="service">
+          <label>Reg <em>*</em><input name="reg" required placeholder="e.g. 191-WH-2047" autocapitalize="characters"></label>
+          <label>Make and model<input name="model" placeholder="e.g. Ford Focus"></label>
+          <label>What does it need?<select name="svc" id="fSvc"><option>Full service</option><option>Interim service</option><option>Diagnostics or warning light</option><option>NCT preparation</option><option>Brakes, clutch or suspension</option><option>Timing belt</option><option>Something else</option></select></label>
+          <label>Preferred date<input name="date" type="date" id="fDate"></label>
+          <label class="full">Anything we should know?<textarea name="notes" placeholder="Noises, warning lights, when you can drop it in"></textarea></label>
+        </fieldset>
+        <fieldset data-m="sell" hidden disabled>
+          <label>Reg <em>*</em><input name="reg" required placeholder="e.g. 171-LD-562" autocapitalize="characters"></label>
+          <label>Mileage (km) <em>*</em><input name="km" required inputmode="numeric" placeholder="e.g. 98,000"></label>
+          <label>Make and model<input name="model" placeholder="e.g. Toyota Corolla"></label>
+          <label>Condition<select name="cond"><option>Excellent</option><option selected>Good</option><option>Fair</option><option>Needs work</option></select></label>
+          <label class="full">Trading in against one of our cars?<select name="trade"><option>No, just selling</option><option>Yes, I'd like to trade in</option></select></label>
+          <label class="full">Service history, extras, damage<textarea name="notes"></textarea></label>
+        </fieldset>
+        <fieldset data-m="ask" hidden disabled>
+          <label class="full">Which car? <em>*</em><select name="car" id="askCar" required></select></label>
+          <label class="full">Your question<textarea name="notes" placeholder="Viewing times, finance, trade-in value"></textarea></label>
+        </fieldset>
+        <div class="send full"><button class="btn red" type="submit" id="fsub">Request a booking</button><small>Fields marked * are needed.</small></div>
+      </form>
+      <div class="done" id="done" hidden tabindex="-1"><h3 id="doneT"></h3><p id="doneP"></p><button class="btn" type="button" id="again">Start another request</button></div>
+    </div>
+    <aside class="panel visit" id="visit">
+      <h3>Visit the garage</h3>
+      <p class="status" id="status"></p>
+      <address>Nick's Automotive<br>Mullingar, Co. Westmeath</address>
+      <p class="tel"><a href="tel:+353441234567">044 123 4567</a><a href="mailto:hello@nicksautomotive.ie">hello@nicksautomotive.ie</a></p>
+      <table class="hours"><tbody id="hours"></tbody></table>
+      <div class="map"><svg viewBox="0 0 400 260" role="img" aria-label="Sketch map of Mullingar between Lough Owel and Lough Ennell, on the N4 and N52">
+        <path d="M40 24Q88 4 126 32Q146 64 116 86Q78 100 52 78Q28 52 40 24Z" fill="#1f3a57"/>
+        <path d="M168 206Q214 188 256 210Q282 236 254 260H162Q150 232 168 206Z" fill="#1f3a57"/>
+        <path d="M0 150Q100 130 200 140T400 120" fill="none" stroke="#2f6493" stroke-width="3" stroke-dasharray="7 6"/>
+        <path d="M150 0Q170 60 200 92Q262 112 400 102" fill="none" stroke="#c9ced4" stroke-width="5" stroke-linecap="round"/>
+        <path d="M0 236Q120 190 200 150Q280 100 400 30" fill="none" stroke="#8c939b" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="205" cy="148" r="24" fill="#2a3038"/>
+        <path d="M205 150c-9-12-14-19-14-26a14 14 0 0 1 28 0c0 7-5 14-14 26Z" fill="#e5372c"/><circle cx="205" cy="124" r="5" fill="#fff"/>
+        <g font-family="Archivo,sans-serif" font-size="13" fill="#a9adb4"><text x="50" y="114">Lough Owel</text><text x="292" y="246">Lough Ennell</text><text x="326" y="92">N4 Dublin</text><text x="174" y="18">N4 Sligo</text><text x="8" y="254">N52 Tullamore</text><text x="300" y="40">N52 Kells</text><text x="238" y="182" fill="#f3f2ee" font-weight="700">Mullingar</text></g>
+      </svg></div>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Nick%27s+Automotive+Mullingar">Get directions</a>
+      <p class="note">Phone, email and hours are placeholders for the demo.</p>
+    </aside>
+  </div>
+</div></section>
+</main>
+
+<dialog id="dlg" aria-labelledby="dlgT"><div class="dlg" id="dlgBody"></div><button class="x" type="button" id="dlgX" aria-label="Close">×</button></dialog>
+
+<footer class="band"><div class="wrap">
+  <div class="foot">
+    <div><a class="logo" href="#top" aria-label="Nick's Automotive, back to top"><span class="plate"><b aria-hidden="true">IRL</b><i>NICK'S</i></span><span class="word">Automotive</span></a><p class="lede">Servicing, repairs and checked used cars in Mullingar, Co. Westmeath.</p></div>
+    <nav aria-label="Cars"><h4>Cars</h4><a href="#cars">For sale</a><button type="button" data-sold>Recently sold</button><a href="#book" data-mode="sell">Sell or trade in</a></nav>
+    <nav aria-label="Workshop"><h4>Workshop</h4><a href="#book" data-mode="service">Book a service</a><a href="#services">Services</a><a href="#book" data-mode="ask">Ask a question</a></nav>
+    <nav aria-label="Visit"><h4>Visit</h4><a href="#visit">Opening hours</a><a href="tel:+353441234567">044 123 4567</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick%27s+Automotive+Mullingar">Directions</a></nav>
+  </div>
+  <div class="legal"><span>© 2026 Nick's Automotive, Mullingar</span><span>Website by EMD</span></div>
+</div></footer>
+
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const eur=n=>new Intl.NumberFormat('en-IE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
+const km=n=>n.toLocaleString('en-IE')+' km';
+const BODY={hatch:'Hatchback',saloon:'Saloon',estate:'Estate',suv:'SUV'};
+const A46='A46 46 0 0 0';
+const SH={
+  hatch:{b:`M30 168L28 142Q31 122 62 116L192 100L262 60Q340 50 430 55Q505 60 538 96L550 122Q558 140 556 164L552 176L508 176${A46} 416 176L186 176${A46} 94 176L36 176Z`,g:['M206 104L268 66Q335 57 404 61L408 104Z','M418 104L414 62Q478 66 518 100L522 104Z'],gy:104,y:176,r:40,belt:130,doors:[300,410],mx:210,hl:[40,128],tl:[524,104]},
+  saloon:{b:`M24 166L22 142Q26 122 58 116L196 102L270 62Q330 52 392 56Q440 60 478 98L548 104Q560 110 560 134L558 164L554 176L508 176${A46} 416 176L186 176${A46} 94 176L30 176Z`,g:['M210 106L274 68Q320 60 360 62L362 106Z','M372 106L370 63Q420 64 462 104Z'],gy:106,y:176,r:40,belt:132,doors:[300,366],mx:214,hl:[34,128],tl:[534,110]},
+  estate:{b:`M26 168L24 142Q28 122 60 116L192 100L262 60Q350 50 470 54Q520 56 538 70L552 110Q558 140 556 164L552 176L508 176${A46} 416 176L186 176${A46} 94 176L32 176Z`,g:['M206 104L268 66Q330 58 380 60L382 104Z','M392 104L392 61L468 61L470 104Z','M480 104L480 62Q518 63 532 78L540 104Z'],gy:104,y:176,r:40,belt:130,doors:[300,386],mx:210,hl:[36,128],tl:[526,84]},
+  suv:{b:'M30 160L28 120Q32 102 66 96L190 86L254 42Q350 32 476 36Q526 40 540 62L552 104Q560 130 558 156L552 172L510 172A48 48 0 0 0 414 172L188 172A48 48 0 0 0 92 172L34 172Z',g:['M204 90L262 48Q330 40 392 42L396 90Z','M406 90L404 42L470 43Q512 46 528 64L536 90Z'],gy:90,y:172,r:42,belt:114,doors:[300,400],mx:208,hl:[42,108],tl:[526,70]}
+};
+const car=(k,col,glow)=>{
+  const s=SH[k];
+  const wheel=x=>`<g transform="translate(${x} ${s.y})"><circle r="${s.r}" fill="#0b0b0c"/><circle r="${s.r-5}" fill="none" stroke="#25272b" stroke-width="3"/><circle r="${s.r*.6}" fill="url(#rim)"/>${[0,72,144,216,288].map(a=>`<rect x="-3" y="${-s.r*.56}" width="6" height="${s.r*.46}" rx="3" fill="#6f767d" transform="rotate(${a})"/>`).join('')}<circle r="6" fill="#2a2d31"/></g>`;
+  return `${glow?`<path d="M${s.hl[0]+4} ${s.hl[1]}L-300 ${s.hl[1]-30}L-300 ${s.hl[1]+80}Z" fill="url(#beam)"/>`:''}
+  <ellipse cx="300" cy="${s.y+s.r-3}" rx="285" ry="12" fill="#000" opacity=".55"/>
+  <g style="color:${col}"><path d="${s.b}" fill="currentColor"/><path d="M${s.mx} ${s.gy-2}l-16-4q-7 0-7 7v5h23Z" fill="currentColor"/><path d="${s.b}" fill="url(#sheen)"/></g>
+  ${s.g.map(d=>`<path d="${d}" fill="url(#glass)"/>`).join('')}
+  <path d="M60 ${s.belt}Q300 ${s.belt-14} 548 ${s.belt-6}" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+  ${s.doors.map(x=>`<path d="M${x} ${s.gy}L${x+2} ${s.y-6}" stroke="#000" stroke-opacity=".35" stroke-width="2"/><rect x="${x-46}" y="${s.belt+6}" width="22" height="5" rx="2.5" fill="#000" opacity=".3"/>`).join('')}
+  <path transform="translate(${s.hl})" d="M0 0Q18-8 46-10L42 4Q22 6 2 8Z" fill="${glow?'#fff7e0':'#e6eaee'}"/>
+  ${glow?`<circle cx="${s.hl[0]+10}" cy="${s.hl[1]}" r="26" fill="url(#hlg)"/>`:''}
+  <path transform="translate(${s.tl})" d="M0 0L14-2L18 16L4 18Z" fill="#c01d1d"/>
+  ${wheel(140)}${wheel(462)}`;
+};
+const CARS=[
+  {id:1,y:2019,mk:'Volkswagen',md:'Golf',v:'1.6 TDI Highline',b:'hatch',f:'Diesel',t:'Manual',km:96500,p:17950,reg:'191-WH-2047',c:'#b8bdc3',cn:'Reflex silver',nct:'05/2027',own:2},
+  {id:2,y:2020,mk:'Toyota',md:'Corolla',v:'1.8 Hybrid Luna',b:'hatch',f:'Hybrid',t:'Automatic',km:61200,p:22450,reg:'201-D-30881',c:'#e4e6e8',cn:'Pure white',nct:'03/2028',own:1},
+  {id:3,y:2018,mk:'Skoda',md:'Octavia Combi',v:'2.0 TDI Style',b:'estate',f:'Diesel',t:'Manual',km:142000,p:13950,reg:'182-MH-8814',c:'#5c636c',cn:'Quartz grey',nct:'10/2027',own:2},
+  {id:4,y:2021,mk:'Hyundai',md:'Tucson',v:'1.6 T-GDi Hybrid Executive',b:'suv',f:'Hybrid',t:'Automatic',km:48300,p:31500,reg:'211-WH-1190',c:'#26497f',cn:'Intense blue',nct:'06/2027',own:1},
+  {id:5,y:2017,mk:'Ford',md:'Focus',v:'1.0 EcoBoost Titanium',b:'hatch',f:'Petrol',t:'Manual',km:118700,p:9450,reg:'171-LD-562',c:'#b4271f',cn:'Race red',nct:'09/2027',own:2},
+  {id:6,y:2019,mk:'Nissan',md:'Qashqai',v:'1.5 dCi SV',b:'suv',f:'Diesel',t:'Manual',km:88900,p:18750,reg:'192-WH-3305',c:'#7d8288',cn:'Gun metal',nct:'11/2027',own:1},
+  {id:7,y:2020,mk:'Audi',md:'A4',v:'2.0 TDI S line',b:'saloon',f:'Diesel',t:'Automatic',km:104000,p:27950,reg:'201-C-14472',c:'#2b3a52',cn:'Navarra blue',nct:'01/2028',own:2},
+  {id:8,y:2016,mk:'Toyota',md:'Avensis',v:'1.6 D-4D Aura',b:'saloon',f:'Diesel',t:'Manual',km:168400,p:8950,reg:'162-G-2210',c:'#a9aeb4',cn:'Silver',nct:'08/2027',own:3},
+  {id:9,y:2022,mk:'Kia',md:'Sportage',v:'1.6 CRDi K3',b:'suv',f:'Diesel',t:'Manual',km:39800,p:29950,reg:'221-WH-418',c:'#4a5c50',cn:'Experience green',nct:'01/2028',own:1},
+  {id:10,y:2018,mk:'BMW',md:'3 Series',v:'320d M Sport',b:'saloon',f:'Diesel',t:'Automatic',km:121000,p:21950,reg:'182-D-7731',c:'#5a5f66',cn:'Mineral grey',nct:'07/2027',own:2,sold:1},
+  {id:11,y:2019,mk:'Volkswagen',md:'Passat Estate',v:'2.0 TDI Business',b:'estate',f:'Diesel',t:'Automatic',km:112500,p:19950,reg:'191-KE-4410',c:'#33405a',cn:'Night blue',nct:'04/2027',own:1,sold:1},
+  {id:12,y:2015,mk:'Ford',md:'Fiesta',v:'1.25 Zetec',b:'hatch',f:'Petrol',t:'Manual',km:131000,p:5950,reg:'151-WH-998',c:'#2d5ba3',cn:'Deep impact blue',nct:'12/2026',own:3,sold:1}
+];
+const avail=CARS.filter(c=>!c.sold);
+const SV=[
+  {t:'Cars for sale',d:'Hand-picked used cars, each one checked over in our workshop before it reaches the forecourt.',a:'Browse cars',go:'cars'},
+  {img:'servicing',alt:'Mechanic in black gloves pouring fresh engine oil through a funnel into an engine',t:'Servicing',d:'Interim and full services for every make, with your service book stamped.',a:'Book a service',go:'svc',v:'Full service'},
+  {img:'diagnostics',alt:'Diagnostic tablet plugged into the OBD port under a car dashboard, showing live readings',t:'Diagnostics and repairs',d:'Warning light on? We read the fault, explain it in plain English and price it before any work starts.',a:'Book diagnostics',go:'svc',v:'Diagnostics or warning light'},
+  {img:'nct-inspection',alt:'Car raised on a two-post lift while a mechanic checks the front suspension with a torch',t:'NCT preparation',d:'A pre-test check so there are no surprises on the day, and repairs if you need a retest.',a:'Book NCT prep',go:'svc',v:'NCT preparation'},
+  {img:'brakes',alt:'Silver car on a lift with the front wheel off, showing the brake disc, caliper and coil spring',t:'Brakes, clutch and suspension',d:'Pads, discs, clutches, shocks and timing belts, fitted and road-tested.',a:'Get a quote',go:'svc',v:'Brakes, clutch or suspension'},
+  {img:'key-handover',alt:'Car keys being handed over across a worn wooden desk in the workshop',t:'Sell or trade in',d:'Send the reg and mileage and we will come back with a price, or part-exchange against one of our cars.',a:'Value my car',go:'sell'}
+];
+const pic=s=>s.img?`<div class="pic"><img src="img/${s.img}-1200.webp" srcset="img/${s.img}-600.webp 600w, img/${s.img}-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1100px) 46vw, 410px" width="1200" height="900" loading="lazy" decoding="async" alt="${esc(s.alt)}"></div>`:`<div class="pic stage"><svg viewBox="0 0 600 230" aria-hidden="true">${car('hatch','#c42f27')}</svg></div>`;
+$('#svc').innerHTML=SV.map(s=>`<article class="card">${pic(s)}<div class="cb"><h3>${s.t}</h3><p>${s.d}</p><button class="go" type="button" data-go="${s.go}" data-svc="${s.v||''}">${s.a} <span>→</span></button></div></article>`).join('');
+$('#heroCar').innerHTML=car('hatch','#c42f27',true);
+
+const S={tab:'avail',q:'',mk:'',f:'',max:0,b:'',sort:'new'};
+const makes=[...new Set(CARS.map(c=>c.mk))].sort();
+$('#fMk').innerHTML='<option value="">All makes</option>'+makes.map(m=>`<option>${esc(m)}</option>`).join('');
+$('#makes').innerHTML=[...new Set(avail.map(c=>c.mk))].sort().map(m=>`<button type="button" data-make="${esc(m)}">${esc(m)}</button>`).join(' · ');
+$('#chips').innerHTML=[['','All'],...Object.entries(BODY)].map(([k,v])=>`<button type="button" class="chip" data-b="${k}">${v}</button>`).join('');
+$('#tA').textContent=`Available (${avail.length})`;
+$('#tS').textContent=`Recently sold (${CARS.length-avail.length})`;
+$('#askCar').innerHTML='<option value="">Choose a car</option>'+avail.map(c=>`<option value="${c.id}">${c.y} ${esc(c.mk)} ${esc(c.md)}, ${eur(c.p)}</option>`).join('');
+
+const plate=r=>`<span class="plate"><b aria-hidden="true">IRL</b><i>${esc(r)}</i></span>`;
+const name=c=>`${c.y} ${esc(c.mk)} ${esc(c.md)}`;
+const card=c=>`<article class="car"><div class="stage"><svg viewBox="0 0 600 230" aria-hidden="true">${car(c.b,c.c)}</svg>${c.sold?'<span class="sold">Sold</span>':''}</div>
+  <div class="info"><div class="r1">${plate(c.reg)}<span class="price">${c.sold?'Sold':eur(c.p)}</span></div><h3>${name(c)}</h3><p class="spec">${esc(c.v)}</p>
+  <ul class="tags"><li>${km(c.km)}</li><li>${c.f}</li><li>${c.t}</li></ul></div>
+  <button class="hit" type="button" data-car="${c.id}" aria-label="View ${name(c)}"></button></article>`;
+const SORT={new:(a,b)=>b.y-a.y||a.km-b.km,lo:(a,b)=>a.p-b.p,hi:(a,b)=>b.p-a.p,km:(a,b)=>a.km-b.km};
+const sync=()=>{$('#fQ').value=S.q;$('#fMk').value=S.mk;$('#fF').value=S.f;$('#fMax').value=String(S.max);$('#fSort').value=S.sort};
+const render=()=>{
+  const r=CARS.filter(c=>(S.tab==='sold')===!!c.sold&&(!S.mk||c.mk===S.mk)&&(!S.f||c.f===S.f)&&(!S.b||c.b===S.b)&&(!S.max||c.p<=S.max)&&(!S.q||`${c.y} ${c.mk} ${c.md} ${c.v}`.toLowerCase().includes(S.q))).sort(SORT[S.sort]);
+  $$('#tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===S.tab)));
+  $$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.b===S.b)));
+  $('#count').textContent=`${r.length} ${r.length===1?'car':'cars'} ${S.tab==='sold'?'recently sold':'available'}`;
+  $('#clear').hidden=!(S.q||S.mk||S.f||S.max||S.b);
+  $('#grid').innerHTML=r.length?r.map(card).join(''):'<div class="empty"><p>No cars match those filters right now.</p><button class="btn" type="button" data-clear>Clear filters</button></div>';
+};
+const reset=()=>Object.assign(S,{q:'',mk:'',f:'',max:0,b:''});
+const go=sel=>$(sel).scrollIntoView({block:'start'});
+
+$('#fQ').addEventListener('input',e=>{S.q=e.target.value.trim().toLowerCase();render()});
+$('#fMk').addEventListener('change',e=>{S.mk=e.target.value;render()});
+$('#fF').addEventListener('change',e=>{S.f=e.target.value;render()});
+$('#fMax').addEventListener('change',e=>{S.max=+e.target.value;render()});
+$('#fSort').addEventListener('change',e=>{S.sort=e.target.value;render()});
+
+const dlg=$('#dlg');
+const openCar=id=>{
+  const c=CARS.find(x=>x.id===+id);if(!c)return;
+  const specs=[['Year',c.y],['Mileage',km(c.km)],['Fuel',c.f],['Gearbox',c.t],['Body',BODY[c.b]],['Colour',c.cn],['NCT until',c.nct],['Owners',c.own]];
+  $('#dlgBody').innerHTML=`<div class="stage"><svg viewBox="0 0 600 230" aria-hidden="true">${car(c.b,c.c)}</svg>${c.sold?'<span class="sold">Sold</span>':''}</div>
+  <div class="dinfo">${plate(c.reg)}<h2 id="dlgT">${name(c)}</h2><p class="spec">${esc(c.v)}</p><span class="price">${c.sold?'Sold':eur(c.p)}</span>
+  <dl class="specs">${specs.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+  <div class="btns">${c.sold?`<button class="btn red" type="button" data-similar="${c.b}">See similar cars</button>`:`<button class="btn red" type="button" data-enq="${c.id}">Enquire about this car</button>`}<a class="btn" href="tel:+353441234567">Call 044 123 4567</a></div></div>`;
+  if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+};
+const closeDlg=()=>{if(dlg.open)dlg.close?dlg.close():dlg.removeAttribute('open')};
+$('#dlgX').addEventListener('click',closeDlg);
+dlg.addEventListener('click',e=>{if(e.target===dlg)closeDlg()});
+
+const form=$('#form'),done=$('#done');
+const LABEL={service:'Request a booking',sell:'Get a valuation',ask:'Send question'};
+const KIND={service:'booking request',sell:'valuation request',ask:'question'};
+let mode='service';
+const setMode=m=>{
+  mode=m;
+  $$('#ftabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.m===m)));
+  $$('#form fieldset').forEach(f=>{const on=f.dataset.m===m;f.hidden=!on;f.disabled=!on});
+  $('#fsub').textContent=LABEL[m];
+  form.hidden=false;done.hidden=true;
+};
+$('#fDate').min=new Date().toISOString().slice(0,10);
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=new FormData(form);
+  const first=String(d.get('name')||'').trim().split(/\s+/)[0];
+  $('#doneT').textContent=`Thanks, ${first}`;
+  $('#doneP').textContent=`This is a demo, so nothing has been sent yet. On the live site your ${KIND[mode]} goes straight to the garage and Nick rings you back on ${String(d.get('phone')||'').trim()}.`;
+  form.hidden=true;done.hidden=false;done.focus();
+});
+$('#again').addEventListener('click',()=>{form.reset();setMode(mode);$('#fName').focus()});
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-car],[data-make],[data-mode],[data-sold],[data-clear],[data-enq],[data-similar],[data-go],[data-b],[data-tab],[data-m]');
+  if(!t)return;
+  const D=t.dataset;
+  if(D.car)return openCar(D.car);
+  if(D.b!==undefined){S.b=D.b;return render()}
+  if(D.tab){S.tab=D.tab;return render()}
+  if(D.m)return setMode(D.m);
+  if(D.mode){setMode(D.mode);$('#nav').classList.remove('open');return}
+  if(D.clear!==undefined){reset();sync();return render()}
+  if(D.make!==undefined){reset();S.tab='avail';S.mk=D.make;sync();render();return go('#cars')}
+  if(D.sold!==undefined){S.tab='sold';render();return go('#cars')}
+  if(D.similar){closeDlg();reset();S.tab='avail';S.b=D.similar;sync();render();return go('#cars')}
+  if(D.enq){closeDlg();setMode('ask');$('#askCar').value=D.enq;go('#book');return $('#fName').focus({preventScroll:true})}
+  if(D.go==='cars')return go('#cars');
+  if(D.go==='svc'){setMode('service');$('#fSvc').value=D.svc;return go('#book')}
+  if(D.go==='sell'){setMode('sell');return go('#book')}
+});
+
+const menu=$('#menu'),nav=$('#nav');
+menu.addEventListener('click',()=>{const o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(o))});
+nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+
+const H=[null,[8.5,18],[8.5,18],[8.5,18],[8.5,18],[8.5,18],[9,13]];
+const DN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const hh=h=>String(Math.floor(h)).padStart(2,'0')+':'+(h%1?'30':'00');
+let day=1,hr=12;
+try{const p={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Dublin',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date()).forEach(x=>{p[x.type]=x.value});const i=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday);if(i>=0){day=i;hr=+p.hour+(+p.minute)/60}}catch(err){}
+$('#hours').innerHTML=[1,2,3,4,5,6,0].map(i=>`<tr${i===day?' class="today"':''}><th scope="row">${DN[i]}</th><td>${H[i]?hh(H[i][0])+'–'+hh(H[i][1]):'Closed'}</td></tr>`).join('');
+const st=$('#status'),t=H[day];
+if(t&&hr>=t[0]&&hr<t[1]){st.className='status open';st.textContent=`Open now · closes ${hh(t[1])}`}
+else if(t&&hr<t[0]){st.className='status';st.textContent=`Closed · opens today at ${hh(t[0])}`}
+else{let i=day,n=0;do{i=(i+1)%7;n++}while(!H[i]&&n<7);st.className='status';st.textContent=`Closed · opens ${n===1?'tomorrow':DN[i]} at ${hh(H[i][0])}`}
+
+setMode('service');sync();render();
+}
+</script>
+</body>
+</html>

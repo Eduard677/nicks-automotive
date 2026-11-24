@@ -1,6 +1,8 @@
 # Updating the cars for sale
 
-All stock lives in `cars.json`. The site reads it when the page loads, so changing that file and pushing updates the listings. No other file needs touching.
+All stock lives in `cars.json`. The home page (latest four cars), the stock page (`cars.html`) and each car's ad page (`car.html#<id>`) all read it, so changing that file and pushing updates everything. No other file needs touching.
+
+Any field can be left as `null` until it is known. The site hides empty fields, shows "Ring for price" when there is no price, and shows the year code ("09 reg") when there is no full reg.
 
 ## One car
 
@@ -11,6 +13,7 @@ All stock lives in `cars.json`. The site reads it when the page loads, so changi
   "model": "Sportage",
   "variant": "1.6 CRDi K3",
   "year": 2022,
+  "regYear": "221",
   "reg": "221-WH-418",
   "price": 29950,
   "mileage": 39800,
@@ -32,9 +35,10 @@ All stock lives in `cars.json`. The site reads it when the page loads, so changi
 ```
 
 - `id`: lowercase letters, numbers and hyphens only. It becomes the car's share link (`#car-kia-sportage-2022`).
+- `regYear`: the year part of the reg as people say it (`09`, `161`, `171`). Used when `reg` is empty.
 - `price` and `mileage`: plain numbers, no commas or euro sign. Mileage is in km.
 - `nct` and `tax`: year and month, `YYYY-MM`.
-- `added`: the date it went on the site, `YYYY-MM-DD`. Cars added in the last 14 days get a "New in" tag, and "Newest listings" sorts by this.
+- `added`: the date it went on the site, `YYYY-MM-DD`. Cars added in the last 14 days get a "New in" tag. "Most recent" on the stock page keeps the order of the file, so put new cars at the top.
 - `status`: `available` or `sold`. Sold cars move to the "Recently sold" tab.
 - `fuel`, `transmission`, `body`: keep the spelling consistent (`Diesel`, `Petrol`, `Hybrid`, `Electric`; `Manual`, `Automatic`; `Hatchback`, `Saloon`, `Estate`, `SUV`, `MPV`, `Van`), because the search filters are built from these values.
 

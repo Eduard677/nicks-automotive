@@ -43,8 +43,7 @@ Any field can be left as `null` until it is known. The site hides empty fields, 
 - `status`: `available` or `sold`. Sold cars move to the "Recently sold" tab.
 - `fuel`, `transmission`, `body`: keep the spelling consistent (`Diesel`, `Petrol`, `Hybrid`, `Electric`; `Manual`, `Automatic`; `Hatchback`, `Saloon`, `Estate`, `SUV`, `MPV`, `Van`), because the search filters are built from these values.
 - `description`: the words under "About this car" on the ad page. Leave it empty until it is written. Use Nick's own ad text when you have it. Otherwise write one short paragraph from the fields already filled in for that car. Do not add mileage, owners, NCT, tax, service history, condition or warranties unless those fields are filled in.
-- `descriptionSource`: where `description` came from. A URL when the words are Nick's own ad. `generated from listing data` when they were written from the other fields. `spec-based` when the words describe the model from a brochure or announcement and say what this particular car does not record.
-- `note`: optional line shown on the car page, such as when the photos are approved renders rather than shots of the car. Leave it out otherwise.
+- `descriptionSource`: where `description` came from. A URL when the words are Nick's own ad. `generated from listing data` when they were written from the other fields, so Nick can replace them.
 - `mileage`, `owners`, `nct` and `tax` stay `null` until Nick fills them. The site hides those fields while they are empty.
 
 ## Photos

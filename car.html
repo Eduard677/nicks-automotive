@@ -24,6 +24,7 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 4.2a7.3 7.3 0 0 0-6.3 11L4.4 19.6l4.5-1.2A7.3 7.3 0 1 0 12 4.2z"/></symbol>
   <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v7h14v-7"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
@@ -41,20 +42,20 @@
 </div></header>
 
 <main class="adpage" id="ad"><p class="note">Loading car</p></main>
-<div class="adbar" id="adbar" hidden><a class="btn red" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><button class="btn soft" type="button" data-enq><svg class="ic" aria-hidden="true"><use href="#i-msg"/></svg>Enquire</button></div>
+<div class="adbar" id="adbar" hidden><a class="btn red" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a><button class="btn soft" type="button" data-enq><svg class="ic" aria-hidden="true"><use href="#i-msg"/></svg>Enquire</button></div>
 <footer>
   <div class="foot">
     <div><a class="logo" href="index.html" aria-label="Nick Autoservice, home"><img src="logo.svg" alt="" width="541" height="200"></a><p>Servicing, repairs and used cars at 19 Zone A, Mullingar Business Park, Co. Westmeath.</p></div>
     <nav aria-label="Workshop"><h4>Workshop</h4><a href="index.html#services">Services</a><a href="index.html#book">Book in</a><a href="index.html#visit">Opening hours</a></nav>
     <nav aria-label="Cars"><h4>Cars</h4><a href="cars.html">All cars for sale</a><a href="index.html#book">Sell or trade in</a></nav>
-    <nav aria-label="Contact"><h4>Contact</h4><a href="tel:+353894770532">089 477 0532</a><a href="index.html#visit">Find us</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
+    <nav aria-label="Contact"><h4>Contact</h4><a href="tel:+353894770532">089 477 0532</a><a href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:nicumereacre53@gmail.com">nicumereacre53@gmail.com</a><a href="index.html#visit">Find us</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
   </div>
   <div class="legal"><span>© 2026 Nick Autoservice, Mullingar</span><span>Website by EMD</span></div>
 </footer>
 <script src="site.js"></script>
 <script>
 {
-const {$,$$,esc,icon,plate,has,title,regLabel,sold,priceText,ym,km,tag,card,load,TEL,TELH,reduce}=NS;
+const {$,$$,esc,icon,plate,has,title,regLabel,sold,priceText,ym,km,tag,card,load,TEL,TELH,postMail,waText,reduce}=NS;
 const ad=$('#ad');
 const missing=()=>{document.title='Car not found | Nick Autoservice';$('#adbar').hidden=true;document.body.classList.remove('has-bar');
   ad.innerHTML=`<div class="missing"><h1>That car is not on the site</h1><p class="lede">It may have sold. Have a look at what is in now, or ring Nick on ${TEL}.</p><div class="btns"><a class="btn red" href="cars.html">See all cars</a><a class="btn soft" href="${TELH}">${icon('phone')}Call ${TEL}</a></div></div>`};
@@ -80,7 +81,7 @@ const render=()=>{
       <div class="tags2">${c.reg?plate(c.reg):c.regYear?`<span class="pill">${esc(c.regYear)} reg</span>`:''}${tag(c)}</div>
       <h1>${esc(T)}</h1>${c.variant?`<p class="var">${esc(c.variant)}</p>`:''}
       <p class="price">${esc(priceText(c))}</p>${!sold(c)&&!has(c.price)?`<p class="ask">Ring or send an enquiry for the price.</p>`:''}
-      <div class="btns">${sold(c)?`<a class="btn red" href="cars.html">See cars for sale</a>`:`<a class="btn red" href="${TELH}">${icon('phone')}Call ${TEL}</a><button class="btn soft" type="button" data-enq>${icon('msg')}Send an enquiry</button>`}<button class="btn soft" type="button" id="share">${icon('share')}<span>Share</span></button></div>
+      <div class="btns">${sold(c)?`<a class="btn red" href="cars.html">See cars for sale</a>`:`<a class="btn red" href="${TELH}">${icon('phone')}Call ${TEL}</a><a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">${icon('wa')}WhatsApp</a><button class="btn soft" type="button" data-enq>${icon('msg')}Send an enquiry</button>`}<button class="btn soft" type="button" id="share">${icon('share')}<span>Share</span></button></div>
       <dl class="kv">${kv.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
       ${(c.features||[]).length?`<ul class="feat" aria-label="Features">${c.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}
     </aside>
@@ -88,8 +89,8 @@ const render=()=>{
   <div class="adbody">
     <div><h2>About this car</h2><p class="desc">${c.description?esc(c.description):`Full description and photos are on the way. Ring Nick on ${TEL} for the mileage, service history or to arrange a viewing at 19 Zone A, Mullingar Business Park.`}</p></div>
     <div id="enquire"><h2>Ask about this car</h2>
-      <div class="panel"><form class="fg" id="enq"><label class="full">Name <em>*</em><input name="name" required autocomplete="name"></label><label class="full">Phone <em>*</em><input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label><label class="full">Message<textarea name="msg">Hi Nick, is the ${esc(T)} still available?</textarea></label><div class="send full"><button class="btn red" type="submit">Send enquiry</button></div></form>
-      <div class="done" id="done" hidden tabindex="-1"><h3 id="doneT"></h3><p id="doneP"></p></div></div>
+      <div class="panel"><form class="fg" id="enq"><label class="hp">Leave this blank<input name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"></label><label class="full">Name <em>*</em><input name="name" required autocomplete="name"></label><label class="full">Phone <em>*</em><input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label><label class="full">Message<textarea name="msg">Hi Nick, is the ${esc(T)} still available?</textarea></label><p id="formMsg" class="formmsg full" role="status" tabindex="-1" hidden></p><div class="send full"><button class="btn red" type="submit" id="fsub">Send enquiry</button><button class="btn soft" type="button" id="fwa">${icon('wa')}Send on WhatsApp</button></div></form>
+      <div class="done" id="done" hidden tabindex="-1"><h3 id="doneT"></h3><p id="doneP" hidden></p></div></div>
     </div>
   </div>
   ${others.length?`<section class="more"><div class="head"><h2>More cars from Nick</h2><a class="btn soft" href="cars.html">See all cars</a></div><div class="list">${others.map(card).join('')}</div></section>`:''}`;
@@ -97,10 +98,16 @@ const render=()=>{
   const g=$('#gview');
   if(g&&ph.length>1){g.addEventListener('scroll',()=>{const i=galCur();$('#gcount').textContent=`${i+1} / ${ph.length}`;$$('.thumbs button').forEach((b,j)=>b.setAttribute('aria-current',String(j===i)))},{passive:true});
     g.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();galGo(galCur()+1)}if(e.key==='ArrowLeft'){e.preventDefault();galGo(galCur()-1)}})}
-  $('#enq').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target);
-    $('#doneT').textContent=`Thanks, ${String(d.get('name')||'').trim().split(/\s+/)[0]}`;
-    $('#doneP').textContent=`This is a demo, so nothing has been sent yet. On the live site your enquiry about the ${T} goes straight to Nick and he rings you back on ${String(d.get('phone')||'').trim()}.`;
-    e.target.hidden=true;$('#done').hidden=false;$('#done').focus()});
+  const enq=$('#enq'),emsg=$('#formMsg');
+  const ev=n=>String(new FormData(enq).get(n)||'').trim();
+  const label=T+(has(c.variant)?' '+c.variant:'');
+  const enquiryBody=()=>({_subject:'Car enquiry: '+label,_template:'table',_captcha:'false',_honey:ev('_honey'),Name:ev('name'),Phone:ev('phone'),Message:ev('msg'),'Car title':label,'Car id':c.id,'Car page':location.href});
+  const enquiryLines=p=>[p._subject,'Name: '+(p.Name||'—'),'Phone: '+(p.Phone||'—'),'Car: '+p['Car title'],'Car id: '+p['Car id'],'Link: '+p['Car page'],'Message: '+(p.Message||'—')];
+  const efail=()=>{emsg.hidden=false;emsg.className='formmsg err';emsg.innerHTML=`That message did not send. Ring Nick on <a href="${TELH}">${TEL}</a>.`;emsg.focus()};
+  enq.addEventListener('submit',async e=>{e.preventDefault();if(enq.dataset.sending||!enq.reportValidity())return;const body=enquiryBody();enq.dataset.sending='1';$('#fsub').disabled=true;$('#fwa').disabled=true;$('#fsub').textContent='Sending';emsg.hidden=false;emsg.className='formmsg';emsg.textContent='Sending';
+    try{await postMail(body);$('#doneT').textContent='Thanks, Nick will get back to you';enq.hidden=true;$('#done').hidden=false;$('#done').focus()}
+    catch(err){$('#fsub').disabled=false;$('#fwa').disabled=false;$('#fsub').textContent='Send enquiry';delete enq.dataset.sending;efail()}});
+  $('#fwa').addEventListener('click',()=>{if(enq.dataset.sending||!enq.reportValidity())return;const body=enquiryBody();if(body._honey)return efail();window.open(waText(enquiryLines(body)),'_blank','noopener')});
   $('#share').addEventListener('click',async e=>{const b=e.currentTarget,url=location.href;
     try{if(navigator.share){await navigator.share({title:`${T} for sale at Nick Autoservice`,url});return}await navigator.clipboard.writeText(url);b.lastChild.textContent='Link copied'}catch(err){if(err&&err.name!=='AbortError')b.lastChild.textContent='Copy the address bar link'}});
   window.scrollTo(0,0);

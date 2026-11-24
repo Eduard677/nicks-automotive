@@ -30,6 +30,21 @@ const card = c => {
 let cache;
 const load = () => cache || (cache = fetch('cars.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => Array.isArray(d) ? d : []));
 
+const MAIL = 'nicumereacre53@gmail.com';
+const WA = 'https://wa.me/353894770532';
+const postMail = async fields => {
+  if (String(fields._honey || '').trim()) throw new Error('honey');
+  const res = await fetch('https://formsubmit.co/ajax/' + MAIL, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify(fields)
+  });
+  let data = null;
+  try { data = await res.json(); } catch (err) { data = null; }
+  if (!(res.ok && data && (data.success === true || data.success === 'true'))) throw new Error('send');
+};
+const waText = lines => WA + '?text=' + encodeURIComponent(lines.join('\n'));
+
 const menu = $('#menu'), nav = $('#nav');
 if (menu && nav) {
   menu.addEventListener('click', () => { const o = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', String(o)); });
@@ -37,6 +52,6 @@ if (menu && nav) {
 }
 
 window.NS = {$, $$, esc, eur, km, ym, icon, plate, has, title, regLabel, sold, priceText, isNew, facts, tag, href, card, load,
-  TEL: '089 477 0532', TELH: 'tel:+353894770532',
+  TEL: '089 477 0532', TELH: 'tel:+353894770532', MAIL, WA, postMail, waText,
   reduce: matchMedia('(prefers-reduced-motion: reduce)').matches};
 })();

@@ -52,3 +52,7 @@ Put each car's photos in `cars/<id>/`, numbered in the order they should show. T
 The usual order: front three-quarter, side, rear three-quarter, interior, dash with the mileage, boot, then any detail or damage. Shoot landscape against a plain wall. Export at 1600 px wide, WebP or JPEG, under about 300 KB each.
 
 A car with no photos shows "Photos coming soon" with its reg.
+
+## Forms
+
+Booking, sell and car-enquiry forms post to nicumereacre53@gmail.com through FormSubmit. The first submission makes FormSubmit email that inbox a one-time activation link. Messages are not delivered until that link is confirmed. Each form can also open WhatsApp to 089 477 0532, which assumes that number is on WhatsApp. See README.md.

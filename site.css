@@ -236,6 +236,8 @@ input::placeholder,textarea::placeholder{color:#7d828c}
 .hours{display:grid;grid-template-columns:auto auto;justify-content:start;gap:8px 40px;margin:28px 0 0;font-variant-numeric:tabular-nums}
 .hours dt{color:var(--mut)}.hours dd{margin:0;font-weight:600}
 .find .btns{margin-top:32px}
+.find-mail{margin-top:18px;color:var(--mut);font-size:15px}
+.find-mail .mail{margin-left:6px}
 @media(max-width:860px){.find-in{grid-template-columns:minmax(0,1fr)}.find-map{aspect-ratio:1/1;order:2}}
 
 /* footer */

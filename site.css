@@ -106,6 +106,7 @@ body.menu-open{overflow:hidden}
 .hplay .ic{width:16px;height:16px}
 @media(max-width:560px){.sd .sep{display:none}.sd [data-status]{display:block;margin-top:2px}}
 @media(max-width:760px){
+  .slide.cars>img{object-position:70% 50%}
   .mk span.lb{display:none}
   .mk{gap:0}
   .sc{bottom:96px}

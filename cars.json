@@ -24,7 +24,7 @@
     "features": [
       "Leather seats"
     ],
-    "description": "",
+    "description": "2015 BMW 7 Series 730d, reg 152-G-3708. 3.0 diesel, automatic, white four-door saloon. Leather seats. In Mullingar.",
     "photos": [
       "cars/bmw-730d-2015/1.webp",
       "cars/bmw-730d-2015/2.webp",
@@ -37,7 +37,8 @@
       "cars/bmw-730d-2015/9.webp"
     ],
     "thumb": "cars/bmw-730d-2015/thumb.webp",
-    "priceBasis": "Average of 7 DoneDeal ads for 2015 BMW 730d, checked 24 Nov 2026 (mean 14,584, range 11,950 to 16,950)"
+    "priceBasis": "Average of 7 DoneDeal ads for 2015 BMW 730d, checked 24 Nov 2026 (mean 14,584, range 11,950 to 16,950)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "hyundai-i40-2014",
@@ -65,7 +66,7 @@
       "Leather seats",
       "Glass sunroof"
     ],
-    "description": "",
+    "description": "2014 Hyundai i40 CRDi Blue, reg 141-G-5870. Diesel, manual, white four-door saloon. Leather seats and a glass sunroof. In Mullingar.",
     "photos": [
       "cars/hyundai-i40-2014/1.webp",
       "cars/hyundai-i40-2014/2.webp",
@@ -80,7 +81,8 @@
       "cars/hyundai-i40-2014/11.webp"
     ],
     "thumb": "cars/hyundai-i40-2014/thumb.webp",
-    "priceBasis": "Average of 30 DoneDeal ads for 2014 Hyundai i40 1.7 diesel, checked 24 Nov 2026 (mean 4,259, range 1,200 to 6,800)"
+    "priceBasis": "Average of 30 DoneDeal ads for 2014 Hyundai i40 1.7 diesel, checked 24 Nov 2026 (mean 4,259, range 1,200 to 6,800)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "bmw-520d-2011",
@@ -107,7 +109,7 @@
     "features": [
       "Cream leather seats"
     ],
-    "description": "",
+    "description": "2011 BMW 5 Series 520d (F10), reg 11-WH-3227. 2.0 diesel, manual, black four-door saloon. Cream leather seats. In Mullingar.",
     "photos": [
       "cars/bmw-520d-2011/1.webp",
       "cars/bmw-520d-2011/2.webp",
@@ -116,7 +118,8 @@
       "cars/bmw-520d-2011/5.webp"
     ],
     "thumb": "cars/bmw-520d-2011/thumb.webp",
-    "priceBasis": "Average of 27 DoneDeal ads for 2011 BMW 520d (estates left out), checked 24 Nov 2026 (mean 5,438, range 2,950 to 9,450)"
+    "priceBasis": "Average of 27 DoneDeal ads for 2011 BMW 520d (estates left out), checked 24 Nov 2026 (mean 5,438, range 2,950 to 9,450)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "vw-passat-2016",
@@ -143,7 +146,7 @@
     "features": [
       "Leather seats"
     ],
-    "description": "",
+    "description": "2016 Volkswagen Passat Estate TDI BlueMotion Technology, reg 161-D-14616. Diesel, automatic, blue five-door estate. Leather seats. In Mullingar.",
     "photos": [
       "cars/vw-passat-2016/1.webp",
       "cars/vw-passat-2016/2.webp",
@@ -153,7 +156,8 @@
       "cars/vw-passat-2016/6.webp"
     ],
     "thumb": "cars/vw-passat-2016/thumb.webp",
-    "priceBasis": "Average of 25 DoneDeal ads for 2016 VW Passat diesel, checked 24 Nov 2026 (mean 9,647, range 5,700 to 14,999)"
+    "priceBasis": "Average of 25 DoneDeal ads for 2016 VW Passat diesel, checked 24 Nov 2026 (mean 9,647, range 5,700 to 14,999)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "ford-transit-2017",
@@ -180,7 +184,7 @@
     "features": [
       "Fridge unit"
     ],
-    "description": "",
+    "description": "2017 Ford Transit refrigerated van, reg 171-D-43912. White van with a fridge unit. In Mullingar.",
     "photos": [
       "cars/ford-transit-2017/1.webp",
       "cars/ford-transit-2017/2.webp",
@@ -192,7 +196,8 @@
       "cars/ford-transit-2017/8.webp"
     ],
     "thumb": "cars/ford-transit-2017/thumb.webp",
-    "priceBasis": "Average of 15 DoneDeal ads for 2017 full-size Ford Transit vans (no fridge vans listed), checked 24 Nov 2026 (mean 7,969, range 4,500 to 10,500)"
+    "priceBasis": "Average of 15 DoneDeal ads for 2017 full-size Ford Transit vans (no fridge vans listed), checked 24 Nov 2026 (mean 7,969, range 4,500 to 10,500)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "peugeot-308-2009",
@@ -217,7 +222,7 @@
     "status": "available",
     "location": "Mullingar",
     "features": [],
-    "description": "",
+    "description": "2009 Peugeot 308, reg 09-LM-3440. Manual, blue five-door hatchback. In Mullingar.",
     "photos": [
       "cars/peugeot-308-2009/1.webp",
       "cars/peugeot-308-2009/2.webp",
@@ -228,7 +233,8 @@
       "cars/peugeot-308-2009/7.webp"
     ],
     "thumb": "cars/peugeot-308-2009/thumb.webp",
-    "priceBasis": "Average of 7 DoneDeal ads for 2009 Peugeot 308, checked 24 Nov 2026 (mean 1,899, range 1,350 to 2,750)"
+    "priceBasis": "Average of 7 DoneDeal ads for 2009 Peugeot 308, checked 24 Nov 2026 (mean 1,899, range 1,350 to 2,750)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "nissan-qashqai-2011",
@@ -253,7 +259,7 @@
     "status": "available",
     "location": "Mullingar",
     "features": [],
-    "description": "",
+    "description": "2011 Nissan Qashqai, reg 11-OY-1370. Manual, grey SUV. In Mullingar.",
     "photos": [
       "cars/nissan-qashqai-2011/1.webp",
       "cars/nissan-qashqai-2011/2.webp",
@@ -262,7 +268,8 @@
       "cars/nissan-qashqai-2011/5.webp"
     ],
     "thumb": "cars/nissan-qashqai-2011/thumb.webp",
-    "priceBasis": "Average of 24 DoneDeal ads for 2011 Nissan Qashqai, checked 24 Nov 2026 (mean 2,796, range 1,000 to 4,250)"
+    "priceBasis": "Average of 24 DoneDeal ads for 2011 Nissan Qashqai, checked 24 Nov 2026 (mean 2,796, range 1,000 to 4,250)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "bmw-x5-2004",
@@ -287,13 +294,14 @@
     "status": "available",
     "location": "Mullingar",
     "features": [],
-    "description": "",
+    "description": "2004 BMW X5, reg 04-G-4109. Black SUV. In Mullingar.",
     "photos": [
       "cars/bmw-x5-2004/1.webp",
       "cars/bmw-x5-2004/2.webp"
     ],
     "thumb": "cars/bmw-x5-2004/thumb.webp",
-    "priceBasis": "Average of 8 DoneDeal ads for 2005-2006 BMW X5 (no 2004s listed; engines mixed), checked 24 Nov 2026 (mean 7,062, range 2,500 to 11,950)"
+    "priceBasis": "Average of 8 DoneDeal ads for 2005-2006 BMW X5 (no 2004s listed; engines mixed), checked 24 Nov 2026 (mean 7,062, range 2,500 to 11,950)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "nissan-qashqai-2012",
@@ -318,10 +326,11 @@
     "status": "available",
     "location": "Mullingar",
     "features": [],
-    "description": "",
+    "description": "2012 Nissan Qashqai, 12 reg. SUV. In Mullingar.",
     "photos": [],
     "thumb": null,
-    "priceBasis": "Average of 28 DoneDeal ads for 2012 Nissan Qashqai, checked 24 Nov 2026 (mean 3,513, range 2,250 to 4,950)"
+    "priceBasis": "Average of 28 DoneDeal ads for 2012 Nissan Qashqai, checked 24 Nov 2026 (mean 3,513, range 2,250 to 4,950)",
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "peugeot-2012",
@@ -346,9 +355,10 @@
     "status": "available",
     "location": "Mullingar",
     "features": [],
-    "description": "",
+    "description": "2012 Peugeot, 12 reg. In Mullingar.",
     "photos": [],
-    "thumb": null
+    "thumb": null,
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "mercedes-e220-2008",
@@ -373,9 +383,10 @@
     "status": "available",
     "location": "Mullingar",
     "features": [],
-    "description": "",
+    "description": "2008 Mercedes-Benz E-Class E220, 08 reg. 2.1 diesel. In Mullingar.",
     "photos": [],
     "thumb": null,
-    "priceBasis": "Average of 3 DoneDeal ads for 2008 Mercedes E-Class 2.1 diesel, checked 24 Nov 2026 (mean 3,650, range 3,000 to 4,950)"
+    "priceBasis": "Average of 3 DoneDeal ads for 2008 Mercedes E-Class 2.1 diesel, checked 24 Nov 2026 (mean 3,650, range 3,000 to 4,950)",
+    "descriptionSource": "generated from listing data"
   }
 ]

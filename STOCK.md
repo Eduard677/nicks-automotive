@@ -1,6 +1,6 @@
 # Updating the cars for sale
 
-All stock lives in `cars.json`. The home page (latest four cars), the stock page (`cars.html`) and each car's ad page (`car.html#<id>`) all read it, so changing that file and pushing updates everything. No other file needs touching.
+All stock lives in `cars.json`. The home page, the stock page (`cars.html`) and each car's ad page (`car.html#<id>`) all read it, so changing that file and pushing updates everything. No other file needs touching.
 
 Any field can be left as `null` until it is known. The site hides empty fields, shows "Ring for price" when there is no price, and shows the year code ("09 reg") when there is no full reg.
 
@@ -29,7 +29,8 @@ Any field can be left as `null` until it is known. The site hides empty fields, 
   "added": "2026-11-21",
   "status": "available",
   "location": "Mullingar",
-  "description": "Full service history, two keys, new tyres.",
+  "description": "2022 Kia Sportage 1.6 CRDi K3, reg 221-WH-418. 1.6 diesel, manual, green five-door SUV.",
+  "descriptionSource": "generated from listing data",
   "photos": ["cars/kia-sportage-2022/1.webp", "cars/kia-sportage-2022/2.webp"]
 }
 ```
@@ -41,6 +42,8 @@ Any field can be left as `null` until it is known. The site hides empty fields, 
 - `added`: the date it went on the site, `YYYY-MM-DD`. Cars added in the last 14 days get a "New in" tag. "Most recent" on the stock page keeps the order of the file, so put new cars at the top.
 - `status`: `available` or `sold`. Sold cars move to the "Recently sold" tab.
 - `fuel`, `transmission`, `body`: keep the spelling consistent (`Diesel`, `Petrol`, `Hybrid`, `Electric`; `Manual`, `Automatic`; `Hatchback`, `Saloon`, `Estate`, `SUV`, `MPV`, `Van`), because the search filters are built from these values.
+- `description`: the words under "About this car" on the ad page. Leave it empty until it is written. Use Nick's own ad text when you have it. Otherwise write one short paragraph from the fields already filled in for that car. Do not add mileage, owners, NCT, tax, service history, condition or warranties unless those fields are filled in.
+- `descriptionSource`: where `description` came from. A URL when the words are Nick's own ad. `generated from listing data` when they were written from the other fields, so Nick can replace them.
 
 ## Photos
 

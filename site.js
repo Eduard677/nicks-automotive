@@ -34,15 +34,20 @@ const carName = c => title(c) + (has(c.variant) ? ' ' + String(c.variant).trim()
 const pageUrl = c => new URL(href(c), location.href).href;
 const carWa = c => WA + '?text=' + encodeURIComponent([carName(c), priceText(c), 'Is this still available?', pageUrl(c)].join('\n'));
 
+/* Quick tags: only fields that are filled in cars.json, never guessed */
+const chipVals = (c, noYear) => [noYear ? null : c.year, c.fuel, c.transmission, c.body].filter(has).map(String);
+const chips = (c, n = 4, noYear = false) => { const v = chipVals(c, noYear).slice(0, n); return v.length ? `<span class="chips">${v.map(x => `<span>${esc(x)}</span>`).join('')}</span>` : ''; };
+
 /* Listing card: the whole card is one link */
-const card = c => {
+const card = (c, i = 0) => {
   const ph = c.photos || [];
   const s = sub(c);
-  return `<a class="lc" href="${href(c)}">
+  return `<a class="lc" href="${href(c)}" style="--i:${Math.min(+i || 0, 11)}">
   <span class="lc-pic">${ph.length ? `<img src="${esc(c.thumb || ph[0])}" alt="" width="720" height="540" loading="lazy" decoding="async">` : `<span class="ph"><b>${esc(c.make || 'Car')}</b><span>Photos on the way</span></span>`}${ph.length > 1 ? `<span class="pc">${icon('cam')}${ph.length}</span>` : ''}${tag(c)}</span>
-  <span class="lc-b"><span class="lc-t"><h3>${esc(name(c))}</h3><span class="price${!sold(c) && !has(c.price) ? ' ask' : ''}">${esc(priceText(c))}</span></span>
+  <span class="lc-b"><h3>${esc(name(c))}</h3>
   ${s ? `<span class="lc-v">${esc(s)}</span>` : ''}
-  <span class="facts">${facts(c).slice(0, 4).map(f => `<span>${esc(f)}</span>`).join('')}</span></span></a>`;
+  ${chips(c)}
+  <span class="price${!sold(c) && !has(c.price) ? ' ask' : ''}">${esc(priceText(c))}</span></span></a>`;
 };
 
 let cache;
@@ -95,7 +100,25 @@ if (menu && nav) {
   addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); menu.focus(); } });
 }
 
-window.NS = {$, $$, esc, eur, km, ym, icon, plate, has, title, name, sub, regLabel, sold, priceText, isNew, facts, tag, href, card, carName, carWa, load, status,
+/* Reveal: sections fade and rise once as they scroll in. Only runs with JS and without reduced motion, so content is never hidden otherwise */
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const RV = '.band .sec-head,.wire,.shop-in>div:first-child,.svc,.split,.book>*,.find-in>*,.ft-main,.ft-top,.ad-body,.more';
+const reveal = () => { if (document.readyState !== 'complete') return addEventListener('load', () => setTimeout(runReveal, 50), {once: true}); setTimeout(runReveal, 50); };
+const runReveal = () => {
+  $$(RV).forEach(el => el.setAttribute('data-rv', ''));
+  const els = $$('[data-rv]:not(.rv)');
+  if (!els.length) return;
+  if (RM || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
+  els.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < innerHeight && r.bottom > 0) return; /* already on screen: leave it alone */
+    el.classList.add('rv'); io.observe(el);
+  });
+};
+reveal();
+
+window.NS = {$, $$, esc, eur, km, ym, icon, plate, has, title, name, sub, regLabel, sold, priceText, isNew, facts, chips, tag, href, card, reveal, carName, carWa, load, status,
   TEL, TELH, MAIL, WA, postMail, waText,
   reduce: matchMedia('(prefers-reduced-motion: reduce)').matches};
 })();

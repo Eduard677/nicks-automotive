@@ -16,7 +16,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://nicks-automotive-mullingar.vercel.app/og.png">
-<!-- Opening hours in the JSON-LD below are unconfirmed: Monday–Saturday 09:00–17:00, Sunday closed. -->
+<!-- Opening hours are unconfirmed, so they are not shown and not in the JSON-LD. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,12 +30,6 @@
     "addressLocality": "Mullingar",
     "addressRegion": "Co. Westmeath",
     "addressCountry": "IE"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    "opens": "09:00",
-    "closes": "17:00"
   }
 }
 </script>
@@ -66,23 +60,21 @@
 </div></header>
 
 <main>
-<section class="hero" id="top" aria-roledescription="carousel" aria-label="Photos from Nick Autoservice">
+<section class="hero" id="top">
   <h1 class="vh">Nick Autoservice</h1>
-  <div class="slides" id="slides"></div>
+  <img class="hero-photo" src="img/ws-1200.webp" srcset="img/ws-1200.webp 1200w, img/ws-2400.webp 2400w" sizes="100vw" width="2400" height="1800" alt="Inside the workshop: red two-post lifts, tool walls and a car in the bay" fetchpriority="high" decoding="async">
+  <div class="hero-shade" aria-hidden="true"></div>
   <div class="hin">
-    <div class="hcopy" id="hcopy"></div>
-    <div class="markers" id="markers" role="tablist" aria-label="Choose a photo"></div>
+    <div class="hcopy">
+      <p class="htitle">Book a service or see the cars</p>
+      <p class="hdetail">Servicing, repairs and used cars at 19 Zone A, Mullingar Business Park</p>
+      <div class="btns">
+        <a class="btn red" href="#book" data-mode="service">Book a service</a>
+        <a class="btn glass" href="cars.html">See cars</a>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="band" id="services"><div class="wrap svc">
-  <div>
-    <h2>What we fix</h2>
-    <p class="lede">Every make and model, in the workshop at Mullingar Business Park. Ring for a price, or pick a job to book it in.</p>
-    <ul class="jobs" id="jobs"></ul>
-  </div>
-  <figure class="svc-r"><div class="stack" id="stack"></div><figcaption id="cap"></figcaption></figure>
-</div></section>
 
 <section class="band" id="cars"><div class="wrap">
   <div class="head">
@@ -96,15 +88,21 @@
   </div>
 </div></section>
 
+<section class="band" id="services"><div class="wrap svc">
+  <div>
+    <h2>What we fix</h2>
+    <p class="lede">Every make and model, in the workshop at Mullingar Business Park. Ring for a price, or pick a job to book it in.</p>
+    <ul class="jobs" id="jobs"></ul>
+  </div>
+  <figure class="svc-r"><div class="stack" id="stack"></div><figcaption id="cap"></figcaption></figure>
+</div></section>
+
 <section class="band" id="book"><div class="wrap book">
   <div>
     <h2>Book in, sell or ask</h2>
     <p class="lede">Send the details and Nick will ring you back to confirm. Or skip the form and ring now.</p>
     <a class="bigtel" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>089 477 0532</a>
     <div class="reach"><a class="mail" data-mail-text></a><a class="btn soft" href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a></div>
-    <p class="status" id="status"></p>
-    <!-- Hours are unconfirmed: Monday–Saturday 09:00–17:00, Sunday closed. -->
-    <table class="hours"><tbody id="hours"></tbody></table>
   </div>
   <div class="panel">
     <div class="tabs f" id="ftabs" role="tablist" aria-label="Request type"><button type="button" role="tab" data-m="service">Book in</button><button type="button" role="tab" data-m="sell">Sell your car</button><button type="button" role="tab" data-m="ask">Ask about a car</button></div>
@@ -112,13 +110,15 @@
       <label class="hp">Leave this blank<input name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"></label>
       <label>Name <em>*</em><input name="name" id="fName" required autocomplete="name"></label>
       <label>Phone <em>*</em><input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label>
-      <label class="full">Email<input name="email" type="email" autocomplete="email"></label>
       <fieldset data-m="service">
         <label class="full">Reg <em>*</em><div class="pin"><span aria-hidden="true">IRL</span><input name="reg" id="fReg" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. 191-WH-2047"></div></label>
-        <label>Make and model<input name="model" placeholder="e.g. Ford Focus"></label>
-        <label>What does it need?<select name="svc" id="fSvc" class="svc-opts"></select></label>
-        <label>Preferred date<input name="date" type="date" id="fDate"></label>
-        <label class="full">Anything we should know?<textarea name="notes" placeholder="Noises, warning lights, when you can drop it in"></textarea></label>
+        <label class="full">What does it need?<select name="svc" id="fSvc" class="svc-opts"></select></label>
+        <details class="extra full"><summary>Add a date or a note</summary>
+          <label>Make and model<input name="model" placeholder="e.g. Ford Focus"></label>
+          <label>Preferred date<input name="date" type="date" id="fDate"></label>
+          <label>Email<input name="email" type="email" autocomplete="email"></label>
+          <label>Anything we should know?<textarea name="notes" placeholder="Noises, warning lights, when you can drop it in"></textarea></label>
+        </details>
       </fieldset>
       <fieldset data-m="sell" hidden disabled>
         <label class="full">Reg <em>*</em><div class="pin"><span aria-hidden="true">IRL</span><input name="reg" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. 171-LD-562"></div></label>
@@ -126,11 +126,13 @@
         <label>Make and model<input name="model" placeholder="e.g. Toyota Corolla"></label>
         <label>Condition<select name="cond"><option>Excellent</option><option selected>Good</option><option>Fair</option><option>Needs work</option></select></label>
         <label class="full">Trading in against one of our cars?<select name="trade"><option>No, just selling</option><option>Yes, I'd like to trade in</option></select></label>
+        <label class="full">Email<input name="email" type="email" autocomplete="email"></label>
         <label class="full">Service history, extras, damage<textarea name="notes"></textarea></label>
       </fieldset>
       <fieldset data-m="ask" hidden disabled>
         <label class="full">Which car? <em>*</em><select name="car" id="askCar" required></select></label>
-        <label class="full">Your question<textarea name="notes" placeholder="Viewing times, finance, trade-in value"></textarea></label>
+        <label class="full">Email<input name="email" type="email" autocomplete="email"></label>
+        <label class="full">Your question<textarea name="notes" placeholder="Viewing times or a trade-in"></textarea></label>
       </fieldset>
       <p id="formMsg" class="formmsg full" role="status" tabindex="-1" hidden></p>
       <div class="send full"><button class="btn red" type="submit" id="fsub">Request a booking</button><button class="btn soft" type="button" id="fwa"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button><small>Fields marked * are needed.</small></div>
@@ -160,7 +162,7 @@
 <footer>
   <div class="foot">
     <div><a class="logo" href="#top" aria-label="Nick Autoservice, home"><img src="logo.svg" alt="" width="541" height="200"></a><p>Servicing, repairs and used cars at 19 Zone A, Mullingar Business Park, Co. Westmeath.</p></div>
-    <nav aria-label="Workshop"><h4>Workshop</h4><a href="#services">Services</a><a href="#book">Book in</a><a href="#visit">Opening hours</a></nav>
+    <nav aria-label="Workshop"><h4>Workshop</h4><a href="#services">Services</a><a href="#book">Book in</a><a href="#visit">Find us</a></nav>
     <nav aria-label="Cars"><h4>Cars</h4><a href="cars.html">All cars for sale</a><a href="#book">Sell or trade in</a></nav>
     <nav aria-label="Contact"><h4>Contact</h4><a href="tel:+353894770532">089 477 0532</a><a href="https://wa.me/353894770532" target="_blank" rel="noopener noreferrer">WhatsApp</a><a data-mail-text></a><a href="#visit">Find us</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nick+Autoservice+Mullingar+Business+Park">Directions</a></nav>
   </div>
@@ -172,65 +174,11 @@
 {
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const eur=n=>new Intl.NumberFormat('en-IE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
-const km=n=>n.toLocaleString('en-IE')+' km';
 const ARROW='<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>';
-const BODY={hatch:'Hatchback',saloon:'Saloon',estate:'Estate',suv:'SUV'};
 const SVCS=['Full service','Car repairs or warning light','Pre-NCT check','Brakes or exhaust','Gearbox or flywheel','Tyres','Engine replacement','Something else'];
 $$('.svc-opts').forEach(s=>{s.innerHTML=SVCS.map(o=>`<option>${o}</option>`).join('')});
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* hero slideshow: workshop, landscape featured cars, servicing, pre-NCT */
-const PHOTO=[
-  {title:'The workshop',detail:'Servicing and repairs at 19 Zone A, Mullingar Business Park',label:'The workshop',
-    chips:[{href:'#book',cls:'red',text:'Book in',mode:'service'},{href:'#services',cls:'glass',text:'What we fix'}],
-    src:'img/ws-1200.webp',srcset:'img/ws-1200.webp 1200w, img/ws-2400.webp 2400w',pos:'50% 36%',alt:'Inside the workshop: red two-post lifts, tool walls and a car in the bay',w:2400,h:1800},
-  {title:'Servicing',detail:'Oil, filters, fluids and a full check-over for every make',label:'Servicing',
-    chips:[{href:'#book',cls:'red',text:'Book a service',mode:'service',svc:'Full service'},{href:'tel:+353894770532',cls:'glass',text:'Call 089 477 0532'}],
-    src:'img/servicing-1200.webp',srcset:'img/servicing-600.webp 600w, img/servicing-1200.webp 1200w, img/servicing-1448.webp 1448w',pos:'78% 70%',alt:'Fresh engine oil going in through a funnel during a service',w:1448,h:1086},
-  {title:'Pre-NCT checks',detail:'A check-over before your test, and repairs if you need a retest',label:'Pre-NCT checks',
-    chips:[{href:'#book',cls:'red',text:'Book a pre-NCT check',mode:'service',svc:'Pre-NCT check'},{href:'tel:+353894770532',cls:'glass',text:'Call 089 477 0532'}],
-    src:'img/nct-inspection-1200.webp',srcset:'img/nct-inspection-600.webp 600w, img/nct-inspection-1200.webp 1200w, img/nct-inspection-1448.webp 1448w',pos:'68% 42%',alt:'A car on the lift while the front suspension is checked with a torch',w:1448,h:1086}
-];
-const CAR_SLOTS=[{id:'bmw-730d-2015',pos:'64% 32%'},{id:'ford-transit-2017',pos:'46% 34%'}];
-const hero=$('#top');
-let SL=[],cur=0,timer=0;
 const landscape=src=>new Promise(res=>{const img=new Image();img.onload=()=>res(img.naturalWidth>img.naturalHeight);img.onerror=()=>res(false);img.src=src});
 const carTitle=c=>{const v=NS.has(c.variant)?String(c.variant).trim():'';if(v&&!/\s/.test(v))return [c.year,c.make,v].filter(NS.has).join(' ');return [c.year,c.make,c.model].filter(NS.has).join(' ')};
-const carLine=c=>{const v=NS.has(c.variant)?String(c.variant).trim():'';const parts=[];if(v&&/\s/.test(v))parts.push(v);if(NS.has(c.regYear))parts.push(`${c.regYear} reg`);else if(NS.has(c.reg))parts.push(String(c.reg));const eng=[c.engine,c.fuel].filter(NS.has).join(' ');if(eng)parts.push(eng);if(NS.has(c.transmission))parts.push(c.transmission);if(NS.has(c.price))parts.push(eur(c.price));return parts.join(' · ')};
-const chip=c=>`<a class="btn ${c.cls}" href="${esc(c.href)}"${c.mode?` data-mode="${esc(c.mode)}"`:''}${c.svc?` data-svc="${esc(c.svc)}"`:''}>${c.href.indexOf('tel:')===0?'<svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>':''}${esc(c.text)}</a>`;
-function mount(slides){
-  SL=slides;
-  hero.style.setProperty('--slides',String(Math.max(SL.length,1)));
-  $('#slides').innerHTML=SL.map((s,i)=>`<img class="${i?'':'on'}" src="${esc(s.src)}" ${s.srcset?`srcset="${s.srcset}" sizes="100vw"`:''} width="${s.w||1600}" height="${s.h||1200}" style="object-position:${s.pos}" alt="${i?'':esc(s.alt)}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async">`).join('');
-  $('#hcopy').innerHTML=SL.map((s,i)=>`<div class="hslide${i?'':' on'}"${i?' hidden':''}><p class="htitle">${esc(s.title)}</p><p class="hdetail">${esc(s.detail)}</p><div class="btns">${s.chips.map(chip).join('')}</div></div>`).join('');
-  $('#markers').innerHTML=SL.map((s,i)=>`<button class="mk" type="button" role="tab" aria-selected="${!i}" data-slide="${i}"><i></i><span>${esc(s.label)}</span></button>`).join('');
-  cur=0;show(0);start();
-}
-function show(i){
-  if(!SL.length)return;
-  cur=(i+SL.length)%SL.length;
-  $$('#slides img').forEach((m,j)=>{const on=j===cur;m.classList.toggle('on',on);m.alt=on?SL[j].alt:'';m.setAttribute('aria-hidden',String(!on));if(on)m.loading='eager'});
-  $$('#hcopy .hslide').forEach((el,j)=>{const on=j===cur;el.classList.toggle('on',on);el.hidden=!on});
-  $$('#markers .mk').forEach((b,j)=>{b.setAttribute('aria-selected',String(j===cur));const bar=b.querySelector('i');bar.style.animation='none';void bar.offsetWidth;bar.style.animation=''});
-}
-const stop=()=>{clearInterval(timer);timer=0};
-const start=()=>{if(reduce||!SL.length)return;stop();timer=setInterval(()=>show(cur+1),6000)};
-if(reduce)hero.classList.add('still');
-const pause=()=>{hero.classList.add('paused');stop()};
-const resume=()=>{if(hero.matches(':hover')||hero.contains(document.activeElement))return;hero.classList.remove('paused');show(cur);start()};
-hero.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')pause()});
-hero.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')resume()});
-hero.addEventListener('focusin',pause);
-hero.addEventListener('focusout',()=>setTimeout(resume,0));
-document.addEventListener('visibilitychange',()=>{document.hidden?stop():resume()});
-async function carSlide(c,pos){
-  const src=(c.photos&&c.photos[0])||'';
-  if(!src||!(await landscape(src)))return null;
-  const title=carTitle(c);
-  const label=title.length<=18?title:[c.year,c.model||c.make].filter(NS.has).join(' ');
-  return {title,detail:carLine(c),label,chips:[{href:NS.href(c),cls:'red',text:'View this car'},{href:'cars.html',cls:'glass',text:'All cars for sale'}],src,pos,alt:`${title} for sale at Nick Autoservice`,w:1600,h:1200};
-}
 
 /* services */
 const JOBS=[
@@ -263,21 +211,13 @@ async function wireTile(c,lead){
   return `<article class="wtile${lead?' lead':''}"><a class="wtile-hit" href="${NS.href(c)}" aria-label="${esc(t)}, ${esc(NS.priceText(c))}"></a>${ph?`<img src="${esc(ph)}" alt="" width="${ph===c.thumb?720:1600}" height="${ph===c.thumb?540:1200}" ${lead?'':'loading="lazy"'} decoding="async">`:`<span class="ph"><svg class="ic" aria-hidden="true"><use href="#i-cam"/></svg><span>Photos coming soon</span></span>`}<span class="scrim"><span class="wt">${esc(t)}</span><span class="wp">${esc(NS.priceText(c))}</span>${fact?`<span class="wf">${esc(fact)}</span>`:''}</span>${NS.reach(c)}</article>`;
 }
 NS.load().then(async d=>{
-  const byId=Object.fromEntries(d.map(c=>[c.id,c]));
-  const built={};
-  for(const slot of CAR_SLOTS){
-    const c=byId[slot.id];
-    if(!c||NS.sold(c))continue;
-    const slide=await carSlide(c,slot.pos);
-    if(slide)built[slot.id]=slide;
-  }
-  mount([PHOTO[0],built['bmw-730d-2015'],PHOTO[1],built['ford-transit-2017'],PHOTO[2]].filter(Boolean));
   const av=d.filter(c=>!NS.sold(c));
-  const pick=av.slice(0,5);
+  const withPh=av.filter(c=>(c.photos||[]).length);
+  const pick=[...withPh,...av.filter(c=>!(c.photos||[]).length)].slice(0,5);
   $('#latest').innerHTML=pick.length?(await Promise.all(pick.map((c,i)=>wireTile(c,i===0)))).join(''):'<div class="empty"><p>New stock is on the way. Ring Nick on 089 477 0532 to ask what is coming in.</p></div>';
   $('#allBtn').firstChild.textContent=`See all ${av.length} cars`;
   $('#askCar').innerHTML='<option value="">Choose a car</option>'+av.map(c=>`<option value="${esc(c.id)}">${esc(NS.title(c))}${c.variant?' '+esc(c.variant):''}</option>`).join('');
-}).catch(()=>{mount(PHOTO);$('#latest').innerHTML='<div class="empty"><p>The stock list could not load. Ring Nick on 089 477 0532 to ask what is in.</p></div>'});
+}).catch(()=>{$('#latest').innerHTML='<div class="empty"><p>The stock list could not load. Ring Nick on 089 477 0532 to ask what is in.</p></div>'});
 const go=sel=>$(sel).scrollIntoView({block:'start'});
 
 /* forms */
@@ -325,27 +265,14 @@ $('#again').addEventListener('click',()=>{form.reset();setMode(mode);$('#fName')
 $$('.pin input').forEach(inp=>inp.addEventListener('input',e=>{const p=e.target.selectionStart;e.target.value=e.target.value.toUpperCase();e.target.setSelectionRange(p,p)}));
 
 document.addEventListener('click',e=>{
-  const t=e.target.closest('[data-slide],[data-job],[data-mode],[data-go],[data-m]');
+  const t=e.target.closest('[data-job],[data-mode],[data-go],[data-m]');
   if(!t)return;
   const D=t.dataset;
-  if(D.slide!==undefined){show(+D.slide);if(!hero.classList.contains('paused'))start();return}
   if(D.job!==undefined){setMode('service');$('#fSvc').value=JOBS[+D.job].v;go('#book');return $('#fName').focus({preventScroll:true})}
   if(D.m)return setMode(D.m);
   if(D.mode){setMode(D.mode);if(D.svc)$('#fSvc').value=D.svc;return}
   if(D.go==='sell'){setMode('sell');return go('#book')}
 });
-
-/* hours */
-const H=[null,[9,17],[9,17],[9,17],[9,17],[9,17],[9,17]];
-const DN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-const hh=h=>String(Math.floor(h)).padStart(2,'0')+':'+(h%1?'30':'00');
-let day=1,hr=12;
-try{const p={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Dublin',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date()).forEach(x=>{p[x.type]=x.value});const i=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday);if(i>=0){day=i;hr=+p.hour+(+p.minute)/60}}catch(err){}
-$('#hours').innerHTML=[1,2,3,4,5,6,0].map(i=>`<tr${i===day?' class="today"':''}><th scope="row">${DN[i]}</th><td>${H[i]?hh(H[i][0])+'–'+hh(H[i][1]):'Closed'}</td></tr>`).join('');
-const st=$('#status'),t=H[day];
-if(t&&hr>=t[0]&&hr<t[1]){st.className='status open';st.textContent=`Open now · closes ${hh(t[1])}`}
-else if(t&&hr<t[0]){st.className='status';st.textContent=`Closed · opens today at ${hh(t[0])}`}
-else{let i=day,n=0;do{i=(i+1)%7;n++}while(!H[i]&&n<7);st.className='status';st.textContent=`Closed · opens ${n===1?'tomorrow':DN[i]} at ${hh(H[i][0])}`}
 
 setMode('service');
 }

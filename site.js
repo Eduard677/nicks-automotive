@@ -16,12 +16,12 @@ const regLabel = c => c.reg ? c.reg : c.regYear ? `${c.regYear} reg` : '';
 const sold = c => c.status === 'sold';
 const priceText = c => sold(c) ? 'Sold' : has(c.price) ? eur(c.price) : 'Ring for price';
 const isNew = c => !!c.added && (Date.now() - new Date(c.added + 'T12:00:00').getTime()) / 864e5 <= 14;
-const facts = c => [regLabel(c), [c.engine, c.fuel].filter(has).join(' '), has(c.mileage) ? km(c.mileage) : '', c.transmission, c.body].filter(has).slice(0, 4);
+const facts = c => [regLabel(c), [c.engine, c.fuel].filter(has).join(' '), has(c.mileage) ? km(c.mileage) : '', c.transmission, c.body, has(c.owners) ? (Number(c.owners) === 1 ? '1 owner' : c.owners + ' owners') : '', has(c.nct) ? 'NCT ' + ym(c.nct) : ''].filter(has).slice(0, 6);
 const tag = c => sold(c) ? '<span class="tag">Sold</span>' : isNew(c) ? '<span class="tag new">New in</span>' : '';
 const href = c => `car.html#${encodeURIComponent(c.id)}`;
 const carName = c => title(c) + (has(c.variant) ? ' ' + String(c.variant).trim() : '');
 const pageUrl = c => new URL(href(c), location.href).href;
-const carWa = c => WA + '?text=' + encodeURIComponent([carName(c), priceText(c), pageUrl(c)].join('\n'));
+const carWa = c => WA + '?text=' + encodeURIComponent([carName(c), priceText(c), 'Is this still available?', pageUrl(c)].join('\n'));
 const carMail = c => 'mailto:' + MAIL + '?subject=' + encodeURIComponent(carName(c)) + '&body=' + encodeURIComponent(carName(c) + '\n' + pageUrl(c));
 const reach = c => `<div class="reach-car"><a class="btn red" href="tel:+353894770532" aria-label="Call 089 477 0532">${icon('phone')}<span>Call</span></a><a class="btn soft" href="${esc(carWa(c))}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp about ${esc(carName(c))}">${icon('wa')}<span>WhatsApp</span></a><a class="btn soft" href="${esc(carMail(c))}" aria-label="Email about ${esc(carName(c))}">${icon('msg')}<span>Email</span></a></div>`;
 

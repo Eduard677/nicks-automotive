@@ -371,7 +371,7 @@
     "year": 2008,
     "regYear": "08",
     "reg": "08-D-120078",
-    "price": 3300,
+    "price": 3000,
     "mileage": null,
     "fuel": "Diesel",
     "transmission": "Automatic",
@@ -400,7 +400,7 @@
       "cars/mercedes-e220-2008/8.webp"
     ],
     "thumb": "cars/mercedes-e220-2008/thumb.webp",
-    "priceBasis": "Median of five DoneDeal asking prices for 2007-2009 E-Class 2.1 diesels, rounded to €50: €1,850 (2007 auto, 359,000 km, private), €3,000 (2008, 299,000 km, private), €3,300 (2009 E220 Elegance, 336,000 km, private), €3,500 (2009 auto, 211,000 km, dealer), €4,950 (2008, 340,000 km, O'Sullivan Cars). Mean €3,320. Mileage, the seat and armrest wear and the windscreen crack are not priced in. Checked 25 Nov 2026.",
+    "priceBasis": "€3,000 set by Eduard on 25 Nov 2026. DoneDeal median was €3,300: median of five DoneDeal asking prices for 2007-2009 E-Class 2.1 diesels, rounded to €50: €1,850 (2007 auto, 359,000 km, private), €3,000 (2008, 299,000 km, private), €3,300 (2009 E220 Elegance, 336,000 km, private), €3,500 (2009 auto, 211,000 km, dealer), €4,950 (2008, 340,000 km, O'Sullivan Cars). Mean €3,320. Mileage, the seat and armrest wear and the windscreen crack are not priced in. Checked 25 Nov 2026.",
     "descriptionSource": "generated from listing data"
   }
 ]

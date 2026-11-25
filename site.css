@@ -291,10 +291,11 @@ input::placeholder,textarea::placeholder{color:#7d828c}
 .ad .crumbs{max-width:1280px;margin:0 auto 8px}
 .ad-top{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr);gap:clamp(24px,4vw,56px);align-items:start;max-width:1280px;margin:0 auto}
 .gal{min-width:0}
-.gstage{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:#050506}
+/* Photos fill the frame (cover). The frame is close to square because most stock photos are portrait, so both portrait and landscape shots lose little; it never grows taller than the screen allows. The lightbox still shows each whole photo */
+.gstage{position:relative;aspect-ratio:1/1;max-height:calc(100svh - 230px);min-height:420px;width:100%;border-radius:var(--r);overflow:hidden;background:#050506}
 .gview{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .gview::-webkit-scrollbar{display:none}
-.gview img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;scroll-snap-align:start;cursor:zoom-in}
+.gview img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;object-position:50% 50%;scroll-snap-align:start;cursor:zoom-in}
 .gnone{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;height:100%;padding:clamp(24px,4vw,48px);background:var(--s3);color:var(--mut)}
 .gnone b{font:700 clamp(56px,8vw,112px)/.9 var(--head);letter-spacing:-.04em;color:var(--text)}
 .gnav{position:absolute;top:calc(50% - 24px);z-index:2;width:48px;height:48px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.25);background:rgba(10,11,13,.55);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff;cursor:pointer;transition:background-color .2s}
@@ -341,7 +342,7 @@ input::placeholder,textarea::placeholder{color:#7d828c}
 @media(max-width:900px){
   .ad-top,.ad-body{grid-template-columns:minmax(0,1fr)}
   .side{position:static}
-  .gstage{aspect-ratio:4/5;margin-inline:calc(-1 * var(--g));border-radius:0}
+  .gstage{aspect-ratio:4/5;max-height:none;min-height:0;width:auto;margin-inline:calc(-1 * var(--g));border-radius:0}
   .thumbs{display:none}
   .gnav{display:none}
   .adbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:8px;padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));background:rgba(10,11,13,.86);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:1px solid var(--line)}

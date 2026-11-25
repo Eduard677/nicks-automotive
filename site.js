@@ -51,7 +51,8 @@ const card = (c, i = 0) => {
 };
 
 let cache;
-const load = () => cache || (cache = fetch('cars.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => Array.isArray(d) ? d : []));
+/* Cars marked "hidden": true in cars.json stay in the file but are left off every page (e.g. waiting for photos) */
+const load = () => cache || (cache = fetch('cars.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => Array.isArray(d) ? d.filter(c => !c.hidden) : []));
 
 /* Opening hours, Europe/Dublin. Monday to Saturday 9:00 to 17:00, closed Sunday */
 const HOURS = [null, [9, 17], [9, 17], [9, 17], [9, 17], [9, 17], [9, 17]];

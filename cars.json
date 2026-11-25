@@ -38,8 +38,7 @@
     ],
     "thumb": "cars/bmw-730d-2015/thumb.webp",
     "priceBasis": "Set by Eduard (EMD), 24 Nov 2026. Dealer-ad note, not the figure used: median of 11 RWD 730d saloon dealer ads on DoneDeal and Carzone, 2014–2016 because exact 2015 had 2 dealer ads, median €15,950, range €14,950 to €22,950. Private sellers and the one 730d xDrive were left out.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/bmw-730d-2015/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "hyundai-i40-2014",
@@ -83,8 +82,7 @@
     ],
     "thumb": "cars/hyundai-i40-2014/thumb.webp",
     "priceBasis": "Median of 5 DoneDeal dealer ads for 2014 Hyundai i40 1.7 diesel that are saloons or not labelled as estates (John Carew, Fonthill Cars and Killanure Cars confirmed saloons; John Culhane and JJCA Motors not labelled estate). Estates left out. Median €5,950, range €5,450 to €6,995. Checked 24 Nov 2026. Carzone estate ads were not used.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/hyundai-i40-2014/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "bmw-520d-2011",
@@ -121,8 +119,7 @@
     ],
     "thumb": "cars/bmw-520d-2011/thumb.webp",
     "priceBasis": "Median of 7 dealer ads for BMW 520d on DoneDeal and CarsIreland, 2010–2011, because exact-2011 ads confirmed as saloons were only 2. Titles that say touring or F11 were left out. Four are confirmed saloons (Derek Considine, O'Connell Automotive, Motorline, ABC Premier Motors); three 2011 dealer ads do not state the body. Private sellers excluded. Median €5,950, range €3,950 to €8,950. Checked 24 Nov 2026.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/bmw-520d-2011/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "vw-passat-2016",
@@ -160,8 +157,7 @@
     ],
     "thumb": "cars/vw-passat-2016/thumb.webp",
     "priceBasis": "Median of 6 dealer ads for Volkswagen Passat diesel estates on DoneDeal, 2015–2017, because exact-2016 estate diesel dealer ads were only 3 (DN Trade Sales, Finch Motors, Green Mile Motors). Also Troy Car Sales and Centre Park Motors (2015) and Reddy 2 Drive (2017, title marked EST). Petrol, Alltrack/4Motion and ads that do not say estate were left out. Private sellers excluded. Median €8,900, range €5,780 to €15,900. Checked 24 Nov 2026. Engine of this car is not recorded, so 1.6 and 2.0 diesels are both in the set.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/vw-passat-2016/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "ford-transit-2017",
@@ -201,8 +197,7 @@
     ],
     "thumb": "cars/ford-transit-2017/thumb.webp",
     "priceBasis": "No 2017 refrigerated Transit dealer ad found on DoneDeal, Carzone or CarsIreland. A 2017 2.2 panel-van set was too thin to price: the search mixed crew cabs, minibuses and a 4x4, with one franchise panel van (Navan Ford, €13,950 plus VAT) and one high-mileage LWB (Daniel Motors, €5,999). Price left blank rather than padded. Checked 24 Nov 2026.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/ford-transit-2017/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "peugeot-308-2009",
@@ -239,8 +234,7 @@
     ],
     "thumb": "cars/peugeot-308-2009/thumb.webp",
     "priceBasis": "Median of 3 dealer ads for Peugeot 308 hatchbacks on DoneDeal, 2009–2010, because a 2009 dealer ad was only 1 (Trader, Tipperary, €2,495). Also LPC Motors 2010 (€1,995) and Duffy Auto Services 2010 (€4,950). Convertibles (308 CC) and private sellers excluded. Median €2,495, rounded to €2,500. Range €1,995 to €4,950. Sample is thin. Checked 24 Nov 2026.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/peugeot-308-2009/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "nissan-qashqai-2011",
@@ -275,8 +269,7 @@
     ],
     "thumb": "cars/nissan-qashqai-2011/thumb.webp",
     "priceBasis": "Median of 5 dealer ads for 2011 Nissan Qashqai (not the +2) on DoneDeal and Carzone: A.C Motors €2,650, M.W.M Value Vehicles €2,750, Kells Car Sales €2,750, IC Cars €2,995, JRCS LTD €5,999 (2.0 diesel 4x4 auto). Private sellers and Qashqai+2 excluded. Exact year had 5 ads, so 2012 was not added. Median €2,750, range €2,650 to €5,999. Checked 24 Nov 2026.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/nissan-qashqai-2011/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "bmw-x5-2004",
@@ -308,8 +301,7 @@
     ],
     "thumb": "cars/bmw-x5-2004/thumb.webp",
     "priceBasis": "Too thin to price. DoneDeal for BMW X5, 2003–2005, showed one dealer ad (Reddy 2 Drive, 2005 3.0 petrol, €2,500) and private ads, including 4.8is petrol. No 2004 dealer diesel. Price left blank rather than padded. Checked 24 Nov 2026.",
-    "descriptionSource": "generated from listing data",
-    "cutout": "cars/bmw-x5-2004/cutout.png"
+    "descriptionSource": "generated from listing data"
   },
   {
     "id": "nissan-qashqai-2012",

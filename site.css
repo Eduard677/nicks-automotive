@@ -449,56 +449,51 @@ input::placeholder,textarea::placeholder{color:#7d828c}
 /* hero clip: same frame rules as the old photo; the clip carries its own push-in, so no CSS zoom */
 .slide>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);background:#050608}
 
-/* cars for sale: car select on the empty night stage */
-.garage{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-rows:auto auto auto auto;align-content:center;min-height:min(100svh,1000px);padding:calc(var(--hh) + clamp(28px,4vw,56px)) var(--g) clamp(22px,3vw,36px);background:#07080a;color:#fff}
-.g-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 62%;filter:brightness(.78) saturate(.9)}
-.garage::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,8,10,.9) 0,rgba(7,8,10,.15) 24%,rgba(7,8,10,0) 50%,rgba(7,8,10,.55) 74%,rgba(7,8,10,.95) 100%)}
-.g-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;width:100%;max-width:1280px;margin:0 auto}
-.g-title{font:900 italic clamp(46px,7.4vw,112px)/.84 var(--word);letter-spacing:-.012em;text-transform:uppercase}
-.g-floor{position:relative;height:clamp(220px,min(30vw,calc(100svh - 470px)),460px);margin-top:clamp(12px,2vw,28px);cursor:pointer;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.g-floor::after{content:"";position:absolute;left:50%;bottom:-6px;width:min(64%,820px);height:46px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.75),rgba(0,0,0,0));pointer-events:none}
-.g-car{position:absolute;z-index:1;left:50%;bottom:0;width:min(78%,980px);height:100%;object-fit:contain;object-position:50% 100%;opacity:0;transform:translateX(-50%) translateX(var(--from,7%));transition:opacity .45s var(--out),transform .75s var(--out);filter:brightness(.9) contrast(1.05) saturate(.94);pointer-events:none;-webkit-user-drag:none}
-.g-car.on{opacity:1;transform:translateX(-50%)}
-.g-car.off{opacity:0;transform:translateX(-50%) translateX(var(--to,-7%))}
-.g-nav{position:absolute;z-index:3;top:46%;width:56px;height:56px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.24);background:rgba(10,11,13,.5);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;cursor:pointer;transition:background-color .2s,border-color .2s}
-.g-nav:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
-.g-nav.prev{left:var(--g)}.g-nav.next{right:var(--g)}
+/* cars for sale: car select with the real main listing photo (no cutouts, no renders) */
+.garage{position:relative;overflow:hidden;padding:clamp(96px,10vw,152px) var(--g) clamp(64px,7vw,104px);background:#07080a;color:#fff;border-block:1px solid var(--line)}
+.g-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"head shot" "hud shot" "rail rail";grid-template-rows:auto 1fr auto;column-gap:clamp(32px,5vw,80px);max-width:1280px;margin:0 auto}
+.g-head{grid-area:head;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.g-title{font:900 italic clamp(46px,6.4vw,104px)/.84 var(--word);letter-spacing:-.012em;text-transform:uppercase}
+.g-shot{grid-area:shot;position:relative;aspect-ratio:1/1;max-height:calc(100svh - 160px);width:100%;border-radius:var(--r);overflow:hidden;background:#050608;isolation:isolate}
+.g-photos{position:absolute;inset:0;display:block;cursor:pointer;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.g-pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;opacity:0;transform:translateX(var(--from,4%)) scale(1.02);transition:opacity .5s var(--out),transform .8s var(--out);pointer-events:none;-webkit-user-drag:none}
+.g-pic.on{opacity:1;transform:none}
+.g-pic.off{opacity:0;transform:translateX(var(--to,-4%)) scale(1.02)}
+.g-shot::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.45));pointer-events:none;z-index:1}
+.g-count{position:absolute;z-index:2;left:16px;right:auto;top:16px;bottom:auto}
+.g-nav{position:absolute;z-index:2;bottom:16px;width:52px;height:52px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.26);background:rgba(10,11,13,.5);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;cursor:pointer;transition:background-color .2s,border-color .2s}
+.g-nav:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.45)}
+.g-nav.prev{right:76px}.g-nav.next{right:16px}
 .g-nav .ic{width:22px;height:22px}
-.g-hud{position:relative;z-index:2;display:grid;grid-template-columns:max-content minmax(0,1fr) max-content;align-items:end;gap:clamp(18px,3vw,44px);width:100%;max-width:1280px;margin:0 auto;padding:clamp(18px,2vw,26px) clamp(20px,2.4vw,32px);border-radius:var(--r);border:1px solid rgba(255,255,255,.12);background:rgba(10,11,13,.62);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4)}
-.g-n{display:block;font:700 15px/1 var(--plate);letter-spacing:.1em;color:var(--link);font-variant-numeric:tabular-nums}
-.g-name{margin-top:10px;font:900 italic clamp(30px,3.2vw,50px)/.88 var(--word);letter-spacing:-.008em;text-transform:uppercase}
-.g-sub{margin-top:8px;color:var(--mut);font-size:15px}
-.g-read{display:flex;flex-wrap:wrap;row-gap:12px;margin:0;min-width:0;justify-content:flex-end}
-.g-read div{flex:0 0 auto;padding:2px 18px;border-left:1px solid rgba(255,255,255,.14)}
+.g-hud{grid-area:hud;align-self:end;display:flex;flex-direction:column;align-items:flex-start;padding-top:clamp(32px,4vw,56px)}
+.g-n{font:700 15px/1 var(--plate);letter-spacing:.1em;color:var(--link);font-variant-numeric:tabular-nums}
+.g-name{margin-top:12px;font:900 italic clamp(34px,3.6vw,58px)/.88 var(--word);letter-spacing:-.008em;text-transform:uppercase}
+.g-sub{margin-top:10px;color:var(--mut);font-size:16px}
+.g-read{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;width:100%;margin:28px 0 0;padding:22px 0;border-block:1px solid rgba(255,255,255,.12)}
 .g-read dt{font:600 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
-.g-read dd{margin:8px 0 0;font:700 clamp(17px,1.5vw,21px)/1.1 var(--plate);letter-spacing:.02em;white-space:nowrap}
-.g-buy{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
-.g-price{font:700 clamp(32px,3vw,46px)/1 var(--head);letter-spacing:-.035em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.g-read dd{margin:8px 0 0;font:700 clamp(18px,1.6vw,22px)/1.1 var(--plate);letter-spacing:.02em;white-space:nowrap}
+.g-buy{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;width:100%;margin-top:26px}
+.g-price{font:700 clamp(34px,3.2vw,48px)/1 var(--head);letter-spacing:-.035em;font-variant-numeric:tabular-nums;white-space:nowrap}
 .g-price.ask{font:600 18px/1.2 var(--body);letter-spacing:0;color:var(--mut)}
-.g-rail{display:flex;gap:clamp(10px,1.6vw,22px);width:100%;max-width:1280px;margin:16px auto 0;overflow-x:auto;scrollbar-width:none}
+.g-rail{grid-area:rail;display:flex;gap:clamp(10px,1.6vw,22px);margin-top:clamp(28px,3vw,40px);overflow-x:auto;scrollbar-width:none}
 .g-rail::-webkit-scrollbar{display:none}
-.g-rail button{flex:1 0 118px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:44px;padding:8px 0 0;border:0;background:none;color:rgba(255,255,255,.55);font:600 13px/1.2 var(--body);text-align:left;white-space:nowrap;cursor:pointer;transition:color .25s}
+.g-rail button{flex:1 0 112px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:44px;padding:8px 0 0;border:0;background:none;color:rgba(255,255,255,.55);font:600 13px/1.2 var(--body);text-align:left;white-space:nowrap;cursor:pointer;transition:color .25s}
 .g-rail button:hover,.g-rail button[aria-current=true]{color:#fff}
 .g-rail .tr{display:block;height:3px;border-radius:3px;background:rgba(255,255,255,.2);transition:background-color .3s}
 .g-rail button[aria-current=true] .tr{background:var(--blue)}
-.garage.g-empty .g-floor,.garage.g-empty .g-nav,.garage.g-empty .g-read,.garage.g-empty .g-buy,.garage.g-empty .g-rail{display:none}
+.garage.g-empty .g-shot,.garage.g-empty .g-read,.garage.g-empty .g-buy,.garage.g-empty .g-rail{display:none}
 @media(max-width:900px){
-  .g-hud{grid-template-columns:minmax(0,1fr) max-content;align-items:start}
-  .g-read{grid-column:1/-1;grid-row:2;justify-content:flex-start;row-gap:14px}
-  .g-read div{flex:1 1 45%;padding:0 12px}
-  .g-read div:nth-child(odd){border-left:0;padding-left:0}
-  .g-buy{grid-column:2;grid-row:1}
+  .g-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "shot" "hud" "rail";grid-template-rows:none}
+  .g-head{flex-direction:row;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;margin-bottom:24px}
+  .g-shot{aspect-ratio:4/5;max-height:none}
+  .g-hud{padding-top:24px}
 }
 @media(max-width:620px){
-  .garage{min-height:0;padding-top:88px}
-  .g-floor{height:62vw}
-  .g-car{width:94%}
-  .g-nav{display:none}
-  .g-hud{grid-template-columns:minmax(0,1fr);padding:18px}
-  .g-buy{grid-column:1;grid-row:3;flex-direction:row;align-items:center;justify-content:space-between}
-  .g-read{grid-row:2}
+  .garage{padding-top:88px}
+  .g-shot{margin-inline:calc(-1 * var(--g));width:auto;border-radius:0}
+  .g-nav{width:48px;height:48px}.g-nav.prev{right:70px}
 }
-@media(prefers-reduced-motion:reduce){.g-car,.g-car.on,.g-car.off{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.g-pic,.g-pic.on,.g-pic.off{transform:none}}
 
 /* service clips fade in over their stills once they are playing */
 .sv-pic{position:relative}

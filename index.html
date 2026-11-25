@@ -83,20 +83,26 @@
 </section>
 
 <section class="garage" id="cars" aria-labelledby="carsT" aria-roledescription="carousel">
-  <img class="g-bg" src="img/stage-night-2400.jpg" width="2400" height="1350" alt="" loading="lazy" decoding="async">
-  <div class="g-head">
-    <h2 class="g-title" id="carsT">Cars for sale</h2>
-    <a class="more-link" href="cars.html" id="allLink">See all cars <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <div class="g-in">
+    <div class="g-head">
+      <h2 class="g-title" id="carsT">Cars for sale</h2>
+      <a class="more-link" href="cars.html" id="allLink">See all cars <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="g-shot" id="gShot">
+      <a class="g-photos" id="gPhotos" href="cars.html" aria-label="Open this car"></a>
+      <span class="pc g-count" id="gCount" hidden></span>
+      <button class="g-nav prev" type="button" id="gPrev" aria-label="Previous car"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+      <button class="g-nav next" type="button" id="gNext" aria-label="Next car"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+    </div>
+    <div class="g-hud" id="gHud">
+      <span class="g-n" id="gN"></span>
+      <h3 class="g-name" id="gName">Loading the cars</h3>
+      <p class="g-sub" id="gSub"></p>
+      <dl class="g-read" id="gRead"></dl>
+      <div class="g-buy"><span class="g-price" id="gPrice"></span><a class="btn pri" id="gView" href="cars.html">View this car <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+    <div class="g-rail" id="gRail" role="group" aria-label="Choose a car"></div>
   </div>
-  <div class="g-floor" id="gFloor"></div>
-  <button class="g-nav prev" type="button" id="gPrev" aria-label="Previous car"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
-  <button class="g-nav next" type="button" id="gNext" aria-label="Next car"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
-  <div class="g-hud" id="gHud">
-    <div class="g-id"><span class="g-n" id="gN"></span><h3 class="g-name" id="gName">Loading the cars</h3><p class="g-sub" id="gSub"></p></div>
-    <dl class="g-read" id="gRead"></dl>
-    <div class="g-buy"><span class="g-price" id="gPrice"></span><a class="btn pri" id="gView" href="cars.html">View this car <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-  </div>
-  <div class="g-rail" id="gRail" role="group" aria-label="Choose a car"></div>
   <p class="vh" id="gLive" aria-live="polite"></p>
 </section>
 
@@ -238,26 +244,26 @@ requestAnimationFrame(()=>requestAnimationFrame(()=>$('.hero .slide').classList.
   }
 }
 
-/* cars for sale: car select. Cars with a cutout stand on the night stage; arrows, the rail, swipe and the arrow keys move between them */
+/* cars for sale: car select with each car's own main listing photo. Arrows, the rail, swipe and the arrow keys move between cars */
 load().then(d=>{
   const av=d.filter(c=>!sold(c));
   $('#allLink').firstChild.textContent=`See all ${av.length} cars `;
   $('#askCar').innerHTML='<option value="">Choose a car</option>'+av.map(c=>`<option value="${esc(c.id)}">${esc(name(c))}${sub(c)?' '+esc(sub(c)):''}</option>`).join('');
-  const G=av.filter(c=>c.cutout);
+  const G=av.filter(c=>(c.photos||[]).length);
   const sec=$('#cars');
   if(!G.length){sec.classList.add('g-empty');$('#gName').textContent='New stock is on the way';return}
-  const floor=$('#gFloor'),rail=$('#gRail');
+  const box=$('#gPhotos'),rail=$('#gRail');
   const short=c=>name(c).replace(/^\d{4}\s+/,'');
-  floor.innerHTML=G.map((c,i)=>`<img class="g-car" data-i="${i}" alt="${esc(name(c))}" decoding="async" draggable="false">`).join('');
+  box.innerHTML=G.map((c,i)=>`<img class="g-pic" data-i="${i}" alt="${esc(name(c))}, main photo" decoding="async" draggable="false">`).join('');
   rail.innerHTML=G.map((c,i)=>`<button type="button" data-i="${i}" aria-label="Show the ${esc(name(c))}"><span class="tr"></span><span>${esc(short(c))}</span></button>`).join('');
-  const cars=$$('.g-car'),stops=$$('#gRail button');
+  const pics=$$('.g-pic'),stops=$$('#gRail button');
   const pad=n=>String(n).padStart(2,'0');
   const read=c=>[['Reg',NS.regLabel(c)],['Engine',[c.engine,c.fuel].filter(has).join(' ')],['Gearbox',c.transmission],['Body',c.body]].filter(([,v])=>has(v));
   let cur=-1;
-  const warm=i=>[i-1,i,i+1].forEach(k=>{const j=(k+G.length)%G.length,im=cars[j];if(!im.src)im.src=G[j].cutout});
+  const warm=i=>[i-1,i,i+1].forEach(k=>{const j=(k+G.length)%G.length,im=pics[j];if(!im.src)im.src=G[j].photos[0]});
   const go=(i,dir=1)=>{
     i=(i+G.length)%G.length;if(i===cur)return;
-    cars.forEach((im,j)=>{im.style.setProperty('--from',(dir>0?7:-7)+'%');im.style.setProperty('--to',(dir>0?-7:7)+'%');im.classList.toggle('on',j===i);im.classList.toggle('off',j===cur)});
+    pics.forEach((im,j)=>{im.style.setProperty('--from',(dir>0?4:-4)+'%');im.style.setProperty('--to',(dir>0?-4:4)+'%');im.classList.toggle('on',j===i);im.classList.toggle('off',j===cur)});
     stops.forEach((b,j)=>b.setAttribute('aria-current',String(j===i)));
     const sb=stops[i];rail.scrollTo({left:sb.offsetLeft-rail.offsetLeft-(rail.clientWidth-sb.offsetWidth)/2,behavior:NS.reduce?'auto':'smooth'});
     const c=G[i];cur=i;warm(i);
@@ -266,19 +272,19 @@ load().then(d=>{
     $('#gSub').textContent=[c.year,sub(c)].filter(has).join(' · ');
     $('#gRead').innerHTML=read(c).map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
     const pr=$('#gPrice');pr.textContent=priceText(c);pr.classList.toggle('ask',!has(c.price));
-    $('#gView').href=href(c);
+    $('#gView').href=href(c);box.href=href(c);box.setAttribute('aria-label',`Open the ${name(c)}`);
+    const n=c.photos.length,ct=$('#gCount');ct.hidden=n<2;ct.innerHTML=`${icon('cam')}${n} photos`;
     $('#gLive').textContent=`${name(c)}, ${priceText(c)}`;
   };
   go(0);
   $('#gPrev').addEventListener('click',()=>go(cur-1,-1));
   $('#gNext').addEventListener('click',()=>go(cur+1,1));
   rail.addEventListener('click',e=>{const b=e.target.closest('button');if(b){const j=+b.dataset.i;go(j,j>cur?1:-1)}});
-  sec.addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea'))return;if(e.key==='ArrowRight'){e.preventDefault();go(cur+1,1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1,-1)}});
-  let x0=null;
-  floor.addEventListener('pointerdown',e=>{x0=e.clientX});
-  let swiped=false;
-  floor.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;swiped=Math.abs(dx)>40;if(swiped)go(dx<0?cur+1:cur-1,dx<0?1:-1)});
-  floor.addEventListener('click',()=>{if(swiped){swiped=false;return}location.href=href(G[cur])});
+  sec.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur+1,1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1,-1)}});
+  let x0=null,swiped=false;
+  box.addEventListener('pointerdown',e=>{x0=e.clientX;swiped=false});
+  box.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40){swiped=true;go(dx<0?cur+1:cur-1,dx<0?1:-1)}});
+  box.addEventListener('click',e=>{if(swiped){e.preventDefault();swiped=false}});
 }).catch(()=>{$('#gName').textContent='The stock list could not load';$('#gSub').textContent='Ring Nick on 089 477 0532'});
 
 /* service clips: load and play only while the card is on screen; stills stay with reduced motion or Save-Data */

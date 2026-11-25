@@ -21,7 +21,7 @@
   --r:0;--ri:0;
   --td:.04em;--th:.06em;--tl:.16em;
   --g:max(20px,4.5vw,calc((100% - 1280px)/2));
-  --hh:64px;
+  --hh:72px;
   --font:"Montserrat","Helvetica Neue",Arial,sans-serif;
   --head:"Barlow Semi Condensed","Arial Narrow",sans-serif;
   --plate:"Barlow Semi Condensed","Arial Narrow",sans-serif;
@@ -74,29 +74,43 @@ svg.ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;str
 .plate i{font-style:normal;padding:.26em .5em .2em}
 .pill{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border:1px solid var(--line2);font-size:12px;font-weight:500;letter-spacing:var(--tl);text-transform:uppercase}
 
-/* header */
-.hd{position:fixed;inset:0 0 auto;z-index:50;height:var(--hh);display:flex;align-items:center;gap:6px;padding:0 var(--g);background:rgba(0,0,0,.62);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
-.logo{display:inline-flex;align-items:center;flex:none;min-height:44px;line-height:0;margin-right:auto}
+/* header: logo, four links in the middle, one action. Clear over the hero, it turns solid once the page scrolls.
+   On phones it is the logo, a call button and the menu; the menu holds the links plus Book a service and Call */
+.hd{position:fixed;inset:0 0 auto;z-index:50;height:var(--hh);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;column-gap:24px;padding:0 var(--g);border-bottom:1px solid transparent;transition:border-color .35s}
+/* the solid backing is its own layer: a blur on the header itself would trap the fixed phone menu inside the bar */
+.hd::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.78);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);opacity:0;transition:opacity .35s}
+.hd.solid,body.menu-open .hd{border-bottom-color:var(--line)}
+.hd.solid::before{opacity:1}
+body.menu-open .hd::before{opacity:1;background:#000}
+.logo{justify-self:start;display:inline-flex;align-items:center;min-height:44px;line-height:0}
 .logo img{display:block;height:36px;width:auto}
-.nav{display:flex;align-items:center;gap:2px;margin-right:16px}
-.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;color:rgba(255,255,255,.72);font-size:12px;font-weight:500;letter-spacing:var(--tl);text-transform:uppercase;text-decoration:none;transition:color .2s}
-.nav a:hover,.nav a[aria-current=page]{color:#fff}
-.htel{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;font:400 13px/1 var(--font);letter-spacing:.08em;font-variant-numeric:tabular-nums;text-decoration:none;white-space:nowrap}
-.htel .ic{width:16px;height:16px}
-.menu{display:none;flex:none;position:relative;width:44px;height:44px;border:1px solid rgba(255,255,255,.42);border-radius:999px;background:none;cursor:pointer;margin-left:4px}
+.nav{justify-self:center;display:flex;align-items:center;gap:4px}
+.nav>a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;color:rgba(255,255,255,.78);font-size:12px;font-weight:500;letter-spacing:var(--tl);text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:color .2s}
+.nav>a:hover,.nav>a[aria-current=page]{color:#fff}
+.nav-act{display:none}
+.hd-end{justify-self:end;display:flex;align-items:center;gap:8px}
+.hd-call{display:none;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.42);border-radius:999px;color:#fff;transition:background-color .2s,color .2s,border-color .2s}
+.hd-call .ic{width:17px;height:17px}
+.hd-call:hover{background:#fff;color:#000;border-color:#fff}
+.menu{display:none;flex:none;position:relative;width:44px;height:44px;border:1px solid rgba(255,255,255,.42);border-radius:999px;background:none;cursor:pointer}
 .menu span{position:absolute;left:13px;right:13px;height:1px;background:var(--text);transition:transform .3s var(--ease)}
 .menu span:first-child{top:18px}.menu span:last-child{top:24px}
 .menu[aria-expanded=true] span:first-child{transform:translateY(3px) rotate(45deg)}
 .menu[aria-expanded=true] span:last-child{transform:translateY(-3px) rotate(-45deg)}
 .page{padding-top:var(--hh)}
 body.menu-open{overflow:hidden}
+@media(max-width:1180px){.hd{grid-template-columns:auto minmax(0,1fr) auto}.nav{justify-self:end}.nav>a{padding:0 12px}}
 @media(max-width:1000px){
-  .nav{position:fixed;top:var(--hh);left:0;right:0;height:calc(100dvh - var(--hh));overflow-y:auto;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:16px var(--g) 40px;background:var(--bg);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s,transform .35s var(--ease),visibility 0s .35s}
+  .hd{grid-template-columns:minmax(0,1fr) auto}
+  .hd-book{display:none}
+  .hd-call,.menu{display:inline-grid}
+  .nav{justify-self:stretch;position:fixed;top:var(--hh);left:0;right:0;height:calc(100dvh - var(--hh));overflow-y:auto;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:16px var(--g) 40px;background:#000;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s,transform .35s var(--ease),visibility 0s .35s}
   .nav.open{opacity:1;visibility:visible;transform:none;transition:opacity .25s,transform .35s var(--ease)}
-  .nav a{min-height:64px;padding:0;border-bottom:1px solid var(--line);font:700 30px/1 var(--head);letter-spacing:.005em;color:var(--text)}
-  .menu{display:inline-block}
+  .nav>a{min-height:64px;padding:0;border-bottom:1px solid var(--line);font:700 30px/1 var(--head);letter-spacing:.005em;color:var(--text)}
+  .nav-act{display:grid;gap:10px;margin-top:32px}
+  .nav-act .btn{width:100%;min-height:52px}
 }
-@media(max-width:560px){.hd{gap:4px}.htel span{display:none}.htel{flex:none;width:40px;justify-content:center;padding:0}.logo{flex:0 1 auto;min-width:0}.logo img{width:152px;height:auto;max-width:100%}.hd .btn.sm{flex:none;min-height:40px;padding:0 14px;letter-spacing:.1em}}
+@media(max-width:560px){.logo{min-width:0}.logo img{width:152px;height:auto;max-width:100%}}
 
 /* hero: one photo, visible from the first paint; with JS it settles from a slight zoom and the words rise once */
 .hero{position:relative;height:100svh;min-height:600px;max-height:1080px;background:#000;color:#fff;overflow:hidden}
@@ -385,7 +399,7 @@ input::placeholder,textarea::placeholder{color:#7a7a7a}
 .ft-mail .mail{margin-left:6px}
 .ft .ft-top{grid-template-columns:repeat(2,minmax(0,220px));margin-top:clamp(36px,4vw,56px)}
 @media(max-width:860px){.ft-main{grid-template-columns:minmax(0,1fr);align-items:start}.ft .ft-top{grid-template-columns:1fr 1fr}.ft .ft-top nav:last-child{grid-column:auto}}
-@media(max-width:420px){.ft-tel{font-size:clamp(36px,11vw,48px);gap:10px}.ft-id{align-items:flex-start}}
+@media(max-width:420px){.ft-tel{font-size:clamp(36px,11vw,48px);gap:10px}.ft-id{align-items:flex-start;gap:16px}.ft-badge img{width:64px}.ft-name{font-size:clamp(26px,8.4vw,34px)}.cta .btn{padding:0 12px;letter-spacing:.1em}}
 
 /* reserve room while stock loads so the footer does not jump */
 #grid:empty{min-height:120vh}

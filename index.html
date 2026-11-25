@@ -61,12 +61,14 @@
   <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></symbol>
 </svg>
 
-<header class="hd">
+<header class="hd" id="hd">
   <a class="logo" href="#top" aria-label="Nick's Autoservice, home"><img src="logo.svg" alt="" width="228" height="36"></a>
-  <nav class="nav" id="nav" aria-label="Main"><a href="#services">Services</a><a href="cars.html">Cars for sale</a><a href="#sell">Sell your car</a><a href="#visit">Find us</a></nav>
-  <a class="htel" href="tel:+353894770532" aria-label="Call 089 477 0532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span>089 477 0532</span></a>
-  <a class="btn pri sm" href="#book" data-mode="service">Book in</a>
-  <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
+  <nav class="nav" id="nav" aria-label="Main"><a href="#services">Services</a><a href="cars.html">Cars for sale</a><a href="#sell">Sell your car</a><a href="#visit">Find us</a><span class="nav-act"><a class="btn pri" href="#book" data-mode="service">Book a service</a><a class="btn" href="tel:+353894770532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call 089 477 0532</a></span></nav>
+  <div class="hd-end">
+    <a class="btn pri sm hd-book" href="#book" data-mode="service">Book in</a>
+    <a class="hd-call" href="tel:+353894770532" aria-label="Call 089 477 0532"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></a>
+    <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
+  </div>
 </header>
 
 <main>

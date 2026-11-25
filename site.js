@@ -128,6 +128,10 @@ if (menu && nav) {
   addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); menu.focus(); } });
 }
 
+/* Header: clear at the top of the page, solid once it scrolls */
+const hd = $('#hd');
+if (hd) { const solid = () => hd.classList.toggle('solid', scrollY > 8); solid(); addEventListener('scroll', solid, { passive: true }); }
+
 /* No scroll reveals: content is there as soon as it is on screen. reveal() stays as a no-op for pages that call it */
 const reveal = () => {};
 

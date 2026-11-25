@@ -39,6 +39,7 @@ Any field can be left as `null` until it is known. The site hides empty fields, 
 - `regYear`: the year part of the reg as people say it (`09`, `161`, `171`). Used when `reg` is empty.
 - `price` and `mileage`: plain numbers, no commas or euro sign. Mileage is in km. `price` is the median of Irish dealer asking prices (DoneDeal, Carzone, CarsIreland), rounded to the nearest €50. Leave it null when there are not enough dealer ads. `priceBasis` records the sites, the number of ads, the median, the range and the date.
 - `nct` and `tax`: year and month, `YYYY-MM`.
+- `cutout`: optional path to a transparent PNG of the car (background removed only, car pixels untouched, plate blurred), e.g. `cars/<id>/cutout.png`. Cars with a cutout appear in the car-select section on the home page; the rest are on the stock page as normal.
 - `hidden`: set to `true` to take a car off the site for now without deleting it (the 2012 Qashqai and 2012 Peugeot are hidden until they have photos). Delete the line or set it to `false` to show it again.
 - `added`: the date it went on the site, `YYYY-MM-DD`. Cars added in the last 14 days get a "New in" tag. "Most recent" on the stock page keeps the order of the file, so put new cars at the top.
 - `status`: `available` or `sold`. Sold cars move to the "Recently sold" tab.

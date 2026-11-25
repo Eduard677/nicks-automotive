@@ -443,3 +443,65 @@ input::placeholder,textarea::placeholder{color:#7d828c}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
   .js .slide>img{transform:none}
 }
+
+/* ---------- Night garage: Need for Speed mood, Apple restraint, Rockstar title cards ---------- */
+
+/* hero clip: same frame rules as the old photo; the clip carries its own push-in, so no CSS zoom */
+.slide>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);background:#050608}
+
+/* cars for sale: car select on the empty night stage */
+.garage{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-rows:auto auto auto auto;align-content:center;min-height:min(100svh,1000px);padding:calc(var(--hh) + clamp(28px,4vw,56px)) var(--g) clamp(22px,3vw,36px);background:#07080a;color:#fff}
+.g-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 62%;filter:brightness(.78) saturate(.9)}
+.garage::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,8,10,.9) 0,rgba(7,8,10,.15) 24%,rgba(7,8,10,0) 50%,rgba(7,8,10,.55) 74%,rgba(7,8,10,.95) 100%)}
+.g-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;width:100%;max-width:1280px;margin:0 auto}
+.g-title{font:900 italic clamp(46px,7.4vw,112px)/.84 var(--word);letter-spacing:-.012em;text-transform:uppercase}
+.g-floor{position:relative;height:clamp(220px,min(30vw,calc(100svh - 470px)),460px);margin-top:clamp(12px,2vw,28px);cursor:pointer;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.g-floor::after{content:"";position:absolute;left:50%;bottom:-6px;width:min(64%,820px);height:46px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.75),rgba(0,0,0,0));pointer-events:none}
+.g-car{position:absolute;z-index:1;left:50%;bottom:0;width:min(78%,980px);height:100%;object-fit:contain;object-position:50% 100%;opacity:0;transform:translateX(-50%) translateX(var(--from,7%));transition:opacity .45s var(--out),transform .75s var(--out);filter:brightness(.9) contrast(1.05) saturate(.94);pointer-events:none;-webkit-user-drag:none}
+.g-car.on{opacity:1;transform:translateX(-50%)}
+.g-car.off{opacity:0;transform:translateX(-50%) translateX(var(--to,-7%))}
+.g-nav{position:absolute;z-index:3;top:46%;width:56px;height:56px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.24);background:rgba(10,11,13,.5);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;cursor:pointer;transition:background-color .2s,border-color .2s}
+.g-nav:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+.g-nav.prev{left:var(--g)}.g-nav.next{right:var(--g)}
+.g-nav .ic{width:22px;height:22px}
+.g-hud{position:relative;z-index:2;display:grid;grid-template-columns:max-content minmax(0,1fr) max-content;align-items:end;gap:clamp(18px,3vw,44px);width:100%;max-width:1280px;margin:0 auto;padding:clamp(18px,2vw,26px) clamp(20px,2.4vw,32px);border-radius:var(--r);border:1px solid rgba(255,255,255,.12);background:rgba(10,11,13,.62);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4)}
+.g-n{display:block;font:700 15px/1 var(--plate);letter-spacing:.1em;color:var(--link);font-variant-numeric:tabular-nums}
+.g-name{margin-top:10px;font:900 italic clamp(30px,3.2vw,50px)/.88 var(--word);letter-spacing:-.008em;text-transform:uppercase}
+.g-sub{margin-top:8px;color:var(--mut);font-size:15px}
+.g-read{display:flex;flex-wrap:wrap;row-gap:12px;margin:0;min-width:0;justify-content:flex-end}
+.g-read div{flex:0 0 auto;padding:2px 18px;border-left:1px solid rgba(255,255,255,.14)}
+.g-read dt{font:600 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.g-read dd{margin:8px 0 0;font:700 clamp(17px,1.5vw,21px)/1.1 var(--plate);letter-spacing:.02em;white-space:nowrap}
+.g-buy{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.g-price{font:700 clamp(32px,3vw,46px)/1 var(--head);letter-spacing:-.035em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.g-price.ask{font:600 18px/1.2 var(--body);letter-spacing:0;color:var(--mut)}
+.g-rail{display:flex;gap:clamp(10px,1.6vw,22px);width:100%;max-width:1280px;margin:16px auto 0;overflow-x:auto;scrollbar-width:none}
+.g-rail::-webkit-scrollbar{display:none}
+.g-rail button{flex:1 0 118px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:44px;padding:8px 0 0;border:0;background:none;color:rgba(255,255,255,.55);font:600 13px/1.2 var(--body);text-align:left;white-space:nowrap;cursor:pointer;transition:color .25s}
+.g-rail button:hover,.g-rail button[aria-current=true]{color:#fff}
+.g-rail .tr{display:block;height:3px;border-radius:3px;background:rgba(255,255,255,.2);transition:background-color .3s}
+.g-rail button[aria-current=true] .tr{background:var(--blue)}
+.garage.g-empty .g-floor,.garage.g-empty .g-nav,.garage.g-empty .g-read,.garage.g-empty .g-buy,.garage.g-empty .g-rail{display:none}
+@media(max-width:900px){
+  .g-hud{grid-template-columns:minmax(0,1fr) max-content;align-items:start}
+  .g-read{grid-column:1/-1;grid-row:2;justify-content:flex-start;row-gap:14px}
+  .g-read div{flex:1 1 45%;padding:0 12px}
+  .g-read div:nth-child(odd){border-left:0;padding-left:0}
+  .g-buy{grid-column:2;grid-row:1}
+}
+@media(max-width:620px){
+  .garage{min-height:0;padding-top:88px}
+  .g-floor{height:62vw}
+  .g-car{width:94%}
+  .g-nav{display:none}
+  .g-hud{grid-template-columns:minmax(0,1fr);padding:18px}
+  .g-buy{grid-column:1;grid-row:3;flex-direction:row;align-items:center;justify-content:space-between}
+  .g-read{grid-row:2}
+}
+@media(prefers-reduced-motion:reduce){.g-car,.g-car.on,.g-car.off{transform:translateX(-50%)}}
+
+/* service clips fade in over their stills once they are playing */
+.sv-pic{position:relative}
+.sv-pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--cp,50% 50%);opacity:0;transition:opacity .6s var(--out)}
+.sv-pic video.on{opacity:1}
+@media(hover:hover) and (min-width:901px){.sv-pic video{transition:opacity .6s var(--out),transform .5s var(--out)}.sv:hover .sv-pic video{transform:scale(1.045)}}

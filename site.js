@@ -43,7 +43,7 @@ const card = (c, i = 0) => {
   const ph = c.photos || [];
   const s = sub(c);
   return `<a class="lc" href="${href(c)}" style="--i:${Math.min(+i || 0, 11)}">
-  <span class="lc-pic">${ph.length ? `<img src="${esc(c.thumb || ph[0])}" alt="" width="720" height="540" loading="lazy" decoding="async">` : `<span class="ph"><b>${esc(c.make || 'Car')}</b><span>Photos on the way</span></span>`}${ph.length > 1 ? `<span class="pc">${icon('cam')}${ph.length}</span>` : ''}${tag(c)}</span>
+  <span class="lc-pic">${ph.length ? `<img src="${esc(c.thumb || ph[0])}" alt="" width="960" height="720" loading="lazy" decoding="async">` : `<span class="ph"><b>${esc(c.make || 'Car')}</b><span>Photos on the way</span></span>`}${ph.length > 1 ? `<span class="pc">${icon('cam')}${ph.length}</span>` : ''}${tag(c)}</span>
   <span class="lc-b"><h3>${esc(name(c))}</h3>
   ${s ? `<span class="lc-v">${esc(s)}</span>` : ''}
   ${chips(c)}

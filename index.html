@@ -255,7 +255,7 @@ load().then(d=>{
   if(!G.length){sec.classList.add('g-empty');$('#gName').textContent='New stock is on the way';return}
   const box=$('#gPhotos'),rail=$('#gRail');
   const short=c=>name(c).replace(/^\d{4}\s+/,'');
-  box.innerHTML=G.map((c,i)=>`<img class="g-pic" data-i="${i}" alt="${esc(name(c))}, main photo" decoding="async" draggable="false">`).join('');
+  box.innerHTML=G.map((c,i)=>`<img class="g-pic" data-i="${i}" alt="${esc(name(c))}, main photo" decoding="async" draggable="false"${c.focus?` style="object-position:${esc(c.focus)}"`:''}>`).join('');
   rail.innerHTML=G.map((c,i)=>`<button type="button" data-i="${i}" aria-label="Show the ${esc(name(c))}"><span class="tr"></span><span>${esc(short(c))}</span></button>`).join('');
   const pics=$$('.g-pic'),stops=$$('#gRail button');
   const pad=n=>String(n).padStart(2,'0');

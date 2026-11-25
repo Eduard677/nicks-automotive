@@ -51,6 +51,9 @@ Any field can be left as `null` until it is known. The site hides empty fields, 
 
 Put each car's photos in `cars/<id>/`, numbered in the order they should show. The first photo is the one on the listing card.
 
+- `thumb`: the listing-card image, `cars/<id>/thumb.webp`. It is the first photo cropped to 4:3 at 960 × 720 so the whole car, roof to tyres, is in frame. Without one, the card uses the first photo.
+- `focus`: where the car sits in the first photo, as `x% y%` (for example `50% 25%` when the car is in the top half). The car select on the home page and the first gallery photo crop around this point. Leave it out and the crop is centred.
+
 The usual order: front three-quarter, side, rear three-quarter, interior, dash with the mileage, boot, then any detail or damage. Shoot landscape against a plain wall. Export at 1600 px wide, WebP or JPEG, under about 300 KB each.
 
 A car with no photos shows "Photos coming soon" with its reg.

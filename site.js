@@ -85,11 +85,38 @@ const postMail = async fields => {
   let data = null;
   try { data = await res.json(); } catch (err) { data = null; }
   if (!(res.ok && data && (data.success === true || data.success === 'true'))) throw new Error('send');
+  const subject = String(fields._subject || '');
+  const car = fields['Car id'] || fields['Car title'] || '';
+  let type = 'enquiry';
+  if (subject === 'Booking request') type = 'booking';
+  else if (subject === 'Sell / trade-in') type = 'sell';
+  else if (subject.indexOf('Car enquiry') === 0 || car) type = 'car';
+  const ev = { type };
+  if (car) ev.car = String(car);
+  track('enquiry_submit', ev);
 };
 const waText = lines => WA + '?text=' + encodeURIComponent(lines.join('\n'));
 $$('[data-mail-text]').forEach(a => { a.href = 'mailto:' + MAIL; a.textContent = MAIL; });
 const ld = document.querySelector('script[type="application/ld+json"]');
 if (ld) { try { const data = JSON.parse(ld.textContent); data.email = MAIL; ld.textContent = JSON.stringify(data); } catch (err) {} }
+
+const track = (name, data) => {
+  try {
+    if (typeof window.va === 'function') window.va('event', { name, data });
+  } catch (err) {}
+};
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  let url;
+  try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+  const page = location.pathname + location.hash;
+  const host = url.hostname;
+  if (url.protocol === 'tel:') track('call_click', { page });
+  else if (host === 'wa.me' || host.endsWith('.wa.me')) track('whatsapp_click', { page });
+  else if (url.protocol === 'mailto:') track('email_click', { page });
+  else if (host === 'maps.google.com' || host.endsWith('.maps.google.com') || /(?:^|\.)google\.[^.]+$/.test(host) && /\/maps(?:\/|$|\?)/.test(url.pathname + url.search)) track('directions_click', { page });
+});
 
 /* Menu */
 const menu = $('#menu'), nav = $('#nav');

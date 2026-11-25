@@ -16,7 +16,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://nicks-automotive-mullingar.vercel.app/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Barlow+Semi+Condensed:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/montserrat-300-500.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="site.css">
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -118,7 +119,7 @@ const render=()=>{
       <div class="done" id="done" hidden tabindex="-1"><h3>Thanks, Nick will get back to you</h3><p>For anything urgent, ring <a class="mail" href="${TELH}">${TEL}</a>.</p></div></div>
     </section>
   </div>
-  ${others.length?`<section class="more" aria-labelledby="moreT"><div class="sec-head" style="margin-bottom:0"><h2 class="h2" id="moreT" style="font-size:clamp(36px,4vw,56px)">More cars from Nick</h2><a class="more-link" href="cars.html">See all cars ${icon('arrow')}</a></div><div class="list">${others.map(card).join('')}</div></section>`:''}
+  ${others.length?`<section class="more" aria-labelledby="moreT"><div class="sec-head" style="margin-bottom:0"><h2 class="h2" id="moreT">More cars from Nick</h2><a class="more-link" href="cars.html">See all cars ${icon('arrow')}</a></div><div class="list">${others.map(card).join('')}</div></section>`:''}
   ${ph.length?`<dialog class="light" id="light" aria-label="Photo viewer"><div class="lightbar"><button class="gnav" type="button" data-lgal="-1" aria-label="Previous photo">${icon('left')}</button><button class="btn sec sm" type="button" id="lclose">${icon('x')}Close</button><button class="gnav" type="button" data-lgal="1" aria-label="Next photo">${icon('right')}</button></div><img id="limg" alt=""></dialog>`:''}`;
   bar(!sold(c));
   NS.reveal();

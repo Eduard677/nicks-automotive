@@ -100,7 +100,7 @@ const render=()=>{
     <aside class="side" id="dock">
       ${c.reg?plate(c.reg):c.regYear?`<span class="pill">${esc(c.regYear)} reg</span>`:''}${tag(c)}
       <h1>${esc(T)}</h1>${S?`<p class="sub">${esc(S)}</p>`:''}
-      <p class="price${!sold(c)&&!has(c.price)?' ask':''}">${esc(priceText(c))}</p>${!sold(c)&&!has(c.price)?`<p class="askn">Ring or send an enquiry for the price.</p>`:''}
+      <p class="price${!sold(c)&&!has(c.price)?' ask':''}">${esc(priceText(c))}</p>${!sold(c)&&!has(c.price)?`<p class="askn">Ring or send an enquiry for the price</p>`:''}
       <div class="cta">${sold(c)?`<a class="btn pri" href="cars.html">See cars for sale</a>`:`<a class="btn pri" href="${TELH}">${icon('phone')}Call ${TEL}</a><a class="btn sec" href="${esc(NS.carWa(c))}" target="_blank" rel="noopener noreferrer">${icon('wa')}WhatsApp</a><button class="btn sec" type="button" data-enq>${icon('msg')}Enquire</button>`}</div>
       ${specs.length?`<dl class="spec">${specs.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>`:''}
     </aside>

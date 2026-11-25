@@ -128,23 +128,8 @@ if (menu && nav) {
   addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); menu.focus(); } });
 }
 
-/* Reveal: sections fade and rise once as they scroll in. Only runs with JS and without reduced motion, so content is never hidden otherwise */
-const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const RV = '.band .sec-head,.wire,.shop-in>div:first-child,.svc,.split,.book>*,.find-in>*,.ft-main,.ft-top,.ad-body,.more';
-const reveal = () => { if (document.readyState !== 'complete') return addEventListener('load', () => setTimeout(runReveal, 50), {once: true}); setTimeout(runReveal, 50); };
-const runReveal = () => {
-  $$(RV).forEach(el => el.setAttribute('data-rv', ''));
-  const els = $$('[data-rv]:not(.rv)');
-  if (!els.length) return;
-  if (RM || !('IntersectionObserver' in window)) return;
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
-  els.forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.top < innerHeight && r.bottom > 0) return; /* already on screen: leave it alone */
-    el.classList.add('rv'); io.observe(el);
-  });
-};
-reveal();
+/* No scroll reveals: content is there as soon as it is on screen. reveal() stays as a no-op for pages that call it */
+const reveal = () => {};
 
 window.NS = {$, $$, esc, eur, km, ym, icon, plate, has, title, name, sub, regLabel, sold, priceText, isNew, facts, chips, tag, href, card, reveal, carName, carWa, load, status,
   TEL, TELH, MAIL, WA, postMail, waText,

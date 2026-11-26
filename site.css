@@ -201,6 +201,20 @@ input::placeholder,textarea::placeholder{color:#7a7a7a}
 .extra .fg{margin-top:10px}
 .send{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:6px}
 .send small{color:var(--mut);font-size:11px;letter-spacing:var(--tl);text-transform:uppercase;margin-left:6px}
+.fnote{margin:0;color:var(--dim);font-size:13px;font-weight:300;line-height:1.5}
+.fnote a,.legal a{color:var(--mut);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
+.fnote a:hover,.legal a:hover{color:var(--text)}
+.legal a{text-decoration:none}
+/* privacy page: one readable column */
+.prose-sec{padding-top:0}
+.prose{max-width:68ch;margin-inline:0}
+.prose h2{font-size:clamp(24px,2.2vw,30px);margin:48px 0 12px}
+.prose h2:first-child{margin-top:0}
+.prose p,.prose li{color:var(--mut);font-size:17px;font-weight:300;line-height:1.7}
+.prose p+p{margin-top:12px}
+.prose ul{margin:12px 0 0;padding-left:20px;display:grid;gap:8px}
+.prose strong{color:var(--text);font-weight:500}
+.prose a{color:var(--text);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.4)}
 .formmsg{color:var(--mut)}.formmsg.err{color:var(--err)}.formmsg a{color:var(--text)}
 .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .done{display:grid;gap:16px;justify-items:start;padding:12px 0}

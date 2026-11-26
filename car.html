@@ -70,7 +70,7 @@
     <nav aria-label="Workshop"><h2 class="ft-h">Workshop</h2><a href="index.html#services">Services</a><a href="index.html#book">Book in</a><a href="index.html#visit">Find us</a></nav>
     <nav aria-label="Cars"><h2 class="ft-h">Cars</h2><a href="cars.html">All cars for sale</a><a href="index.html#sell">Sell or trade in</a></nav>
   </div>
-  <div class="wrap legal"><span>© 2026 Nick Autoservice, Mullingar</span><span>Website by EMD</span></div>
+  <div class="wrap legal"><span>© 2026 Nick Autoservice, Mullingar</span><a href="privacy.html">Privacy</a><span>Website by EMD</span></div>
 </footer>
 <script src="site.js"></script>
 <script>
@@ -116,7 +116,7 @@ const render=()=>{
     </section>
     <section id="enquire" aria-labelledby="enqT">
       <h2 id="enqT">Ask about this car</h2>
-      <div class="panel"><form class="fg" id="enq"><label class="hp">Leave this blank<input name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"></label><label>Name <em>*</em><input name="name" required autocomplete="name"></label><label>Phone <em>*</em><input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label><label class="full">Message<textarea name="msg">Hi Nick, is the ${esc(T)} still available?</textarea></label><p id="formMsg" class="formmsg full" role="status" tabindex="-1" hidden></p><div class="send full"><button class="btn pri" type="submit" id="fsub">Send enquiry</button><button class="btn sec" type="button" id="fwa">${icon('wa')}Send on WhatsApp</button></div></form>
+      <div class="panel"><form class="fg" id="enq"><label class="hp">Leave this blank<input name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"></label><label>Name <em>*</em><input name="name" required autocomplete="name"></label><label>Phone <em>*</em><input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label><label class="full">Message<textarea name="msg">Hi Nick, is the ${esc(T)} still available?</textarea></label><p id="formMsg" class="formmsg full" role="status" tabindex="-1" hidden></p><div class="send full"><button class="btn pri" type="submit" id="fsub">Send enquiry</button><button class="btn sec" type="button" id="fwa">${icon('wa')}Send on WhatsApp</button></div><p class="fnote full">Nick only uses these details to get back to you. <a href="privacy.html" target="_blank" rel="noopener">How your details are used</a></p></form>
       <div class="done" id="done" hidden tabindex="-1"><h3>Thanks, Nick will get back to you</h3><p>For anything urgent, ring <a class="mail" href="${TELH}">${TEL}</a>.</p></div></div>
     </section>
   </div>

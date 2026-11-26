@@ -122,8 +122,12 @@ const openWa = fields => {
   const url = waHref(waMessage(fields));
   const mobile = typeof navigator !== 'undefined' && /Mobi|Android|iPhone|iPod|iPad/i.test(navigator.userAgent || '');
   if (mobile) { location.href = url; return true; }
-  try { return !!(window.open(url, '_blank', 'noopener')); }
-  catch (err) { return false; }
+  /* window.open with 'noopener' always returns null, so open normally and cut the link back to this page */
+  let w = null;
+  try { w = window.open(url, '_blank'); } catch (err) { w = null; }
+  if (w) { try { w.opener = null; } catch (err) {} return true; }
+  location.href = url;
+  return true;
 };
 $$('[data-mail-text]').forEach(a => { a.href = 'mailto:' + MAIL; a.textContent = MAIL; });
 const ld = document.querySelector('script[type="application/ld+json"]');

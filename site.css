@@ -354,32 +354,24 @@ input::placeholder,textarea::placeholder{color:#7a7a7a}
 .lc .price{margin-top:auto;padding-top:14px;font:600 clamp(26px,2.2vw,30px)/1 var(--head);letter-spacing:.01em}
 .lc .price.ask{font:500 12px/1.2 var(--font);letter-spacing:var(--tl);color:var(--mut);padding-top:16px}
 
-/* what we fix: one grid, 3 wide then 4 */
-.svc{list-style:none;margin:clamp(8px,1vw,16px) 0 0;padding:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(40px,4vw,56px) clamp(12px,1.6vw,24px)}
-.svc li{grid-column:span 3;min-width:0}
-.svc li:nth-child(-n+3){grid-column:span 4}
-.sv{position:relative;display:flex;flex-direction:column;height:100%;text-decoration:none}
-.sv-pic{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--s2)}
-.svc li:nth-child(-n+3) .sv-pic{aspect-ratio:5/4}
-.sv-pic img{display:block;width:100%;height:100%;object-fit:cover}
-.sv-cap{display:grid;gap:8px;padding:20px 60px 0 0}
-.sv .jn,.sv .jd{grid-column:1/-1}
-.sv .jn{font:600 clamp(20px,1.6vw,24px)/1.02 var(--head);letter-spacing:.01em;text-transform:uppercase}
-.sv .jd{color:var(--mut);font-size:15px;font-weight:300;line-height:1.5}
-.sv .go{position:absolute;right:0;bottom:0;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.42);display:grid;place-items:center;transition:background-color .25s,color .25s,border-color .25s,transform .3s var(--out)}
+/* what we fix: a list, not a gallery. Each job is a row: the name big in the
+   heading face, one line on what it covers, the round arrow. Rules between rows;
+   pointing at a row lifts it onto the first surface step */
+.svc{list-style:none;margin:clamp(8px,1vw,16px) 0 0;padding:0;border-bottom:1px solid var(--line2)}
+.svc li{border-top:1px solid var(--line2)}
+.sv{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) 44px;align-items:center;gap:clamp(16px,3vw,48px);padding:clamp(22px,2.4vw,32px) 0;text-decoration:none}
+.sv::before{content:"";position:absolute;inset:0 calc(-1 * clamp(12px,1.6vw,24px));z-index:-1;background:var(--s1);opacity:0;transition:opacity .3s var(--out)}
+.sv:hover::before,.sv:focus-visible::before{opacity:1}
+.sv-cap{display:contents}
+.sv .jn{font:600 clamp(24px,2.6vw,40px)/1 var(--head);letter-spacing:.01em;text-transform:uppercase}
+.sv .jd{color:var(--mut);font-size:16px;font-weight:300;line-height:1.5}
+.sv .go{width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.42);display:grid;place-items:center;transition:background-color .25s,color .25s,border-color .25s,transform .3s var(--out)}
 .sv:focus-visible .go,.sv:hover .go{background:#fff;color:#000;border-color:#fff}
-@media(max-width:900px){
-  .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .svc li,.svc li:nth-child(-n+3){grid-column:span 1}
-  .svc li:first-child{grid-column:1/-1}
-  .svc li:nth-child(-n+3) .sv-pic{aspect-ratio:4/5}
-  .svc li:first-child .sv-pic{aspect-ratio:16/10}
-}
-@media(max-width:560px){
-  .sv-cap,.svc li:first-child .sv-cap{padding:14px 0 0}
-  .sv .go{display:none}
-  .sv .jn{font-size:18px}
-  .sv .jd{font-size:14px}
+@media(max-width:700px){
+  .sv{grid-template-columns:minmax(0,1fr) 44px;grid-template-rows:auto auto;column-gap:16px;row-gap:6px;padding:20px 0}
+  .sv .jn{grid-column:1;font-size:22px}
+  .sv .jd{grid-column:1;grid-row:2;font-size:14px}
+  .sv .go{grid-column:2;grid-row:1 / span 2;width:40px;height:40px}
 }
 
 /* footer with weight */
@@ -463,10 +455,6 @@ input::placeholder,textarea::placeholder{color:#7a7a7a}
 @media(prefers-reduced-motion:reduce){.g-pic,.g-pic.on,.g-pic.off{transform:none}}
 
 /* service clips fade in over their stills once they are playing */
-.sv-pic{position:relative}
-.sv-pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--cp,50% 50%);opacity:0;transition:opacity .6s var(--out)}
-.sv-pic video.on{opacity:1}
 
 /* workshop photos and clips keep their colour, taken down a touch so the bright daylight shots sit in the black page; hover brings them up */
-.sv-pic img,.sv-pic video,.split img{filter:brightness(.88) saturate(.9);transition:filter .5s var(--out),opacity .6s var(--out)}
-.sv:hover .sv-pic img,.sv:hover .sv-pic video,.sv:focus-visible .sv-pic img{filter:none}
+.split img{filter:brightness(.88) saturate(.9);transition:filter .5s var(--out),opacity .6s var(--out)}

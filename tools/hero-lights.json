@@ -1,0 +1,115 @@
+{
+ "heroLights": 1,
+ "laptop": {
+  "still": "media/hero-cars.jpg",
+  "size": [
+   1920,
+   1080
+  ],
+  "length": 3.6,
+  "room": {
+   "lightsOff": 0.11,
+   "coldBlue": 1,
+   "spreadSideways": 0.27,
+   "reachDown": 0.75,
+   "reachUp": 0.18,
+   "roomGlow": 0.07,
+   "softEdgesPx": 24,
+   "grain": 2
+  },
+  "lights": [
+   {
+    "name": "Right",
+    "box": [
+     1091,
+     1188,
+     181,
+     201
+    ],
+    "start": 0.3,
+    "brightness": 1,
+    "comesOn": "tube"
+   },
+   {
+    "name": "Left wall",
+    "box": [
+     159,
+     316,
+     211,
+     228
+    ],
+    "start": 0.85,
+    "brightness": 1,
+    "comesOn": "tube"
+   },
+   {
+    "name": "Middle",
+    "box": [
+     636,
+     780,
+     104,
+     134
+    ],
+    "start": 1.15,
+    "brightness": 1,
+    "comesOn": "tube"
+   }
+  ]
+ },
+ "phone": {
+  "still": "media/hero-cars-portrait.jpg",
+  "size": [
+   1080,
+   1920
+  ],
+  "length": 3.6,
+  "room": {
+   "lightsOff": 0.11,
+   "coldBlue": 1,
+   "spreadSideways": 0.27,
+   "reachDown": 0.75,
+   "reachUp": 0.18,
+   "roomGlow": 0.07,
+   "softEdgesPx": 24,
+   "grain": 2
+  },
+  "lights": [
+   {
+    "name": "Far door",
+    "box": [
+     614,
+     693,
+     380,
+     385
+    ],
+    "start": 0.3,
+    "brightness": 1,
+    "comesOn": "tube"
+   },
+   {
+    "name": "Middle",
+    "box": [
+     297,
+     369,
+     231,
+     261
+    ],
+    "start": 0.85,
+    "brightness": 1,
+    "comesOn": "tube"
+   },
+   {
+    "name": "Front left",
+    "box": [
+     72,
+     178,
+     122,
+     172
+    ],
+    "start": 1.15,
+    "brightness": 1,
+    "comesOn": "tube"
+   }
+  ]
+ }
+}

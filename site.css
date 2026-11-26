@@ -205,6 +205,10 @@ input::placeholder,textarea::placeholder{color:#7a7a7a}
 .fnote a,.legal a{color:var(--mut);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
 .fnote a:hover,.legal a:hover{color:var(--text)}
 .legal a{text-decoration:none}
+/* page not found: the page heading with its ways out, filling the screen above the footer */
+.nf{min-height:calc(70svh - var(--hh));display:flex;align-items:center}
+.nf .wrap{width:100%}
+.nf .btns{margin-top:32px}
 /* privacy page: one readable column */
 .prose-sec{padding-top:0}
 .prose{max-width:68ch;margin-inline:0}

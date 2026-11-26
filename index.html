@@ -41,8 +41,8 @@
 </script>
 <link rel="preload" href="fonts/barlow-semicondensed-700.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="fonts/montserrat-300-500.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" as="image" href="media/hero-cars.jpg" media="(min-aspect-ratio: 3/4)">
-<link rel="preload" as="image" href="media/hero-cars-portrait.jpg" media="(max-aspect-ratio: 3/4)">
+<link rel="preload" as="image" href="media/hero-cars-dark.jpg" media="(min-aspect-ratio: 3/4)">
+<link rel="preload" as="image" href="media/hero-cars-portrait-dark.jpg" media="(max-aspect-ratio: 3/4)">
 <link rel="preload" href="fonts/barlow-black-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site.css">
 <script>document.documentElement.classList.add('js')</script>
@@ -75,7 +75,7 @@
 <main>
 <section class="hero" id="top" aria-labelledby="heroT">
   <article class="slide cars">
-    <video class="hvid" id="hvid" muted playsinline preload="none" poster="media/hero-cars.jpg" data-port-poster="media/hero-cars-portrait.jpg" role="img" aria-label="Four of Nick's cars for sale in the workshop at night: a white BMW 730d, a blue Volkswagen Passat estate, a white Hyundai i40 and a black BMW 520d" style="--pos:50% 62%"></video>
+    <video class="hvid" id="hvid" muted playsinline preload="none" data-land="media/hero-cars-on.mp4" data-port="media/hero-cars-portrait-on.mp4" data-dark="media/hero-cars-dark.jpg" data-port-dark="media/hero-cars-portrait-dark.jpg" data-lit="media/hero-cars.jpg" data-port-lit="media/hero-cars-portrait.jpg" role="img" aria-label="Four of Nick's cars for sale in the workshop at night: a white BMW 730d, a blue Volkswagen Passat estate, a white Hyundai i40 and a black BMW 520d" style="--pos:50% 62%"></video>
     <div class="sc">
       <h1 class="st" id="heroT">Servicing, repairs and cars for sale</h1>
       <p class="sd"><span class="sd-addr">19 Zone A, Mullingar Business Park</span><span class="sep">·</span><span data-status>Monday to Saturday, 9:00 to 17:00</span></p>
@@ -227,16 +227,17 @@ const {$,$$,esc,icon,has,name,sub,facts,priceText,sold,href,load}=NS;
 /* hero: one entrance on load (the photo settles, the words rise) */
 requestAnimationFrame(()=>requestAnimationFrame(()=>$('.hero .slide').classList.add('on')));
 
-/* hero: the still of Nick's four cars (portrait on phones). When the clip is back (data-land, data-port)
-   it plays once and holds on its last frame; poster only with reduced motion or Save-Data */
+/* hero clip: the workshop starts dark and the tubes flicker on, back to front, over Nick's four cars,
+   then it holds on its last frame, which is the still. Built from the still itself, so nothing moves
+   and the plates stay exact. With reduced motion or Save-Data the lit still shows instead */
 {
   const v=$('#hvid');
   if(v){
-    const port=matchMedia('(max-aspect-ratio: 3/4)').matches;
-    if(port)v.poster=v.dataset.portPoster;
+    const port=matchMedia('(max-aspect-ratio: 3/4)').matches,D=v.dataset;
     const lite=NS.reduce||(navigator.connection&&navigator.connection.saveData);
-    const clip=port?v.dataset.port:v.dataset.land;
-    if(clip&&!lite){v.src=clip;v.preload='auto';const p=v.play();if(p&&p.catch)p.catch(()=>{})}
+    const clip=port?D.port:D.land;
+    if(clip&&!lite){v.poster=port?D.portDark:D.dark;v.src=clip;v.preload='auto';const p=v.play();if(p&&p.catch)p.catch(()=>{v.poster=port?D.portLit:D.lit})}
+    else v.poster=port?D.portLit:D.lit;
   }
 }
 

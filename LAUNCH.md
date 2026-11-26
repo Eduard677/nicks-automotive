@@ -19,7 +19,7 @@ Send one test from each: Book in, Sell your car, Ask about a car (all in the
 booking sheet on the home page) and the enquiry form on a car page
 (car.html#bmw-730d-2015). Check the spam folder.
 
-## 3. Car details (cars.json, see STOCK.md)
+## 3. Car details (cars.json, see STOCK.md) (done, 26 Nov 2026)
 
 All nine cars are missing `mileage` and `nct`; the site hides those lines until
 they are filled in. `ford-transit-2017` and `bmw-x5-2004` have no `price`, so they

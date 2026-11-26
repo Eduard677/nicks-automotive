@@ -128,6 +128,12 @@ body.menu-open{overflow:hidden}
 .js .slide.on .st,.js .slide.on .sd,.js .slide.on .btns{opacity:1;transform:none}
 .js .slide.on .sd{transition-delay:.1s}.js .slide.on .btns{transition-delay:.2s}
 @media(max-width:560px){.sd .sep{display:none}.sd [data-status]{display:block;margin-top:2px}}
+/* on laptops the words sit bottom right, over the black BMW, so the white BMW and the Passat stay clear */
+@media(min-width:761px){
+  .slide::after{background:linear-gradient(180deg,rgba(0,0,0,.42) 0,rgba(0,0,0,0) 18%,rgba(0,0,0,0) 38%,rgba(0,0,0,.84) 100%),linear-gradient(270deg,rgba(0,0,0,.38) 0,rgba(0,0,0,0) 62%)}
+  .sc{left:auto;right:var(--g);display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+  .sc .btns{justify-content:flex-end}
+}
 @media(max-width:760px){
   .slide.cars>img{object-position:70% 50%}
   .sc{bottom:48px}

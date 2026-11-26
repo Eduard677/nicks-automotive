@@ -60,4 +60,4 @@ A car with no photos shows "Photos coming soon" with its reg.
 
 ## Forms
 
-Booking, sell and car-enquiry forms post to nicumereacre53@gmail.com through FormSubmit. The first submission makes FormSubmit email that inbox a one-time activation link. Messages are not delivered until that link is confirmed. Each form can also open WhatsApp to 089 477 0532, which assumes that number is on WhatsApp. See README.md.
+Booking, sell and car-enquiry forms post to `/api/enquiry`, which emails nicumereacre53@gmail.com through Resend. That needs `RESEND_API_KEY` on the Vercel project. Each form can also open WhatsApp to 089 477 0532, which assumes that number is on WhatsApp. See README.md.

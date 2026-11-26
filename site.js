@@ -78,7 +78,7 @@ setInterval(paintStatus, 60000);
 
 const postMail = async fields => {
   if (String(fields._honey || '').trim()) throw new Error('honey');
-  const res = await fetch('https://formsubmit.co/ajax/' + MAIL, {
+  const res = await fetch('/api/enquiry', {
     method: 'POST',
     headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
     body: JSON.stringify(fields)

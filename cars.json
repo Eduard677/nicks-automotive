@@ -212,7 +212,7 @@
     "year": 2009,
     "regYear": "09",
     "reg": "09-LM-3440",
-    "price": 2500,
+    "price": 1000,
     "mileage": null,
     "fuel": null,
     "transmission": "Manual",
@@ -226,8 +226,10 @@
     "added": null,
     "status": "available",
     "location": "Mullingar",
-    "features": [],
-    "description": "Blue 2009 Peugeot 308 five-door hatchback on a 09 reg, manual. Ring Nick on 089 477 0532 for the engine, mileage and service history, or call in to see it at 19 Zone A, Mullingar Business Park.",
+    "features": [
+      "For parts, sold as is"
+    ],
+    "description": "Blue 2009 Peugeot 308 five-door hatchback on a 09 reg, manual. This one is a breaker, sold for parts as is. Ring Nick on 089 477 0532 about it, or call in to see it at 19 Zone A, Mullingar Business Park.",
     "photos": [
       "cars/peugeot-308-2009/1.webp",
       "cars/peugeot-308-2009/2.webp",
@@ -239,8 +241,8 @@
     ],
     "thumb": "cars/peugeot-308-2009/thumb.webp",
     "focus": "50% 50%",
-    "priceBasis": "Median of 3 dealer ads for Peugeot 308 hatchbacks on DoneDeal, 2009–2010, because a 2009 dealer ad was only 1 (Trader, Tipperary, €2,495). Also LPC Motors 2010 (€1,995) and Duffy Auto Services 2010 (€4,950). Convertibles (308 CC) and private sellers excluded. Median €2,495, rounded to €2,500. Range €1,995 to €4,950. Sample is thin. Checked 24 Nov 2026.",
-    "descriptionSource": "generated from listing data"
+    "priceBasis": "Set by Nick: breaker, sold for parts as is. 26 Nov 2026.",
+    "descriptionSource": "written from Nick's note that it is a parts car, 26 Nov 2026"
   },
   {
     "id": "nissan-qashqai-2011",

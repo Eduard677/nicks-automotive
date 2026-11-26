@@ -58,6 +58,7 @@
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
   <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
   <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></symbol>
 </svg>
 
@@ -141,7 +142,9 @@
   </div>
 </div></section>
 
-<section class="band book-sec" id="book" aria-labelledby="bookT"><div class="book">
+<dialog class="book-dlg" id="book" aria-labelledby="bookT">
+  <button class="dlg-x" type="button" id="bookClose" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <div class="book">
   <div>
     <h2 class="h2" id="bookT">Book in, sell or ask</h2>
     <p class="lede">Send the details and Nick will ring you back to confirm. Or skip the form and ring now.</p>
@@ -186,7 +189,8 @@
     </form>
     <div class="done" id="done" hidden tabindex="-1"><h3 id="doneT">Thanks, Nick will get back to you</h3><p>He will ring you back. For anything urgent, ring <a class="mail" href="tel:+353894770532">089 477 0532</a>.</p><button class="btn sec" type="button" id="again">Send another</button></div>
   </div>
-</div></section>
+</div>
+</dialog>
 </main>
 
 <footer class="ft">
@@ -331,8 +335,16 @@ document.addEventListener('click',e=>{
   if(D.svc)$('#fSvc').value=D.svc;
 });
 setMode('service');
-/* links from the car pages (index.html#sell) open the form on its sell tab */
-if(location.hash==='#sell'){setMode('sell');$('#book').scrollIntoView()}
+/* booking opens over the page from any Book in, Book a service, Sell your car or service link;
+   the close button, Esc or a click outside the form closes it. Links from the car pages
+   (index.html#book, index.html#sell) open it on arrival */
+const dlg=$('#book');
+const openBook=()=>{if(!dlg.open){dlg.showModal();dlg.scrollTop=0;document.body.classList.add('book-open')}};
+dlg.addEventListener('close',()=>{document.body.classList.remove('book-open');if(/^#(book|sell)$/.test(location.hash))history.replaceState(null,'',location.pathname+location.search)});
+$('#bookClose').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+document.addEventListener('click',e=>{const a=e.target.closest('a[href="#book"]');if(!a)return;e.preventDefault();openBook()});
+if(location.hash==='#sell'){setMode('sell');openBook()}else if(location.hash==='#book')openBook();
 }
 </script>
 </body>

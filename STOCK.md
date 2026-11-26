@@ -2,7 +2,7 @@
 
 All stock lives in `cars.json`. The home page, the stock page (`cars.html`) and each car's ad page (`car.html#<id>`) all read it, so changing that file and pushing updates everything. No other file needs touching.
 
-Any field can be left as `null` until it is known. The site hides empty fields, shows "Ring for price" when there is no price, and shows the year code ("09 reg") when there is no full reg.
+Any field can be left as `null` until it is known. The site hides empty fields, shows "Ask for price" when there is no price, and shows the year code ("09 reg") when there is no full reg.
 
 ## One car
 

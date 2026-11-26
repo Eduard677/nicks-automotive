@@ -5,14 +5,11 @@ Work on a `grok/` branch and push it; it gets merged into `claude/nick-redesign`
 before each deploy. Real photos only on the site, and keep it hidden from Google
 until Nick signs off (step 6).
 
-## 1. Things Nick has to confirm
+## 1. Things Nick has to confirm (done, 26 Nov 2026)
 
-- Full service from €170 and pre-NCT checks from €80 (index.html, "What we fix").
-- Hours: Monday to Saturday 9:00 to 17:00, closed Sunday (index.html, site.js opening-hours code).
-- 089 477 0532 is on WhatsApp (every "Send on WhatsApp" button uses it).
-- He is happy for nicumereacre53@gmail.com to show on the site.
-- privacy.html: the name he trades under ("Who we are"), and that he will delete
-  form emails that did not lead to a job within 12 months (or tell us his period).
+Nick has confirmed the prices (full service from €170, pre-NCT from €80), the
+hours, WhatsApp on 089 477 0532, showing nicumereacre53@gmail.com, and the
+privacy page as written.
 
 ## 2. Turn on the forms
 
@@ -24,8 +21,9 @@ booking sheet on the home page) and the enquiry form on a car page
 
 ## 3. Car details (cars.json, see STOCK.md)
 
-All nine cars are missing `mileage` and `nct`. `ford-transit-2017` and
-`bmw-x5-2004` have no `price`, so they show "Ring for price".
+All nine cars are missing `mileage` and `nct`; the site hides those lines until
+they are filled in. `ford-transit-2017` and `bmw-x5-2004` have no `price`, so they
+show "Ask for price". Only use figures Nick gives or that are in his own ads.
 
 ## 4. Domain
 

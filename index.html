@@ -185,7 +185,8 @@
         <label class="full">Your question<textarea name="notes" placeholder="Viewing times, mileage or a trade-in"></textarea></label>
       </fieldset>
       <p id="formMsg" class="formmsg full" role="status" tabindex="-1" hidden></p>
-      <div class="send full"><button class="btn pri" type="submit" id="fsub">Request a booking</button><button class="btn sec" type="button" id="fwa"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button><small>* needed</small></div>
+      <div class="send full"><button class="btn pri" type="submit" id="fsub">Send on WhatsApp</button><small>* needed</small></div>
+      <p class="fnote full"><a href="https://instagram.com/nickautoservice.cars" target="_blank" rel="noopener noreferrer">or message us on Instagram</a></p>
       <p class="fnote full">Nick only uses these details to get back to you. <a href="privacy.html" target="_blank" rel="noopener">How your details are used</a></p>
     </form>
     <div class="done" id="done" hidden tabindex="-1"><h3 id="doneT">Thanks, Nick will get back to you</h3><p>He will ring you back. For anything urgent, ring <a class="mail" href="tel:+353894770532">089 477 0532</a>.</p><button class="btn sec" type="button" id="again">Send another</button></div>
@@ -287,43 +288,33 @@ load().then(d=>{
 const SVCS=['Full service','Car repairs or warning light','Pre-NCT check','Brakes or exhaust','Gearbox or flywheel','Tyres','Engine replacement','Something else'];
 $$('.svc-opts').forEach(s=>{s.innerHTML=SVCS.map(o=>`<option>${o}</option>`).join('')});
 const form=$('#form'),done=$('#done'),msg=$('#formMsg');
-const LABEL={service:'Request a booking',sell:'Get a valuation',ask:'Send question'};
 let mode='service',sending=false;
 const val=n=>String(new FormData(form).get(n)||'').trim();
 const askPick=()=>{const s=$('#askCar'),o=s.selectedOptions[0];return {id:s.value,title:o&&s.value?o.textContent.trim():''}};
 const carUrl=id=>new URL('car.html#'+encodeURIComponent(id),location.href).href;
 const payload=()=>{
-  const base={_honey:val('_honey'),_template:'table',_captcha:'false',Name:val('name'),Phone:val('phone'),Email:val('email')};
+  const base={_honey:val('_honey'),Name:val('name'),Phone:val('phone'),Email:val('email')};
   if(mode==='service')return {...base,_subject:'Booking request',Reg:val('reg'),'Make and model':val('model'),'What it needs':val('svc'),'Preferred date':val('date'),Notes:val('notes')};
   if(mode==='sell')return {...base,_subject:'Sell / trade-in',Reg:val('reg'),'Mileage km':val('km'),'Make and model':val('model'),Condition:val('cond'),'Trade in':val('trade'),Notes:val('notes')};
   const car=askPick();
   return {...base,_subject:'Car enquiry: '+car.title,'Car title':car.title,'Car id':car.id,'Car page':car.id?carUrl(car.id):'',Question:val('notes')};
 };
-const SKIP=new Set(['_honey','_template','_captcha','_subject']);
-const linesFor=p=>[p._subject,...Object.entries(p).filter(([k,v])=>!SKIP.has(k)&&v).map(([k,v])=>`${k}: ${v}`)];
-const busy=on=>{sending=on;$('#fsub').disabled=on;$('#fwa').disabled=on;form.setAttribute('aria-busy',String(on));if(on){$('#fsub').textContent='Sending';msg.hidden=false;msg.className='formmsg full';msg.textContent='Sending'}};
-const fail=()=>{msg.hidden=false;msg.className='formmsg full err';msg.innerHTML='That message did not send. Ring Nick on <a href="tel:+353894770532">089 477 0532</a>.';msg.focus()};
+const fail=()=>{msg.hidden=false;msg.className='formmsg full err';msg.innerHTML='WhatsApp did not open. Ring Nick on <a href="tel:+353894770532">089 477 0532</a>.';msg.focus()};
 const setMode=m=>{
   mode=m;
   $$('#ftabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.m===m)));
   $$('#form fieldset').forEach(f=>{const on=f.dataset.m===m;f.hidden=!on;f.disabled=!on});
-  $('#fsub').disabled=false;$('#fwa').disabled=false;$('#fsub').textContent=LABEL[m];
+  $('#fsub').disabled=false;$('#fsub').textContent='Send on WhatsApp';
   msg.hidden=true;form.hidden=false;done.hidden=true;form.removeAttribute('aria-busy');sending=false;
 };
 $('#fDate').min=new Date().toISOString().slice(0,10);
-form.addEventListener('submit',async e=>{
+form.addEventListener('submit',e=>{
   e.preventDefault();
   if(sending||!form.reportValidity())return;
   const body=payload();
-  busy(true);
-  try{await NS.postMail(body);form.hidden=true;done.hidden=false;done.focus()}
-  catch(err){busy(false);$('#fsub').textContent=LABEL[mode];fail()}
-});
-$('#fwa').addEventListener('click',()=>{
-  if(sending||!form.reportValidity())return;
-  const body=payload();
-  if(String(body._honey||'').trim())return fail();
-  window.open(NS.waText(linesFor(body)),'_blank','noopener');
+  if(String(body._honey||'').trim())return;
+  if(!NS.openWa(body))return fail();
+  form.hidden=true;done.hidden=false;done.focus();
 });
 $('#again').addEventListener('click',()=>{form.reset();setMode(mode);$('#fName').focus()});
 $$('.pin input').forEach(inp=>inp.addEventListener('input',e=>{const p=e.target.selectionStart;e.target.value=e.target.value.toUpperCase();e.target.setSelectionRange(p,p)}));

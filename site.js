@@ -76,17 +76,41 @@ const paintStatus = () => {
 paintStatus();
 setInterval(paintStatus, 60000);
 
-const postMail = async fields => {
-  if (String(fields._honey || '').trim()) throw new Error('honey');
-  const res = await fetch('https://formsubmit.co/ajax/' + MAIL, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify(fields)
-  });
-  let data = null;
-  try { data = await res.json(); } catch (err) { data = null; }
-  if (!(res.ok && data && (data.success === true || data.success === 'true'))) throw new Error('send');
-  const subject = String(fields._subject || '');
+const txt = v => String(v ?? '').trim();
+const waMessage = fields => {
+  const subject = txt(fields._subject) || 'Enquiry';
+  const name = txt(fields.Name), phone = txt(fields.Phone);
+  const notes = txt(fields.Notes || fields.Question || fields.Message);
+  const email = txt(fields.Email);
+  const lines = [];
+  if (subject === 'Booking request') {
+    const head = [fields['What it needs'], fields.Reg, fields['Make and model'], name, phone, notes].map(txt).filter(Boolean);
+    lines.push('Hi Nick, booking request: ' + head.join(', '));
+    const date = txt(fields['Preferred date']);
+    if (date) lines.push('Preferred date: ' + date);
+    if (email) lines.push('Email: ' + email);
+  } else if (subject === 'Sell / trade-in') {
+    const km = txt(fields['Mileage km']);
+    const head = [fields.Reg, km && (km + ' km'), fields['Make and model'], name, phone].map(txt).filter(Boolean);
+    lines.push('Hi Nick, sell / trade-in: ' + head.join(', '));
+    [['Condition', fields.Condition], ['Trade in', fields['Trade in']], ['Email', email], ['Notes', notes]]
+      .forEach(([k, v]) => { if (txt(v)) lines.push(k + ': ' + txt(v)); });
+  } else {
+    const car = txt(fields['Car title']) || subject.replace(/^Car enquiry:\s*/, '') || 'a car';
+    lines.push('Hi Nick, enquiry about ' + car);
+    if (txt(fields['Car page'])) lines.push(txt(fields['Car page']));
+    if (name) lines.push('Name: ' + name);
+    if (phone) lines.push('Phone: ' + phone);
+    if (email) lines.push('Email: ' + email);
+    if (notes) lines.push(notes);
+  }
+  return lines.join('\n');
+};
+const waHref = text => WA + '?text=' + encodeURIComponent(text);
+const waText = lines => waHref(lines.join('\n'));
+const openWa = fields => {
+  if (txt(fields._honey)) return false;
+  const subject = txt(fields._subject);
   const car = fields['Car id'] || fields['Car title'] || '';
   let type = 'enquiry';
   if (subject === 'Booking request') type = 'booking';
@@ -95,8 +119,12 @@ const postMail = async fields => {
   const ev = { type };
   if (car) ev.car = String(car);
   track('enquiry_submit', ev);
+  const url = waHref(waMessage(fields));
+  const mobile = typeof navigator !== 'undefined' && /Mobi|Android|iPhone|iPod|iPad/i.test(navigator.userAgent || '');
+  if (mobile) { location.href = url; return true; }
+  try { return !!(window.open(url, '_blank', 'noopener')); }
+  catch (err) { return false; }
 };
-const waText = lines => WA + '?text=' + encodeURIComponent(lines.join('\n'));
 $$('[data-mail-text]').forEach(a => { a.href = 'mailto:' + MAIL; a.textContent = MAIL; });
 const ld = document.querySelector('script[type="application/ld+json"]');
 if (ld) { try { const data = JSON.parse(ld.textContent); data.email = MAIL; ld.textContent = JSON.stringify(data); } catch (err) {} }
@@ -136,6 +164,6 @@ if (hd) { const solid = () => hd.classList.toggle('solid', scrollY > 8); solid()
 const reveal = () => {};
 
 window.NS = {$, $$, esc, eur, km, ym, icon, plate, has, title, name, sub, regLabel, sold, priceText, isNew, facts, chips, tag, href, card, reveal, carName, carWa, load, status,
-  TEL, TELH, MAIL, WA, postMail, waText,
+  TEL, TELH, MAIL, WA, waMessage, waHref, openWa, waText,
   reduce: matchMedia('(prefers-reduced-motion: reduce)').matches};
 })();

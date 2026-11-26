@@ -61,4 +61,4 @@ A car with no photos shows "Photos coming soon" with its reg.
 
 ## Forms
 
-Booking, sell and car-enquiry forms post to nicumereacre53@gmail.com through FormSubmit. The first submission makes FormSubmit email that inbox a one-time activation link. Messages are not delivered until that link is confirmed. Each form can also open WhatsApp to 089 477 0532, which assumes that number is on WhatsApp. See README.md.
+Booking, sell and car-enquiry forms open a prefilled WhatsApp message to 089 477 0532. Each form also has a link to message on Instagram at https://instagram.com/nickautoservice.cars. See README.md.

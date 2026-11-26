@@ -28,7 +28,7 @@ const sold = c => c.status === 'sold';
 const priceText = c => sold(c) ? 'Sold' : has(c.price) ? eur(c.price) : 'Ask for price';
 const isNew = c => !!c.added && (Date.now() - new Date(c.added + 'T12:00:00').getTime()) / 864e5 <= 14;
 const facts = c => [regLabel(c), [c.engine, c.fuel].filter(has).join(' '), has(c.mileage) ? km(c.mileage) : '', c.transmission, c.body].filter(has);
-const tag = c => sold(c) ? '<span class="tag">Sold</span>' : isNew(c) ? '<span class="tag new">New in</span>' : '';
+const tag = c => sold(c) ? '<span class="tag">Sold</span>' : has(c.label) ? `<span class="tag">${esc(c.label)}</span>` : isNew(c) ? '<span class="tag new">New in</span>' : '';
 const href = c => `car.html#${encodeURIComponent(c.id)}`;
 const carName = c => title(c) + (has(c.variant) ? ' ' + String(c.variant).trim() : '');
 const pageUrl = c => new URL(href(c), location.href).href;

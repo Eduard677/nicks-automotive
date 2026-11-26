@@ -225,6 +225,7 @@
     "tax": null,
     "added": null,
     "status": "available",
+    "label": "For parts",
     "location": "Mullingar",
     "features": [
       "For parts, sold as is"
